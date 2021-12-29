@@ -1,0 +1,19 @@
+{
+    "itemGroup.bedrockminerTab": "Bedrock Miner",
+
+    "block.bedrockminer.bedrock_infused_obsidian": "Bedrock Infused Obsidian",
+    "block.bedrockminer.bedrock_infused_stone": "Bedrock Infused Stone",
+    "block.bedrockminer.bedrock_breaker": "Bedrock Breaker",
+    "block.bedrockminer.bedrock_breaker_on": "Bedrock Breaker",
+
+    "item.bedrockminer.bedrock_chunk": "Bedrock Chunk",
+    "item.bedrockminer.bedrock_sword": "Bedrock Sword",
+    "item.bedrockminer.bedrock_shovel": "Bedrock Shovel",
+    "item.bedrockminer.bedrock_pickaxe": "Bedrock Pickaxe",
+    "item.bedrockminer.bedrock_axe": "Bedrock Axe",
+    "item.bedrockminer.bedrock_hoe": "Bedrock Hoe",
+    "item.bedrockminer.bedrock_helmet": "Bedrock Helmet",
+    "item.bedrockminer.bedrock_chestplate": "Bedrock Chestplate",
+    "item.bedrockminer.bedrock_leggings": "Bedrock Leggings",
+    "item.bedrockminer.bedrock_boots": "Bedrock Boots"
+}

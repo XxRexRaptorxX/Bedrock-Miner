@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+  
+    "X#X",
+    "#X#",
+    "X#X"
+    
+  ],
+  "key": {
+    "#": {
+      "item": "bedrockminer:bedrock_chunk"
+    },
+    "X": {
+      "item": "minecraft:stone"
+    }
+  },
+  
+  
+  "result": {
+    "item": "bedrockminer:bedrock_infused_stonee",
+    "count": 4
+  }
+}

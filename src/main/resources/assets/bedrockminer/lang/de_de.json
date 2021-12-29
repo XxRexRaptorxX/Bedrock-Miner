@@ -1,0 +1,19 @@
+{
+    "itemGroup.bedrockminerTab": "Bedrock Miner",
+
+    "block.bedrockminer.bedrock_infused_obsidian": "Grundstein durchzogenes Obsidian",
+    "block.bedrockminer.bedrock_infused_stone": "Grundstein durchzogener Stein",
+    "block.bedrockminer.bedrock_breaker": "Grundstein Brecher",
+    "block.bedrockminer.bedrock_breaker_on": "Grundstein Brecher",
+
+    "item.bedrockminer.bedrock_chunk": "Grundstein Broken",
+    "item.bedrockminer.bedrock_sword": "Grundstein Schwert",
+    "item.bedrockminer.bedrock_shovel": "Grundstein Schaufel",
+    "item.bedrockminer.bedrock_pickaxe": "Grundstein Spitzhacke",
+    "item.bedrockminer.bedrock_axe": "Grundstein Axt",
+    "item.bedrockminer.bedrock_hoe": "Grundstein Hacke",
+    "item.bedrockminer.bedrock_helmet": "Grundstein Helm",
+    "item.bedrockminer.bedrock_chestplate": "Grundstein Brustschutz",
+    "item.bedrockminer.bedrock_leggings": "Grundstein Beinschutz",
+    "item.bedrockminer.bedrock_boots": "Grundstein Schuhe"
+}

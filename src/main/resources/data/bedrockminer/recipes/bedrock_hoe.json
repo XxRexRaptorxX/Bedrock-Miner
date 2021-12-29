@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+  
+    "XX",
+    " #",
+    " #"
+    
+  ],
+  "key": {
+    "#": {
+      "tag": "forge:gems/diamond"
+    },
+    "X": {
+      "item": "minecraft:bedrock"
+    }
+  },
+  
+  
+  "result": {
+    "item": "bedrockminer:bedrock_hoe"
+  }
+}
