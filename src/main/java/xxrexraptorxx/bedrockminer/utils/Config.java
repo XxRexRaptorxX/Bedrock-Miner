@@ -23,6 +23,8 @@ public class Config {
     public static ForgeConfigSpec.IntValue TOOL_DURABILITY;
     public static ForgeConfigSpec.DoubleValue TOOL_EFFICIENCY;
     public static ForgeConfigSpec.DoubleValue TOOL_DAMAGE;
+    public static ForgeConfigSpec.DoubleValue TOOL_SPEED;
+    public static ForgeConfigSpec.DoubleValue TOOL_ATTACK_SPEED_MODIFIER;
     public static ForgeConfigSpec.IntValue TOOL_ENCHANTABILITY;
     public static ForgeConfigSpec.BooleanValue HARVEST_ONLY_BEDROCK;
 
@@ -78,6 +80,8 @@ public class Config {
         TOOL_DURABILITY = builder.comment("Set the durability for bedrock tools").defineInRange("tool_durability", 2500, 50, 10000);
         TOOL_EFFICIENCY = builder.comment("Set the efficiency for bedrock tools").defineInRange("tool_efficiency", 8.5F, 1.0F, 20.0F);
         TOOL_DAMAGE = builder.comment("Set the damage for bedrock tools").defineInRange("tool_damage", 3.5F, 1.0F, 20.0F);
+        TOOL_SPEED = builder.comment("Set the speed for bedrock tools").defineInRange("tool_speed", 6.0F, 1.0F, 20.0F);
+        TOOL_ATTACK_SPEED_MODIFIER = builder.comment("Set the attack speed modifier for bedrock tools relative to the normal speed").defineInRange("tool_attack_speed_modifier", -0.2F, -5.0F, 20.0F);
         TOOL_ENCHANTABILITY = builder.comment("Set the enchantability for bedrock tools").defineInRange("tool_enchantability", 3, 0, 20);
         builder.pop();
 

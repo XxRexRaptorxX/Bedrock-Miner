@@ -9,6 +9,7 @@ import net.minecraftforge.registries.RegistryObject;
 import xxrexraptorxx.bedrockminer.items.ItemBasic;
 import xxrexraptorxx.bedrockminer.items.ItemBedrockArmor;
 import xxrexraptorxx.bedrockminer.utils.ArmorMaterials;
+import xxrexraptorxx.bedrockminer.utils.Config;
 import xxrexraptorxx.bedrockminer.utils.CreativeTab;
 import xxrexraptorxx.bedrockminer.utils.ToolMaterials;
 
@@ -24,15 +25,15 @@ public class ModItems {
     public static final RegistryObject<ItemBasic> BEDROCK_CHUNK = ITEMS.register("bedrock_chunk", ItemBasic::new);
 
     public static final RegistryObject<SwordItem> BEDROCK_SWORD = ITEMS.register("bedrock_sword", () ->
-            new SwordItem(ToolMaterials.BEDROCK, 3, -2.4f, new Item.Properties().tab(CreativeTab.MOD_TAB)));
+            new SwordItem(ToolMaterials.BEDROCK, 3, -2.4f + Config.TOOL_ATTACK_SPEED_MODIFIER.get().floatValue(), new Item.Properties().tab(CreativeTab.MOD_TAB)));
     public static final RegistryObject<PickaxeItem> BEDROCK_PICKAXE = ITEMS.register("bedrock_pickaxe",
-            () -> new PickaxeItem(ToolMaterials.BEDROCK, 1, -2.8F, new Item.Properties().tab(CreativeTab.MOD_TAB)));
+            () -> new PickaxeItem(ToolMaterials.BEDROCK, 1, -2.8F + Config.TOOL_ATTACK_SPEED_MODIFIER.get().floatValue(), new Item.Properties().tab(CreativeTab.MOD_TAB)));
     public static final RegistryObject<AxeItem> BEDROCK_AXE = ITEMS.register("bedrock_axe",
-            () -> new AxeItem(ToolMaterials.BEDROCK, 7.0F, -3.2F, new Item.Properties().tab(CreativeTab.MOD_TAB)));
+            () -> new AxeItem(ToolMaterials.BEDROCK, 5.0F, -3.0F + Config.TOOL_ATTACK_SPEED_MODIFIER.get().floatValue(), new Item.Properties().tab(CreativeTab.MOD_TAB)));
     public static final RegistryObject<ShovelItem> BEDROCK_SHOVEL = ITEMS.register("bedrock_shovel",
-            () -> new ShovelItem(ToolMaterials.BEDROCK, 1.5F, -3.0F, new Item.Properties().tab(CreativeTab.MOD_TAB)));
+            () -> new ShovelItem(ToolMaterials.BEDROCK, 1.5F, -3.0F + Config.TOOL_ATTACK_SPEED_MODIFIER.get().floatValue(), new Item.Properties().tab(CreativeTab.MOD_TAB)));
     public static final RegistryObject<HoeItem> BEDROCK_HOE = ITEMS.register("bedrock_hoe",
-            () -> new HoeItem(ToolMaterials.BEDROCK,-2, -2.0F, new Item.Properties().tab(CreativeTab.MOD_TAB)){});
+            () -> new HoeItem(ToolMaterials.BEDROCK,-3, 0.0F + Config.TOOL_ATTACK_SPEED_MODIFIER.get().floatValue(), new Item.Properties().tab(CreativeTab.MOD_TAB)));
 
     public static final RegistryObject<ArmorItem> BEDROCK_HELMET = ITEMS.register("bedrock_helmet", () -> new ItemBedrockArmor(ArmorMaterials.BEDROCK, EquipmentSlot.HEAD, new Item.Properties().tab(CreativeTab.MOD_TAB)));
     public static final RegistryObject<ArmorItem> BEDROCK_CHESTPLATE = ITEMS.register("bedrock_chestplate", () -> new ItemBedrockArmor(ArmorMaterials.BEDROCK, EquipmentSlot.CHEST, new Item.Properties().tab(CreativeTab.MOD_TAB)));

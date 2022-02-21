@@ -19,6 +19,6 @@ public class ToolMaterials {
     public static final Tag.Named<Block> BEDROCK_TAG = BlockTags.createOptional(new ResourceLocation(References.MODID, "needs_bedrock_tool"));
 
     public static final Tier BEDROCK = TierSortingRegistry.registerTier(
-            new ForgeTier(Tiers.DIAMOND.getLevel(), Config.TOOL_DURABILITY.get(), 7.0f, Config.TOOL_DAMAGE.get().floatValue(), Config.TOOL_ENCHANTABILITY.get(), BEDROCK_TAG, () -> Ingredient.of(Blocks.BEDROCK)),
+            new ForgeTier(Tiers.DIAMOND.getLevel(), Config.TOOL_DURABILITY.get(), Config.TOOL_SPEED.get().floatValue(), Config.TOOL_DAMAGE.get().floatValue(), Config.TOOL_ENCHANTABILITY.get(), BEDROCK_TAG, () -> Ingredient.of(Blocks.BEDROCK)),
             new ResourceLocation(References.MODID, "bedrock"), List.of(Tiers.IRON), List.of(Tiers.DIAMOND));
 }
