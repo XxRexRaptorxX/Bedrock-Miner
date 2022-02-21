@@ -1,5 +1,7 @@
 {
-    "itemGroup.bedrockminerTab": "Bedrock Miner",
+    "itemGroup.bedrockminer_tab": "Bedrock Miner",
+
+    "message.bedrockminer.bedrock_breaker.desc": "Braucht Redstone Signal",
 
     "block.bedrockminer.bedrock_infused_obsidian": "Grundstein durchzogenes Obsidian",
     "block.bedrockminer.bedrock_infused_stone": "Grundstein durchzogener Stein",

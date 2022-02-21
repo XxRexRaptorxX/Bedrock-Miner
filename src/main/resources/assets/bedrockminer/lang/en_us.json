@@ -1,5 +1,7 @@
 {
-    "itemGroup.bedrockminerTab": "Bedrock Miner",
+    "itemGroup.bedrockminer_tab": "Bedrock Miner",
+
+    "message.bedrockminer.bedrock_breaker.desc": "Needs redstone power",
 
     "block.bedrockminer.bedrock_infused_obsidian": "Bedrock Infused Obsidian",
     "block.bedrockminer.bedrock_infused_stone": "Bedrock Infused Stone",

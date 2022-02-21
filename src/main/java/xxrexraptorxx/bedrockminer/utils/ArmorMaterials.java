@@ -1,69 +1,79 @@
 package xxrexraptorxx.bedrockminer.utils;
 
-import net.minecraft.inventory.EquipmentSlotType;
-import net.minecraft.item.IArmorMaterial;
-import net.minecraft.item.Item;
-import net.minecraft.item.crafting.Ingredient;
-import net.minecraft.util.ResourceLocation;
-import net.minecraft.util.SoundEvent;
-import net.minecraft.util.SoundEvents;
-import xxrexraptorxx.bedrockminer.main.ModItems;
+import net.minecraft.sounds.SoundEvent;
+import net.minecraft.sounds.SoundEvents;
+import net.minecraft.world.entity.EquipmentSlot;
+import net.minecraft.world.item.ArmorMaterial;
+import net.minecraft.world.item.crafting.Ingredient;
+import net.minecraft.world.level.block.Blocks;
+import net.minecraftforge.api.distmarker.Dist;
+import net.minecraftforge.api.distmarker.OnlyIn;
+import net.minecraftforge.common.util.Lazy;
 import xxrexraptorxx.bedrockminer.main.References;
 
-public enum ArmorMaterials implements IArmorMaterial {
+import java.util.function.Supplier;
 
-    bedrockAM("bedrock", 50, new int[] {2, 6, 8, 3}, 18, ModItems.BEDROCK_CHUNK, SoundEvents.ITEM_ARMOR_EQUIP_GENERIC.getRegistryName().toString(), 3.0F);
+public enum ArmorMaterials implements ArmorMaterial {
 
+    BEDROCK(References.MODID + ":bedrock", Config.ARMOR_DURABILITY.get(), new int[] {2, 6, 8, 3}, Config.ARMOR_ENCHANTABILITY.get(), SoundEvents.ARMOR_EQUIP_GENERIC, Config.ARMOR_TOUGHNESS.get(), ()-> { return Ingredient.of(Blocks.BEDROCK);});
 
-    private static final int[] max_damage_array = new int[]{13, 15, 16, 11};
-    private String name, equipSound;
-    private int durability, enchantability;
-    private Item repairItem;
-    private int[] damageReductionAmounts;
-    private float toughness;
+    private static final int[] MAX_DAMAGE_ARRAY = new int[]{13, 15, 16, 11};
+    private final String name;
+    private final int maxDamageFactor;
+    private final int[] damageReductionAmountArray;
+    private final int enchantability;
+    private final SoundEvent soundEvent;
+    private final float toughness;
+    private final Lazy<Ingredient> repairMaterial;
 
-    private ArmorMaterials(String name, int durability, int[] damageReductionAmounts, int enchantability, Item repairItem, String equipSound, float toughness) {
-        this.name = name;
-        this.equipSound = equipSound;
-        this.durability = durability;
-        this.enchantability = enchantability;
-        this.repairItem = repairItem;
-        this.damageReductionAmounts = damageReductionAmounts;
-        this.toughness = toughness;
+    private ArmorMaterials(String nameIn, int maxDamageIn, int[] drAmtArray, int enchantabilityIn, SoundEvent soundIn, float toughnessIn, Supplier<Ingredient> repairMatIn) {
+        name = nameIn;
+        maxDamageFactor = maxDamageIn;
+        damageReductionAmountArray = drAmtArray;
+        enchantability = enchantabilityIn;
+        soundEvent = soundIn;
+        toughness = toughnessIn;
+        repairMaterial = Lazy.of(repairMatIn);
     }
 
     @Override
-    public int getDamageReductionAmount(EquipmentSlotType slot) {
-        return this.damageReductionAmounts[slot.getIndex()];
+    public int getDurabilityForSlot(EquipmentSlot slotIn) {
+        return MAX_DAMAGE_ARRAY[slotIn.getIndex()] * this.maxDamageFactor;
     }
 
     @Override
-    public int getDurability(EquipmentSlotType slot) {
-        return max_damage_array[slot.getIndex()] * this.durability;
+    public int getDefenseForSlot(EquipmentSlot slotIn) {
+        return this.damageReductionAmountArray[slotIn.getIndex()];
     }
 
     @Override
-    public int getEnchantability() {
+    public int getEnchantmentValue() {
         return this.enchantability;
     }
 
     @Override
+    public SoundEvent getEquipSound() {
+        return this.soundEvent;
+    }
+
+    @Override
+    public Ingredient getRepairIngredient() {
+        return this.repairMaterial.get();
+    }
+
+    @Override
+    @OnlyIn(Dist.CLIENT)
     public String getName() {
-        return References.MODID + ":" + this.name;
-    }
-
-    @Override
-    public Ingredient getRepairMaterial() {
-        return Ingredient.fromItems(this.repairItem);
-    }
-
-    @Override
-    public SoundEvent getSoundEvent() {
-        return new SoundEvent(new ResourceLocation(equipSound));
+        return this.name;
     }
 
     @Override
     public float getToughness() {
         return this.toughness;
+    }
+
+    @Override
+    public float getKnockbackResistance() {
+        return 0;
     }
 }

@@ -1,28 +1,25 @@
 package xxrexraptorxx.bedrockminer.blocks;
 
-import net.minecraft.block.Block;
-import net.minecraft.block.BlockState;
-import net.minecraft.block.SoundType;
-import net.minecraft.block.material.Material;
-import net.minecraft.block.material.MaterialColor;
-import net.minecraft.block.material.PushReaction;
-import net.minecraftforge.common.ToolType;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.SoundType;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.material.Material;
+import net.minecraft.world.level.material.MaterialColor;
+import net.minecraft.world.level.material.PushReaction;
 
 public class BlockBedrockInfusedStone extends Block {
-    public BlockBedrockInfusedStone() {
-        super(Properties.create(Material.ROCK, MaterialColor.BLACK)
-                .harvestTool(ToolType.PICKAXE)
-                .harvestLevel(3)
-                .hardnessAndResistance(80, 1800)
-                .sound(SoundType.STONE)
-        );
 
-        setRegistryName("bedrock_infused_stone");
+    public BlockBedrockInfusedStone() {
+        super(Properties.of(Material.STONE)
+                .strength(80, 1800)
+                .sound(SoundType.STONE)
+                .color(MaterialColor.COLOR_BLACK)
+        );
     }
 
 
     @Override
-    public PushReaction getPushReaction(BlockState state) {
+    public PushReaction getPistonPushReaction(BlockState pState) {
         return PushReaction.BLOCK;
     }
 
