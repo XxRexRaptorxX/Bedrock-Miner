@@ -3,6 +3,7 @@ package xxrexraptorxx.bedrockminer.utils;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.ItemStack;
 import xxrexraptorxx.bedrockminer.main.ModBlocks;
+import xxrexraptorxx.bedrockminer.main.ModItems;
 import xxrexraptorxx.bedrockminer.main.References;
 
 public class CreativeTab {
@@ -11,7 +12,7 @@ public class CreativeTab {
 
         @Override
         public ItemStack makeIcon() {
-            return new ItemStack(ModBlocks.BEDROCK_INFUSED_OBSIDIAN.get());
+            return new ItemStack(ModItems.BEDROCK_PICKAXE.get());
         }
     };
 }

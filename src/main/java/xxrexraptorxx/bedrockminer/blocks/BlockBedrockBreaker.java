@@ -14,13 +14,12 @@ import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
-import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.Blocks;
-import net.minecraft.world.level.block.SoundType;
+import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.block.state.properties.BooleanProperty;
+import net.minecraft.world.level.material.Fluid;
 import net.minecraft.world.level.material.Material;
 import net.minecraft.world.level.material.MaterialColor;
 import xxrexraptorxx.bedrockminer.utils.Config;
@@ -79,20 +78,23 @@ public class BlockBedrockBreaker extends Block {
             if (flag != level.hasNeighborSignal(pos)) {
                 if (flag) {
                     level.scheduleTick(pos, this, 4);
+                    level.playSound((Player)null, pos, SoundEvents.PISTON_CONTRACT, SoundSource.BLOCKS, 0.5F, level.random.nextFloat() * 0.15F + 0.F);
 
                 } else {
-                    level.playSound((Player)null, pos, SoundEvents.PISTON_EXTEND, SoundSource.BLOCKS, 0.5F, level.random.nextFloat() * 0.15F + 0.F);
-
                     Block harvestblock = level.getBlockState(pos.below()).getBlock();
 
+                    level.playSound((Player)null, pos, SoundEvents.PISTON_EXTEND, SoundSource.BLOCKS, 0.5F, level.random.nextFloat() * 0.15F + 0.F);
+                    level.setBlock(pos, state.cycle(POWERED), 2);
+
                     if (isValidBlock(harvestblock)) {
+                        level.playSound((Player)null, pos, SoundEvents.STONE_BREAK, SoundSource.BLOCKS, 0.5F, level.random.nextFloat() * 0.15F + 0.F);
                         ItemEntity item = new ItemEntity(level, (double)pos.getX() + 0.5D, (double)pos.getY() + 1.5D, (double)pos.getZ() + 0.5D, new ItemStack(harvestblock, 1));
                         level.addFreshEntity(item);
                         level.destroyBlock(pos.below(), false);
                         level.addDestroyBlockEffect(pos, harvestblock.defaultBlockState());
 
                     } else {
-                        level.playSound((Player)null, pos, SoundEvents.METAL_PRESSURE_PLATE_CLICK_ON, SoundSource.BLOCKS, 0.5F, level.random.nextFloat() * 0.15F + 0.F);
+                        level.playSound((Player)null, pos, SoundEvents.ITEM_BREAK, SoundSource.BLOCKS, 0.5F, level.random.nextFloat() * 0.15F + 0.F);
                     }
                 }
             }
@@ -105,13 +107,15 @@ public class BlockBedrockBreaker extends Block {
         if (Config.HARVEST_ONLY_BEDROCK.get() && block.equals(Blocks.BEDROCK)) {
             return true;
 
-        } else if (Config.HARVEST_OPERATOR_STUFF.get()) {
+        } else {
             if (block.equals(Blocks.COMMAND_BLOCK) || block.equals(Blocks.CHAIN_COMMAND_BLOCK) || block.equals(Blocks.REPEATING_COMMAND_BLOCK) || block.equals(Blocks.STRUCTURE_BLOCK) ||
-                    block.equals(Blocks.STRUCTURE_VOID) || block.equals(Blocks.BARRIER)) {
+                    block.equals(Blocks.STRUCTURE_VOID) || block.equals(Blocks.BARRIER) || block instanceof AirBlock || block instanceof LiquidBlock) {
+                return false;
+
+            } else {
                 return true;
             }
         }
-        return false;
     }
 
 }

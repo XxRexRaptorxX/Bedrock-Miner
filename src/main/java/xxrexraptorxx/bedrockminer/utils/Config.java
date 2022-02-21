@@ -24,7 +24,6 @@ public class Config {
     public static ForgeConfigSpec.DoubleValue TOOL_EFFICIENCY;
     public static ForgeConfigSpec.DoubleValue TOOL_DAMAGE;
     public static ForgeConfigSpec.IntValue TOOL_ENCHANTABILITY;
-    public static ForgeConfigSpec.BooleanValue HARVEST_OPERATOR_STUFF;
     public static ForgeConfigSpec.BooleanValue HARVEST_ONLY_BEDROCK;
 
     public static ForgeConfigSpec.IntValue ARMOR_DURABILITY;
@@ -84,7 +83,6 @@ public class Config {
 
         builder.comment("Blocks").push(CATEGORY_BLOCKS);
         HARVEST_ONLY_BEDROCK = builder.comment("This makes that the Bedrock Breaker harvests only Bedrock or any block").define("harvest_only_bedrock", false);
-        HARVEST_OPERATOR_STUFF = builder.comment("This makes that the Bedrock Breaker harvests Commandblocks, Structureblocks, ... too!").define("harvest_operator_stuff", false);
         builder.pop();
 
         SERVER_CONFIG = builder.build();

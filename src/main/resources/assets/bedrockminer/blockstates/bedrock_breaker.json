@@ -1,7 +1,7 @@
 {
     "variants": {
-        "on=false": { "model": "bedrockminer:block/bedrock_breaker" },
-        "on=true": { "model": "bedrockminer:block/bedrock_breaker_on" }
+        "powered=false": { "model": "bedrockminer:block/bedrock_breaker" },
+        "powered=true": { "model": "bedrockminer:block/bedrock_breaker_on" }
     }
 }
 
