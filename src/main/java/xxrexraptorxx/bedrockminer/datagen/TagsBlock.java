@@ -16,20 +16,20 @@ public class TagsBlock extends BlockTagsProvider {
 
     @Override
     protected void addTags() {
-        tag(BlockTags.MINEABLE_WITH_PICKAXE)
-                .add(   ModBlocks.BEDROCK_INFUSED_STONE.get(),
+        m_206424_(BlockTags.MINEABLE_WITH_PICKAXE)
+                .add(   //ModBlocks.BEDROCK_INFUSED_STONE.get(),
                         ModBlocks.BEDROCK_INFUSED_OBSIDIAN.get(),
                         ModBlocks.BEDROCK_BREAKER.get()
                         );
 
 
-        tag(BlockTags.NEEDS_DIAMOND_TOOL)
-                .add(   ModBlocks.BEDROCK_INFUSED_OBSIDIAN.get(),
-                        ModBlocks.BEDROCK_INFUSED_STONE.get()
+        m_206424_(BlockTags.NEEDS_DIAMOND_TOOL)
+                .add(   ModBlocks.BEDROCK_INFUSED_OBSIDIAN.get()
+                        //ModBlocks.BEDROCK_INFUSED_STONE.get()
                 );
 
 
-        tag(BlockTags.NEEDS_IRON_TOOL)
+        m_206424_(BlockTags.NEEDS_IRON_TOOL)
                 .add(  ModBlocks.BEDROCK_BREAKER.get()
                 );
 

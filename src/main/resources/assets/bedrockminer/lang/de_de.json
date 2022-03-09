@@ -2,6 +2,7 @@
     "itemGroup.bedrockminer_tab": "Bedrock Miner",
 
     "message.bedrockminer.bedrock_breaker.desc": "Braucht Redstone Signal",
+    "message.bedrockminer.bedrock_chunk_jei_desc": "Kann selten in Festungs, Bastions und End Stadt Kisten gefunden werden.",
 
     "block.bedrockminer.bedrock_infused_obsidian": "Grundstein durchzogenes Obsidian",
     "block.bedrockminer.bedrock_infused_stone": "Grundstein durchzogener Stein",

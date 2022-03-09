@@ -5,17 +5,17 @@ import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.item.ArmorMaterial;
 import net.minecraft.world.item.crafting.Ingredient;
-import net.minecraft.world.level.block.Blocks;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.common.util.Lazy;
+import xxrexraptorxx.bedrockminer.main.ModItems;
 import xxrexraptorxx.bedrockminer.main.References;
 
 import java.util.function.Supplier;
 
 public enum ArmorMaterials implements ArmorMaterial {
 
-    BEDROCK(References.MODID + ":bedrock", Config.ARMOR_DURABILITY.get(), new int[] {2, 6, 8, 3}, Config.ARMOR_ENCHANTABILITY.get(), SoundEvents.ARMOR_EQUIP_GENERIC, Config.ARMOR_TOUGHNESS.get(), ()-> { return Ingredient.of(Blocks.BEDROCK);});
+    BEDROCK(References.MODID + ":bedrock", Config.ARMOR_DURABILITY.get(), new int[] {2, 6, 8, 3}, Config.ARMOR_ENCHANTABILITY.get(), SoundEvents.ARMOR_EQUIP_GENERIC, Config.ARMOR_TOUGHNESS.get(), ()-> { return Ingredient.of(ModItems.BEDROCK_CHUNK.get());});
 
     private static final int[] MAX_DAMAGE_ARRAY = new int[]{13, 15, 16, 11};
     private final String name;

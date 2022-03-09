@@ -1,4 +1,4 @@
-package xxrexraptorxx.bedrockminer.utils;
+package xxrexraptorxx.bedrockminer.world;
 
 import net.minecraft.client.renderer.ItemBlockRenderTypes;
 import net.minecraft.client.renderer.RenderType;

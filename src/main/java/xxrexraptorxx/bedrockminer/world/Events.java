@@ -1,4 +1,4 @@
-package xxrexraptorxx.bedrockminer.utils;
+package xxrexraptorxx.bedrockminer.world;
 
 import net.minecraft.ChatFormatting;
 import net.minecraft.client.Minecraft;
@@ -10,6 +10,7 @@ import net.minecraftforge.fml.ModList;
 import net.minecraftforge.fml.VersionChecker;
 import net.minecraftforge.fml.common.Mod;
 import xxrexraptorxx.bedrockminer.main.References;
+import xxrexraptorxx.bedrockminer.utils.Config;
 
 import java.util.UUID;
 

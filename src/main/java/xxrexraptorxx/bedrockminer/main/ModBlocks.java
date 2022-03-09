@@ -23,8 +23,8 @@ public class ModBlocks {
     }
 
 
-    public static final RegistryObject<BlockBedrockInfusedStone> BEDROCK_INFUSED_STONE = BLOCKS.register("bedrock_infused_stone", BlockBedrockInfusedStone::new);
-    public static final RegistryObject<Item> BEDROCK_INFUSED_STONE_BLOCKITEM = ITEMS.register("bedrock_infused_stone", () -> new BlockItem(BEDROCK_INFUSED_STONE.get(), new Item.Properties().tab(CreativeTab.MOD_TAB)));
+    //public static final RegistryObject<BlockBedrockInfusedStone> BEDROCK_INFUSED_STONE = BLOCKS.register("bedrock_infused_stone", BlockBedrockInfusedStone::new);
+    //public static final RegistryObject<Item> BEDROCK_INFUSED_STONE_BLOCKITEM = ITEMS.register("bedrock_infused_stone", () -> new BlockItem(BEDROCK_INFUSED_STONE.get(), new Item.Properties().tab(CreativeTab.MOD_TAB)));
 
     public static final RegistryObject<BlockBedrockInfusedObsidian> BEDROCK_INFUSED_OBSIDIAN = BLOCKS.register("bedrock_infused_obsidian", BlockBedrockInfusedObsidian::new);
     public static final RegistryObject<Item> BEDROCK_INFUSED_OBSIDIAN_BLOCKITEM = ITEMS.register("bedrock_infused_obsidian", () -> new BlockItem(BEDROCK_INFUSED_OBSIDIAN.get(), new Item.Properties().tab(CreativeTab.MOD_TAB)));
