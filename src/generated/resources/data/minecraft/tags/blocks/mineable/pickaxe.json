@@ -1,7 +1,6 @@
 {
   "replace": false,
   "values": [
-    "bedrockminer:bedrock_infused_stone",
     "bedrockminer:bedrock_infused_obsidian",
     "bedrockminer:bedrock_breaker"
   ]

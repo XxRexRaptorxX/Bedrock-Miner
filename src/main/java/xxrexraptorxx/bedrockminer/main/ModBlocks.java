@@ -9,7 +9,6 @@ import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 import xxrexraptorxx.bedrockminer.blocks.BlockBedrockBreaker;
 import xxrexraptorxx.bedrockminer.blocks.BlockBedrockInfusedObsidian;
-import xxrexraptorxx.bedrockminer.blocks.BlockBedrockInfusedStone;
 import xxrexraptorxx.bedrockminer.utils.CreativeTab;
 
 public class ModBlocks {

@@ -16,7 +16,7 @@ apply plugin: 'org.parchmentmc.librarian.forgegradle'
 apply plugin: 'eclipse'
 apply plugin: 'maven-publish'
 
-version = '2.0.0-pre2'
+version = '2.0.0-pre3'
 group = 'xxrexraptorxx.main.bedrockminer' // http://maven.apache.org/guides/mini/guide-naming-conventions.html
 archivesBaseName = 'bedrockminer'
 
@@ -37,7 +37,7 @@ minecraft {
     // Use non-default mappings at your own risk. They may not always work.
     // Simply re-run your setup task after changing the mappings to update your workspace.
     //mappings channel: 'official', version: '1.18.2'
-    mappings channel: 'parchment', version: '2022.03.06-1.18.1'
+    mappings channel: 'parchment', version: '2022.03.13-1.18.2'
 
 
     // accessTransformer = file('src/main/resources/META-INF/accesstransformer.cfg') // Currently, this location cannot be changed from the default.
@@ -134,7 +134,7 @@ repositories {
 
 dependencies {
 
-    minecraft 'net.minecraftforge:forge:1.18.2-40.0.12'
+    minecraft 'net.minecraftforge:forge:1.18.2-40.0.19'
 
     compileOnly fg.deobf("mezz.jei:jei-1.18.2:9.4.3.122:api")
     runtimeOnly fg.deobf("mezz.jei:jei-1.18.2:9.4.3.122")

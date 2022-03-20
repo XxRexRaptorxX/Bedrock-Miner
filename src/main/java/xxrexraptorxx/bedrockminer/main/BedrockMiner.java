@@ -20,7 +20,6 @@ public class BedrockMiner {
         ModBlocks.init();
         ModItems.init();
 
-        //MinecraftForge.EVENT_BUS.addListener(EventPriority.HIGH, OreGenerator::oreGeneration);
         MinecraftForge.EVENT_BUS.register(this);
     }
 

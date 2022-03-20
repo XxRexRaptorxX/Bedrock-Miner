@@ -1,3 +1,4 @@
-d776671f3a9bfd43418f9e27286ab7bdc189a199 data/minecraft/tags/blocks/mineable/pickaxe.json
-195cdfba69efa37fc9f1531476556aae55017ce1 data/minecraft/tags/blocks/needs_diamond_tool.json
+649dc16d3a5f628565897e6d199644479a243573 data/bedrockminer/tags/blocks/needs_bedrock_tool.json
+3b66dac64f637ed79bf91f2ed5fadcf82d789475 data/minecraft/tags/blocks/mineable/pickaxe.json
+51e2ee4d093f9ee49bee24d489573488579f5511 data/minecraft/tags/blocks/needs_diamond_tool.json
 71ee0d6f8569a12ba8117ee9f08621b1df8bb94a data/minecraft/tags/blocks/needs_iron_tool.json

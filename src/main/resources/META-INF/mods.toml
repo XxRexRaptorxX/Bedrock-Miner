@@ -5,7 +5,7 @@ issueTrackerURL="https://www.curseforge.com/minecraft/mc-mods/bedrock-miner/issu
 
 [[mods]]
 modId="bedrockminer"
-version="2.0.0-pre1"
+version="2.0.0-pre3"
 displayName="Bedrock Miner"
 updateJSONURL="https://raw.githubusercontent.com/XxRexRaptorxX/Update-Checker/main/BedrockMiner.json"
 displayURL="https://www.curseforge.com/minecraft/mc-mods/bedrock-miner"
