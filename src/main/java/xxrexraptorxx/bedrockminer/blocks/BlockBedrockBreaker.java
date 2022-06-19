@@ -3,10 +3,10 @@ package xxrexraptorxx.bedrockminer.blocks;
 import net.minecraft.ChatFormatting;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.Component;
-import net.minecraft.network.chat.TranslatableComponent;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
+import net.minecraft.util.RandomSource;
 import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
@@ -19,14 +19,12 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.block.state.properties.BooleanProperty;
-import net.minecraft.world.level.material.Fluid;
 import net.minecraft.world.level.material.Material;
 import net.minecraft.world.level.material.MaterialColor;
 import xxrexraptorxx.bedrockminer.utils.Config;
 
 import javax.annotation.Nullable;
 import java.util.List;
-import java.util.Random;
 
 public class BlockBedrockBreaker extends Block {
 
@@ -45,7 +43,7 @@ public class BlockBedrockBreaker extends Block {
 
     @Override
     public void appendHoverText(ItemStack pStack, @Nullable BlockGetter pLevel, List<Component> list, TooltipFlag pFlag) {
-        list.add(new TranslatableComponent("message.bedrockminer.bedrock_breaker.desc").withStyle(ChatFormatting.GRAY));
+        list.add(Component.translatable("message.bedrockminer.bedrock_breaker.desc").withStyle(ChatFormatting.GRAY));
     }
 
 
@@ -63,9 +61,9 @@ public class BlockBedrockBreaker extends Block {
 
 
     @Override
-    public void tick(BlockState pState, ServerLevel pLevel, BlockPos pPos, Random pRand) {
-        if (pState.getValue(POWERED) && !pLevel.hasNeighborSignal(pPos)) {
-            pLevel.setBlock(pPos, pState.cycle(POWERED), 2);
+    public void tick(BlockState state, ServerLevel level, BlockPos pos, RandomSource rand) {
+        if (state.getValue(POWERED) && !level.hasNeighborSignal(pos)) {
+            level.setBlock(pos, state.cycle(POWERED), 2);
         }
     }
 
