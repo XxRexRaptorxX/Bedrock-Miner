@@ -5,7 +5,7 @@ issueTrackerURL="https://www.curseforge.com/minecraft/mc-mods/bedrock-miner/issu
 
 [[mods]]
 modId="bedrockminer"
-version="2.0.0-pre3"
+version="2.0.0-pre4"
 displayName="Bedrock Miner"
 updateJSONURL="https://raw.githubusercontent.com/XxRexRaptorxX/Update-Checker/main/BedrockMiner.json"
 displayURL="https://www.curseforge.com/minecraft/mc-mods/bedrock-miner"
@@ -20,7 +20,7 @@ This small mod adds a new stable tool set to the game, the pickaxe and the break
 [[dependencies.bedrockminer]]
     modId="forge"
     mandatory=true
-    versionRange="[41,)"
+    versionRange="[41.0.98,)"
     ordering="NONE"
     side="BOTH"
 
