@@ -17,7 +17,7 @@ public class Config {
     public static ForgeConfigSpec CLIENT_CONFIG;
 
     public static ForgeConfigSpec.BooleanValue UPDATE_CHECKER;
-    public static ForgeConfigSpec.BooleanValue WORLD_GENERATION;
+    public static ForgeConfigSpec.BooleanValue PATREON_REWARDS;
     public static ForgeConfigSpec.BooleanValue LOOT_GENERATION;
 
     public static ForgeConfigSpec.IntValue TOOL_DURABILITY;
@@ -60,7 +60,7 @@ public class Config {
         ForgeConfigSpec.Builder builder = new ForgeConfigSpec.Builder();
 
         builder.comment("General").push(CATEGORY_GENERAL);
-        WORLD_GENERATION = builder.comment("Activate the world generation of the mod").define("world_generation", true);
+        PATREON_REWARDS = builder.comment("Enables ingame rewards on first spawn for Patreons").define("patreon_rewards", true);
         LOOT_GENERATION = builder.comment("Activate the dungeon loot generation of the mod").define("loot_generation", true);
         builder.pop();
 
