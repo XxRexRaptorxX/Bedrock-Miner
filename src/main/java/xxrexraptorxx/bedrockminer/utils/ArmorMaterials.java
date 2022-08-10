@@ -15,7 +15,7 @@ import java.util.function.Supplier;
 
 public enum ArmorMaterials implements ArmorMaterial {
 
-    BEDROCK(References.MODID + ":bedrock", Config.ARMOR_DURABILITY.get(), new int[] {2, 6, 8, 3}, Config.ARMOR_ENCHANTABILITY.get(), SoundEvents.ARMOR_EQUIP_GENERIC, Config.ARMOR_TOUGHNESS.get(), ()-> { return Ingredient.of(ModItems.BEDROCK_CHUNK.get());});
+    BEDROCK(References.MODID + ":bedrock", 50, new int[] {2, 6, 8, 3}, 18, SoundEvents.ARMOR_EQUIP_GENERIC, 3, ()-> { return Ingredient.of(ModItems.BEDROCK_CHUNK.get());});
 
     private static final int[] MAX_DAMAGE_ARRAY = new int[]{13, 15, 16, 11};
     private final String name;

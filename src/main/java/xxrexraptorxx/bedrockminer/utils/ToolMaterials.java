@@ -12,8 +12,13 @@ import xxrexraptorxx.bedrockminer.main.References;
 
 public class ToolMaterials {
 
+    //private static int bedrockDurability = Config.TOOL_DURABILITY.get();      TODO!
+    //private static double bedrockMiningSpeed = Config.TOOL_SPEED.get();
+    //private static double bedrockAttackDamage = Config.TOOL_DAMAGE.get();
+    //private static int bedrockEnchantability = Config.TOOL_ENCHANTABILITY.get();
+
     public static final TagKey<Block> NEEDS_BEDROCK_TAG = BlockTags.create(new ResourceLocation(References.MODID, "needs_bedrock_tool"));
 
-    public static final ForgeTier BEDROCK = new ForgeTier(Tiers.DIAMOND.getLevel(), Config.TOOL_DURABILITY.get(), Config.TOOL_SPEED.get().floatValue(), Config.TOOL_DAMAGE.get().floatValue(), Config.TOOL_ENCHANTABILITY.get(), NEEDS_BEDROCK_TAG, () -> Ingredient.of(ModItems.BEDROCK_CHUNK.get()));
+    public static final ForgeTier BEDROCK = new ForgeTier(Tiers.DIAMOND.getLevel(), 2500, 6.0F, 3.5F, 3, NEEDS_BEDROCK_TAG, () -> Ingredient.of(ModItems.BEDROCK_CHUNK.get()));
 
 }

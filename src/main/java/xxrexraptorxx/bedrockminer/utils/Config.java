@@ -12,7 +12,6 @@ public class Config {
     public static final String CATEGORY_ITEMS = "items";
     public static final String CATEGORY_BLOCKS = "blocks";
 
-    public static ForgeConfigSpec COMMON_CONFIG;
     public static ForgeConfigSpec SERVER_CONFIG;
     public static ForgeConfigSpec CLIENT_CONFIG;
 
@@ -36,11 +35,9 @@ public class Config {
 
     public static void init() {
         initServer();
-        initCommon();
         initClient();
 
         ModLoadingContext.get().registerConfig(ModConfig.Type.SERVER, SERVER_CONFIG);
-        ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, COMMON_CONFIG);
         ModLoadingContext.get().registerConfig(ModConfig.Type.CLIENT, CLIENT_CONFIG);
     }
 
@@ -56,7 +53,7 @@ public class Config {
     }
 
 
-    public static void initCommon() {
+    public static void initServer() {
         ForgeConfigSpec.Builder builder = new ForgeConfigSpec.Builder();
 
         builder.comment("General").push(CATEGORY_GENERAL);
@@ -64,26 +61,19 @@ public class Config {
         LOOT_GENERATION = builder.comment("Activate the dungeon loot generation of the mod").define("loot_generation", true);
         builder.pop();
 
-        COMMON_CONFIG = builder.build();
-    }
-
-
-    public static void initServer() {
-        ForgeConfigSpec.Builder builder = new ForgeConfigSpec.Builder();
-
-        builder.comment("Items").push(CATEGORY_ITEMS);
-        ARMOR_DURABILITY = builder.comment("Set the durability for bedrock armor").defineInRange("armor_durability", 50, 10, 1000);
-        ARMOR_ENCHANTABILITY = builder.comment("Set the enchantability for bedrock armor").defineInRange("armor_enchantability", 18, 0, 30);
-        ARMOR_TOUGHNESS = builder.comment("Set the toughness for bedrock armor").defineInRange("armor_toughness", 3, 0, 10);
-        ARMOR_EFFECTS = builder.comment("Activate special effects if you wear Bedrock Armor").define("armor_effects", false);
-
-        TOOL_DURABILITY = builder.comment("Set the durability for bedrock tools").defineInRange("tool_durability", 2500, 50, 10000);
-        TOOL_EFFICIENCY = builder.comment("Set the efficiency for bedrock tools").defineInRange("tool_efficiency", 8.5F, 1.0F, 20.0F);
-        TOOL_DAMAGE = builder.comment("Set the damage for bedrock tools").defineInRange("tool_damage", 3.5F, 1.0F, 20.0F);
-        TOOL_SPEED = builder.comment("Set the speed for bedrock tools").defineInRange("tool_speed", 6.0F, 1.0F, 20.0F);
-        TOOL_ATTACK_SPEED_MODIFIER = builder.comment("Set the attack speed modifier for bedrock tools relative to the normal speed").defineInRange("tool_attack_speed_modifier", -0.2F, -5.0F, 20.0F);
-        TOOL_ENCHANTABILITY = builder.comment("Set the enchantability for bedrock tools").defineInRange("tool_enchantability", 3, 0, 20);
-        builder.pop();
+        //builder.comment("Items").push(CATEGORY_ITEMS);
+        //ARMOR_DURABILITY = builder.comment("Set the durability for bedrock armor").defineInRange("armor_durability", 50, 10, 1000);
+        //ARMOR_ENCHANTABILITY = builder.comment("Set the enchantability for bedrock armor").defineInRange("armor_enchantability", 18, 0, 30);
+        //ARMOR_TOUGHNESS = builder.comment("Set the toughness for bedrock armor").defineInRange("armor_toughness", 3, 0, 10);
+        //ARMOR_EFFECTS = builder.comment("Activate special effects if you wear Bedrock Armor").define("armor_effects", false);
+        //TODO!!
+        //TOOL_DURABILITY = builder.comment("Set the durability for bedrock tools").defineInRange("tool_durability", 2500, 50, 10000);
+        //TOOL_EFFICIENCY = builder.comment("Set the efficiency for bedrock tools").defineInRange("tool_efficiency", 8.5F, 1.0F, 20.0F);
+        //TOOL_DAMAGE = builder.comment("Set the damage for bedrock tools").defineInRange("tool_damage", 3.5F, 1.0F, 20.0F);
+        //TOOL_SPEED = builder.comment("Set the speed for bedrock tools").defineInRange("tool_speed", 6.0F, 1.0F, 20.0F);
+        //TOOL_ATTACK_SPEED_MODIFIER = builder.comment("Set the attack speed modifier for bedrock tools relative to the normal speed").defineInRange("tool_attack_speed_modifier", -0.2F, -5.0F, 20.0F);
+        //TOOL_ENCHANTABILITY = builder.comment("Set the enchantability for bedrock tools").defineInRange("tool_enchantability", 3, 0, 20);
+        //builder.pop();
 
         builder.comment("Blocks").push(CATEGORY_BLOCKS);
         HARVEST_ONLY_BEDROCK = builder.comment("This makes that the Bedrock Breaker harvests only Bedrock or any block").define("harvest_only_bedrock", false);
