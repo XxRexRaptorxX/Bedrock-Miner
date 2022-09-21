@@ -1,0 +1,24 @@
+{
+	"_comment": "translated by PasteKBrain",
+	
+    "itemGroup.bedrockminer_tab": "Bedrock Miner",
+
+    "message.bedrockminer.bedrock_breaker.desc": "A besoin de redstone pour fonctionner",
+    "message.bedrockminer.bedrock_chunk_jei_desc": "Peut être trouver rarement dans les coffres des forts, des bastions et des cités de l'End.",
+
+    "block.bedrockminer.bedrock_infused_obsidian": "Obsidienne infusée de Bedrock",
+    "block.bedrockminer.bedrock_infused_stone": "Pierre infusée de Bedrock",
+    "block.bedrockminer.bedrock_breaker": "Foreuse de Bedrock",
+    "block.bedrockminer.bedrock_breaker_on": "Foreuse de Bedrock",
+
+    "item.bedrockminer.bedrock_chunk": "Morceau de Bedrock",
+    "item.bedrockminer.bedrock_sword": "Epée en Bedrock",
+    "item.bedrockminer.bedrock_shovel": "Pelle en Bedrock",
+    "item.bedrockminer.bedrock_pickaxe": "Pioche en Bedrock",
+    "item.bedrockminer.bedrock_axe": "Hache en Bedrock",
+    "item.bedrockminer.bedrock_hoe": "Houe en Bedrock",
+    "item.bedrockminer.bedrock_helmet": "Casque en Bedrock",
+    "item.bedrockminer.bedrock_chestplate": "Plastron en Bedrock",
+    "item.bedrockminer.bedrock_leggings": "Jambières en Bedrock",
+    "item.bedrockminer.bedrock_boots": "Bottes en Bedrock"
+}
