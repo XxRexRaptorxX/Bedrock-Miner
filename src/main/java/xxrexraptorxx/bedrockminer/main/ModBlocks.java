@@ -9,7 +9,6 @@ import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 import xxrexraptorxx.bedrockminer.blocks.BlockBedrockBreaker;
 import xxrexraptorxx.bedrockminer.blocks.BlockBedrockInfusedObsidian;
-import xxrexraptorxx.bedrockminer.utils.CreativeTab;
 
 public class ModBlocks {
 
@@ -26,9 +25,9 @@ public class ModBlocks {
     //public static final RegistryObject<Item> BEDROCK_INFUSED_STONE_BLOCKITEM = ITEMS.register("bedrock_infused_stone", () -> new BlockItem(BEDROCK_INFUSED_STONE.get(), new Item.Properties().tab(CreativeTab.MOD_TAB)));
 
     public static final RegistryObject<BlockBedrockInfusedObsidian> BEDROCK_INFUSED_OBSIDIAN = BLOCKS.register("bedrock_infused_obsidian", BlockBedrockInfusedObsidian::new);
-    public static final RegistryObject<Item> BEDROCK_INFUSED_OBSIDIAN_BLOCKITEM = ITEMS.register("bedrock_infused_obsidian", () -> new BlockItem(BEDROCK_INFUSED_OBSIDIAN.get(), new Item.Properties().tab(CreativeTab.MOD_TAB)));
+    public static final RegistryObject<Item> BEDROCK_INFUSED_OBSIDIAN_BLOCKITEM = ITEMS.register("bedrock_infused_obsidian", () -> new BlockItem(BEDROCK_INFUSED_OBSIDIAN.get(), new Item.Properties()));
 
     public static final RegistryObject<BlockBedrockBreaker> BEDROCK_BREAKER = BLOCKS.register("bedrock_breaker", BlockBedrockBreaker::new);
-    public static final RegistryObject<Item> BEDROCK_BREAKER_BLOCKITEM = ITEMS.register("bedrock_breaker", () -> new BlockItem(BEDROCK_BREAKER.get(), new Item.Properties().tab(CreativeTab.MOD_TAB)));
+    public static final RegistryObject<Item> BEDROCK_BREAKER_BLOCKITEM = ITEMS.register("bedrock_breaker", () -> new BlockItem(BEDROCK_BREAKER.get(), new Item.Properties()));
 
 }

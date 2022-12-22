@@ -1,6 +1,6 @@
 {
     "parent": "item/generated",
     "textures": {
-        "layer0": "bedrockminer:items/bedrock_boots"
+        "layer0": "bedrockminer:item/bedrock_boots"
     }
 }

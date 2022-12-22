@@ -1,6 +1,6 @@
 {
   "parent": "block/cube_all",
   "textures": {
-    "all": "bedrockminer:blocks/bedrock_infused_stone"
+    "all": "bedrockminer:block/bedrock_infused_stone"
   }
 }

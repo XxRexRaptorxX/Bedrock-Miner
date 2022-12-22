@@ -1,5 +1,5 @@
 package xxrexraptorxx.bedrockminer.compat;
-
+/**
 import mezz.jei.api.IModPlugin;
 import mezz.jei.api.JeiPlugin;
 import mezz.jei.api.constants.VanillaTypes;
@@ -25,4 +25,4 @@ public class JEIIntegration implements IModPlugin {
         registry.addIngredientInfo(new ItemStack(ModItems.BEDROCK_CHUNK.get()), VanillaTypes.ITEM_STACK, Component.translatable("message.bedrockminer.bedrock_chunk_jei_desc"));
 
     }
-}
+}**/

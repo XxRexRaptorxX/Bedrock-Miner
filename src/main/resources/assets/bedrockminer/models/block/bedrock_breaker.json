@@ -1,12 +1,12 @@
 {
     "parent": "block/cube",
     "textures": {
-        "particle": "bedrockminer:blocks/bedrock_breaker_side",
-        "up": "bedrockminer:blocks/bedrock_breaker_top",
-        "down": "bedrockminer:blocks/bedrock_breaker_bottom",
-        "north": "bedrockminer:blocks/bedrock_breaker_side",
-        "east": "bedrockminer:blocks/bedrock_breaker_side",
-        "west": "bedrockminer:blocks/bedrock_breaker_side",
-        "south": "bedrockminer:blocks/bedrock_breaker_side"
+        "particle": "bedrockminer:block/bedrock_breaker_side",
+        "up": "bedrockminer:block/bedrock_breaker_top",
+        "down": "bedrockminer:block/bedrock_breaker_bottom",
+        "north": "bedrockminer:block/bedrock_breaker_side",
+        "east": "bedrockminer:block/bedrock_breaker_side",
+        "west": "bedrockminer:block/bedrock_breaker_side",
+        "south": "bedrockminer:block/bedrock_breaker_side"
     }
 }
