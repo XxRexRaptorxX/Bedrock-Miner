@@ -34,7 +34,7 @@ public class BedrockMiner {
     @SubscribeEvent
     public static void registerTabs(final CreativeModeTabEvent.Register event) {
         event.registerCreativeModeTab(CREATIVE_TAB, (cf) -> cf.icon(() -> new ItemStack(ModItems.BEDROCK_PICKAXE.get()))
-                .title(Component.translatable("itemGroup." + References.MODID + "_tab")).displayItems((flagSet, output, ifSth) -> {
+                .title(Component.translatable("itemGroup." + References.MODID + "_tab")).displayItems((params, output) -> {
                     output.accept(ModBlocks.BEDROCK_BREAKER.get());
                     output.accept(ModBlocks.BEDROCK_INFUSED_OBSIDIAN.get());
                     output.accept(ModItems.BEDROCK_CHUNK.get());

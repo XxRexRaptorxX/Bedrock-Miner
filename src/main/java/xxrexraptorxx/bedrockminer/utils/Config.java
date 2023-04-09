@@ -63,7 +63,7 @@ public class Config {
 
         builder.comment("Items").push(CATEGORY_ITEMS);
         ARMOR_EFFECTS = builder.comment("Activate special effects if you wear Bedrock Armor (Slowness + Resistance)").define("armor_effects", false);
-        //ARMOR_DURABILITY = builder.comment("Set the durability for bedrock armor").defineInRange("armor_durability", 50, 10, 1000);
+        ARMOR_DURABILITY = builder.comment("Set the durability for bedrock armor").defineInRange("armor_durability", 50, 10, 1000);
         //ARMOR_ENCHANTABILITY = builder.comment("Set the enchantability for bedrock armor").defineInRange("armor_enchantability", 18, 0, 30);
         //ARMOR_TOUGHNESS = builder.comment("Set the toughness for bedrock armor").defineInRange("armor_toughness", 3, 0, 10);
         //TODO!!

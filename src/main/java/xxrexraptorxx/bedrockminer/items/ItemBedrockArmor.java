@@ -14,10 +14,11 @@ import xxrexraptorxx.bedrockminer.main.ModItems;
 import xxrexraptorxx.bedrockminer.utils.Config;
 
 public class ItemBedrockArmor extends ArmorItem {
-    public ItemBedrockArmor(ArmorMaterial pMaterial, EquipmentSlot pSlot, Properties pProperties) {
-        super(pMaterial, pSlot, pProperties);
-    }
 
+
+    public ItemBedrockArmor(ArmorMaterial material, Type type, Properties properties) {
+        super(material, type, properties);
+    }
 
     @Override
     public boolean isRepairable(ItemStack stack) {

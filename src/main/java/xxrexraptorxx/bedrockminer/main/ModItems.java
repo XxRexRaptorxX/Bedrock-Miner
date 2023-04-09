@@ -35,9 +35,9 @@ public class ModItems {
     public static final RegistryObject<HoeItem> BEDROCK_HOE = ITEMS.register("bedrock_hoe",
             () -> new HoeItem(ToolMaterials.BEDROCK,-3, 0.0F + attackSpeedMultiplier, new Item.Properties()));
 
-    public static final RegistryObject<ArmorItem> BEDROCK_HELMET = ITEMS.register("bedrock_helmet", () -> new ItemBedrockArmor(ArmorMaterials.BEDROCK, EquipmentSlot.HEAD, new Item.Properties()));
-    public static final RegistryObject<ArmorItem> BEDROCK_CHESTPLATE = ITEMS.register("bedrock_chestplate", () -> new ItemBedrockArmor(ArmorMaterials.BEDROCK, EquipmentSlot.CHEST, new Item.Properties()));
-    public static final RegistryObject<ArmorItem> BEDROCK_LEGGINGS = ITEMS.register("bedrock_leggings", () -> new ItemBedrockArmor(ArmorMaterials.BEDROCK, EquipmentSlot.LEGS, new Item.Properties()));
-    public static final RegistryObject<ArmorItem> BEDROCK_BOOTS = ITEMS.register("bedrock_boots", () -> new ItemBedrockArmor(ArmorMaterials.BEDROCK, EquipmentSlot.FEET, new Item.Properties()));
+    public static final RegistryObject<ArmorItem> BEDROCK_HELMET = ITEMS.register("bedrock_helmet", () -> new ItemBedrockArmor(ArmorMaterials.BEDROCK, ArmorItem.Type.HELMET, new Item.Properties()));
+    public static final RegistryObject<ArmorItem> BEDROCK_CHESTPLATE = ITEMS.register("bedrock_chestplate", () -> new ItemBedrockArmor(ArmorMaterials.BEDROCK, ArmorItem.Type.CHESTPLATE, new Item.Properties()));
+    public static final RegistryObject<ArmorItem> BEDROCK_LEGGINGS = ITEMS.register("bedrock_leggings", () -> new ItemBedrockArmor(ArmorMaterials.BEDROCK, ArmorItem.Type.LEGGINGS, new Item.Properties()));
+    public static final RegistryObject<ArmorItem> BEDROCK_BOOTS = ITEMS.register("bedrock_boots", () -> new ItemBedrockArmor(ArmorMaterials.BEDROCK, ArmorItem.Type.BOOTS, new Item.Properties()));
 
 }
