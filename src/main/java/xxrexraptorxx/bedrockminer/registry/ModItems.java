@@ -1,6 +1,5 @@
-package xxrexraptorxx.bedrockminer.main;
+package xxrexraptorxx.bedrockminer.registry;
 
-import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.item.*;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.minecraftforge.registries.DeferredRegister;
@@ -8,6 +7,7 @@ import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 import xxrexraptorxx.bedrockminer.items.ItemBasic;
 import xxrexraptorxx.bedrockminer.items.ItemBedrockArmor;
+import xxrexraptorxx.bedrockminer.main.References;
 import xxrexraptorxx.bedrockminer.utils.ArmorMaterials;
 import xxrexraptorxx.bedrockminer.utils.ToolMaterials;
 

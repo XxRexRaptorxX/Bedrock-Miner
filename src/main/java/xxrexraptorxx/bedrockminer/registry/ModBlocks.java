@@ -1,4 +1,4 @@
-package xxrexraptorxx.bedrockminer.main;
+package xxrexraptorxx.bedrockminer.registry;
 
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
@@ -9,6 +9,7 @@ import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 import xxrexraptorxx.bedrockminer.blocks.BlockBedrockBreaker;
 import xxrexraptorxx.bedrockminer.blocks.BlockBedrockInfusedObsidian;
+import xxrexraptorxx.bedrockminer.main.References;
 
 public class ModBlocks {
 

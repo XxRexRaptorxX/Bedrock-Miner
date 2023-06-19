@@ -19,8 +19,7 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.block.state.properties.BooleanProperty;
-import net.minecraft.world.level.material.Material;
-import net.minecraft.world.level.material.MaterialColor;
+import net.minecraft.world.level.material.MapColor;
 import xxrexraptorxx.bedrockminer.utils.Config;
 
 import javax.annotation.Nullable;
@@ -32,10 +31,10 @@ public class BlockBedrockBreaker extends Block {
 
 
     public BlockBedrockBreaker() {
-        super(Properties.of(Material.STONE)
+        super(Properties.of()
                 .strength(5, 10)
                 .sound(SoundType.STONE)
-                .color(MaterialColor.COLOR_GRAY)
+                .mapColor(MapColor.COLOR_GRAY)
         );
         this.registerDefaultState(this.defaultBlockState().setValue(POWERED, Boolean.valueOf(false)));
     }
