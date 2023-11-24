@@ -1,17 +1,11 @@
 {
   "conditions": [
     {
-      "type": "forge:or",
-      "values": [
-        {
-          "type": "forge:tag_empty",
-          "tag": "forge:sticks/diamond"
-        },
-        {
-          "type": "forge:tag_empty",
-          "tag": "forge:rods/diamond"
-        }
-      ]
+      "value": {
+        "type": "forge:tag_empty",
+        "tag": "forge:sticks/diamond"
+      },
+      "type": "forge:not"
     }
   ],
   "type": "minecraft:crafting_shaped",
@@ -24,7 +18,7 @@
   ],
   "key": {
     "#": {
-      "tag": "forge:gems/diamond"
+      "tag": "forge:sticks/diamond"
     },
     "X": {
       "item": "minecraft:bedrock"
