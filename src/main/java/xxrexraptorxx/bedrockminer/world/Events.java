@@ -10,19 +10,23 @@ import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.stats.Stats;
+import net.minecraft.world.entity.npc.VillagerTrades;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.enchantment.Enchantments;
+import net.minecraft.world.item.trading.MerchantOffer;
 import net.minecraft.world.level.Level;
 import net.minecraftforge.event.TickEvent;
 import net.minecraftforge.event.entity.player.PlayerEvent;
+import net.minecraftforge.event.village.WandererTradesEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.ModList;
 import net.minecraftforge.fml.VersionChecker;
 import net.minecraftforge.fml.common.Mod;
 import xxrexraptorxx.bedrockminer.main.BedrockMiner;
 import xxrexraptorxx.bedrockminer.main.References;
+import xxrexraptorxx.bedrockminer.registry.ModItems;
 import xxrexraptorxx.bedrockminer.utils.Config;
 
 import java.net.MalformedURLException;
@@ -150,5 +154,15 @@ public class Events {
         return false;
     }
 
+
+    @SubscribeEvent
+    public static void addCustomWanderingTrades(WandererTradesEvent event) {
+        if (Config.WANDERING_TRADES.get()) {
+            List<VillagerTrades.ItemListing> trades = event.getRareTrades();
+            ItemStack cost = new ItemStack(Items.EMERALD, 6);
+
+            trades.add(((trader, random) -> new MerchantOffer(cost, new ItemStack(ModItems.BEDROCK_CHUNK.get()), 3, 1, 0.05F)));
+        }
+    }
 
 }

@@ -32,6 +32,8 @@ public class Config {
     public static ForgeConfigSpec.IntValue ARMOR_TOUGHNESS;
     public static ForgeConfigSpec.BooleanValue ARMOR_EFFECTS;
 
+    public static ForgeConfigSpec.BooleanValue WANDERING_TRADES;
+
 
     public static void init() {
         initServer();
@@ -73,6 +75,8 @@ public class Config {
         //TOOL_SPEED = builder.comment("Set the speed for bedrock tools").defineInRange("tool_speed", 6.0F, 1.0F, 20.0F);
         //TOOL_ATTACK_SPEED_MODIFIER = builder.comment("Set the attack speed modifier for bedrock tools relative to the normal speed").defineInRange("tool_attack_speed_modifier", -0.2F, -5.0F, 20.0F);
         //TOOL_ENCHANTABILITY = builder.comment("Set the enchantability for bedrock tools").defineInRange("tool_enchantability", 3, 0, 20);
+        WANDERING_TRADES = builder.comment("Enable trades of bedrock chunks from Wandering Traders").define("wandering_trades", true);
+
         builder.pop();
 
         builder.comment("Blocks").push(CATEGORY_BLOCKS);
