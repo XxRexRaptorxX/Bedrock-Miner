@@ -15,9 +15,9 @@ import net.minecraftforge.fml.common.Mod;
 import org.jetbrains.annotations.NotNull;
 import xxrexraptorxx.bedrockminer.main.BedrockMiner;
 import xxrexraptorxx.bedrockminer.main.References;
+import xxrexraptorxx.bedrockminer.utils.Config;
 import xxrexraptorxx.bedrockminer.utils.mixins.LootTableAccessor;
 
-import javax.annotation.Nonnull;
 import java.util.Map;
 import java.util.Set;
 
@@ -61,16 +61,18 @@ public class LootTableInjection {
 
     @SubscribeEvent
     public static void onChestLootLoad(@NotNull LootTableLoadEvent event) {
-        String prefix = "minecraft:chests/";
-        String name = event.getName().toString();
-        if (name.startsWith(prefix)) {
-            String file = name.substring(name.indexOf(prefix) + prefix.length());
-            if (INJECTION_TABLES.containsKey(file)) {
-                try {
-                    ((LootTableAccessor) event.getTable()).getPools().add(getInjectPool(file));
-                    injected++;
-                } catch (NullPointerException e) {
-                    BedrockMiner.LOGGER.error("Loottable {} is broken by some other mod. Cannot add " + References.NAME + " loot to it. " + name);
+        if (Config.LOOT_GENERATION.get()) {
+            String prefix = "minecraft:chests/";
+            String name = event.getName().toString();
+            if (name.startsWith(prefix)) {
+                String file = name.substring(name.indexOf(prefix) + prefix.length());
+                if (INJECTION_TABLES.containsKey(file)) {
+                    try {
+                        ((LootTableAccessor) event.getTable()).getPools().add(getInjectPool(file));
+                        injected++;
+                    } catch (NullPointerException e) {
+                        BedrockMiner.LOGGER.error("Loottable {} is broken by some other mod. Cannot add " + References.NAME + " loot to it. " + name);
+                    }
                 }
             }
         }
