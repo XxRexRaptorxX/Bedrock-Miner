@@ -1,0 +1,9 @@
+{
+  "replace": false,
+  "values": [
+    "bedrockminer:bedrock_helmet",
+    "bedrockminer:bedrock_chestplate",
+    "bedrockminer:bedrock_leggings",
+    "bedrockminer:bedrock_boots"
+  ]
+}
