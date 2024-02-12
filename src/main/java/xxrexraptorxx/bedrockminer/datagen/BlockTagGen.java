@@ -1,23 +1,25 @@
 package xxrexraptorxx.bedrockminer.datagen;
-/**
-import net.minecraft.data.DataGenerator;
-import net.minecraft.data.tags.BlockTagsProvider;
+
+import net.minecraft.core.HolderLookup;
+import net.minecraft.data.PackOutput;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.world.level.block.Blocks;
+import net.minecraftforge.common.data.BlockTagsProvider;
 import net.minecraftforge.common.data.ExistingFileHelper;
-import xxrexraptorxx.bedrockminer.registry.ModBlocks;
 import xxrexraptorxx.bedrockminer.main.References;
-import xxrexraptorxx.bedrockminer.utils.ToolMaterials;
+import xxrexraptorxx.bedrockminer.registry.ModBlocks;
 
-public class TagsBlock extends BlockTagsProvider {
+import java.util.concurrent.CompletableFuture;
 
-    public TagsBlock(DataGenerator generator, ExistingFileHelper helper) {
-        super(generator, References.MODID, helper);
+public class BlockTagGen extends BlockTagsProvider {
+
+    public BlockTagGen(PackOutput packOutput, CompletableFuture<HolderLookup.Provider> lookupProvider, ExistingFileHelper helper) {
+        super(packOutput, lookupProvider, References.MODID, helper);
     }
 
 
     @Override
-    protected void addTags() {
+    protected void addTags(HolderLookup.Provider provider) {
         tag(BlockTags.MINEABLE_WITH_PICKAXE)
                 .add(   //ModBlocks.BEDROCK_INFUSED_STONE.get(),
                         ModBlocks.BEDROCK_INFUSED_OBSIDIAN.get(),
@@ -36,10 +38,9 @@ public class TagsBlock extends BlockTagsProvider {
                 );
 
 
-        tag(ToolMaterials.NEEDS_BEDROCK_TAG)
+        tag(ModBlocks.NEEDS_BEDROCK_TOOL)
                 .add(  Blocks.BEDROCK,
                        Blocks.END_PORTAL_FRAME
                 );
     }
 }
-**/
