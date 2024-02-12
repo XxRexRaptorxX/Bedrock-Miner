@@ -1,37 +1,35 @@
 package xxrexraptorxx.bedrockminer.utils;
 
-import net.minecraftforge.common.ForgeConfigSpec;
-import net.minecraftforge.fml.ModLoadingContext;
-import net.minecraftforge.fml.common.Mod;
-import net.minecraftforge.fml.config.ModConfig;
+import net.neoforged.fml.ModLoadingContext;
+import net.neoforged.fml.config.ModConfig;
+import net.neoforged.neoforge.common.ModConfigSpec;
 
-@Mod.EventBusSubscriber
 public class Config {
 
     public static final String CATEGORY_GENERAL = "general";
     public static final String CATEGORY_ITEMS = "items";
     public static final String CATEGORY_BLOCKS = "blocks";
 
-    public static ForgeConfigSpec SERVER_CONFIG;
-    public static ForgeConfigSpec CLIENT_CONFIG;
+    public static ModConfigSpec SERVER_CONFIG;
+    public static ModConfigSpec CLIENT_CONFIG;
 
-    public static ForgeConfigSpec.BooleanValue UPDATE_CHECKER;
-    public static ForgeConfigSpec.BooleanValue PATREON_REWARDS;
+    public static ModConfigSpec.BooleanValue UPDATE_CHECKER;
+    public static ModConfigSpec.BooleanValue PATREON_REWARDS;
 
-    public static ForgeConfigSpec.IntValue TOOL_DURABILITY;
-    public static ForgeConfigSpec.DoubleValue TOOL_EFFICIENCY;
-    public static ForgeConfigSpec.DoubleValue TOOL_DAMAGE;
-    public static ForgeConfigSpec.DoubleValue TOOL_SPEED;
-    public static ForgeConfigSpec.DoubleValue TOOL_ATTACK_SPEED_MODIFIER;
-    public static ForgeConfigSpec.IntValue TOOL_ENCHANTABILITY;
-    public static ForgeConfigSpec.BooleanValue HARVEST_ONLY_BEDROCK;
+    public static ModConfigSpec.IntValue TOOL_DURABILITY;
+    public static ModConfigSpec.DoubleValue TOOL_EFFICIENCY;
+    public static ModConfigSpec.DoubleValue TOOL_DAMAGE;
+    public static ModConfigSpec.DoubleValue TOOL_SPEED;
+    public static ModConfigSpec.DoubleValue TOOL_ATTACK_SPEED_MODIFIER;
+    public static ModConfigSpec.IntValue TOOL_ENCHANTABILITY;
+    public static ModConfigSpec.BooleanValue HARVEST_ONLY_BEDROCK;
 
-    public static ForgeConfigSpec.IntValue ARMOR_DURABILITY;
-    public static ForgeConfigSpec.IntValue ARMOR_ENCHANTABILITY;
-    public static ForgeConfigSpec.IntValue ARMOR_TOUGHNESS;
-    public static ForgeConfigSpec.BooleanValue ARMOR_EFFECTS;
+    public static ModConfigSpec.IntValue ARMOR_DURABILITY;
+    public static ModConfigSpec.IntValue ARMOR_ENCHANTABILITY;
+    public static ModConfigSpec.IntValue ARMOR_TOUGHNESS;
+    public static ModConfigSpec.BooleanValue ARMOR_EFFECTS;
 
-    public static ForgeConfigSpec.BooleanValue WANDERING_TRADES;
+    public static ModConfigSpec.BooleanValue WANDERING_TRADES;
 
 
     public static void init() {
@@ -44,7 +42,7 @@ public class Config {
 
 
     public static void initClient() {
-        ForgeConfigSpec.Builder builder = new ForgeConfigSpec.Builder();
+        ModConfigSpec.Builder builder = new ModConfigSpec.Builder();
 
         builder.comment("General").push(CATEGORY_GENERAL);
         UPDATE_CHECKER = builder.comment("Activate the Update-Checker").define("update-checker", true);
@@ -55,7 +53,7 @@ public class Config {
 
 
     public static void initServer() {
-        ForgeConfigSpec.Builder builder = new ForgeConfigSpec.Builder();
+        ModConfigSpec.Builder builder = new ModConfigSpec.Builder();
 
         builder.comment("General").push(CATEGORY_GENERAL);
         PATREON_REWARDS = builder.comment("Enables ingame rewards on first spawn for Patreons").define("patreon_rewards", true);

@@ -1,5 +1,6 @@
 package xxrexraptorxx.bedrockminer.blocks;
 
+import com.mojang.serialization.MapCodec;
 import net.minecraft.ChatFormatting;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
@@ -128,4 +129,9 @@ public class BlockBedrockBreaker extends DirectionalBlock {
                 block == Blocks.STRUCTURE_VOID || block == Blocks.BARRIER);
     }
 
+
+    @Override
+    protected MapCodec<? extends DirectionalBlock> codec() {
+        return null;
+    }
 }

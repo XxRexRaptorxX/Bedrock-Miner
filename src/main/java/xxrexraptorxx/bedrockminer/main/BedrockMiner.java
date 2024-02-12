@@ -1,10 +1,9 @@
 package xxrexraptorxx.bedrockminer.main;
 
-import net.minecraftforge.common.MinecraftForge;
-import net.minecraftforge.eventbus.api.IEventBus;
-import net.minecraftforge.fml.common.Mod;
-import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
-import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
+import net.neoforged.bus.api.IEventBus;
+import net.neoforged.fml.common.Mod;
+import net.neoforged.fml.event.lifecycle.FMLCommonSetupEvent;
+import net.neoforged.neoforge.common.NeoForge;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.jetbrains.annotations.NotNull;
@@ -24,21 +23,18 @@ public class BedrockMiner {
     public static final Logger LOGGER = LogManager.getLogger();
 
 
-    public BedrockMiner() {
-        IEventBus forgeBus = MinecraftForge.EVENT_BUS;
-        IEventBus modBus = FMLJavaModLoadingContext.get().getModEventBus();
-
-        modBus.addListener(this::setup);
+    public BedrockMiner(IEventBus bus) {
+         bus.addListener(this::setup);
 
         Config.init();
-        ModBlocks.init();
-        ModItems.init();
-        CreativeModeTabs.init();
+        ModBlocks.init(bus);
+        ModItems.init(bus);
+        CreativeModeTabs.init(bus);
     }
 
 
-    private void setup(final @NotNull FMLCommonSetupEvent event) {
-        MinecraftForge.EVENT_BUS.addListener(LootTableInjection::onChestLootLoad);
+    private void setup (final @NotNull FMLCommonSetupEvent event) {
+        NeoForge.EVENT_BUS.addListener(LootTableInjection::onChestLootLoad);
     }
 
 }

@@ -6,6 +6,7 @@ import net.minecraft.world.level.material.MapColor;
 import net.minecraft.world.level.material.PushReaction;
 
 public class BlockBedrockInfusedObsidian extends Block {
+
     public BlockBedrockInfusedObsidian() {
         super(Properties.of()
                 .strength(100, 4000)

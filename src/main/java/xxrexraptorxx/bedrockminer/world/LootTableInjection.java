@@ -9,13 +9,12 @@ import net.minecraft.world.level.storage.loot.entries.LootPoolEntryContainer;
 import net.minecraft.world.level.storage.loot.entries.LootTableReference;
 import net.minecraft.world.level.storage.loot.providers.number.ConstantValue;
 import net.minecraft.world.level.storage.loot.providers.number.UniformGenerator;
-import net.minecraftforge.event.LootTableLoadEvent;
-import net.minecraftforge.eventbus.api.SubscribeEvent;
-import net.minecraftforge.fml.common.Mod;
+import net.neoforged.bus.api.SubscribeEvent;
+import net.neoforged.fml.common.Mod;
+import net.neoforged.neoforge.event.LootTableLoadEvent;
 import org.jetbrains.annotations.NotNull;
 import xxrexraptorxx.bedrockminer.main.BedrockMiner;
 import xxrexraptorxx.bedrockminer.main.References;
-import xxrexraptorxx.bedrockminer.utils.Config;
 import xxrexraptorxx.bedrockminer.utils.mixins.LootTableAccessor;
 
 import java.util.Map;

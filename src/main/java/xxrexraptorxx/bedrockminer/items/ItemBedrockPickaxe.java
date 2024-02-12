@@ -6,7 +6,7 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.PickaxeItem;
 import net.minecraft.world.item.Tier;
 import net.minecraft.world.level.block.state.BlockState;
-import net.minecraftforge.common.TierSortingRegistry;
+import net.neoforged.neoforge.common.TierSortingRegistry;
 import xxrexraptorxx.bedrockminer.registry.ModTiers;
 
 //TODO

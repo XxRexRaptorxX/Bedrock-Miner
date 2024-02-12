@@ -6,6 +6,7 @@ import net.minecraft.world.level.material.MapColor;
 import net.minecraft.world.level.material.PushReaction;
 
 public class BlockBedrockInfusedStone extends Block {
+
     public BlockBedrockInfusedStone() {
         super(Properties.of()
                 .strength(80, 1800)
