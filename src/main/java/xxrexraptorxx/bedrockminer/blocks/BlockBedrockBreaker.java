@@ -22,6 +22,7 @@ import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.block.state.properties.BooleanProperty;
 import net.minecraft.world.level.block.state.properties.Property;
 import net.minecraft.world.level.material.MapColor;
+import xxrexraptorxx.bedrockminer.registry.ModBlocks;
 import xxrexraptorxx.bedrockminer.utils.Config;
 
 import javax.annotation.Nullable;
@@ -84,6 +85,9 @@ public class BlockBedrockBreaker extends DirectionalBlock {
     @Override
     public void neighborChanged(BlockState state, Level level, BlockPos pos, Block block, BlockPos fromPos, boolean isMoving) {
         if (!level.isClientSide) {
+
+            BlockPos harvestBlockPos = state.getValue(BlockStateProperties.FACING).equals(Direction.DOWN) ? pos.below() : pos.above();
+            BlockPos dropPos = state.getValue(BlockStateProperties.FACING).equals(Direction.DOWN) ? pos.above() : pos.below();
             boolean flag = state.getValue(POWERED);
 
             if (flag != level.hasNeighborSignal(pos)) {
@@ -92,16 +96,17 @@ public class BlockBedrockBreaker extends DirectionalBlock {
                     level.playSound((Player)null, pos, SoundEvents.PISTON_CONTRACT, SoundSource.BLOCKS, 0.5F, level.random.nextFloat() * 0.15F + 0.F);
 
                 } else {
-                    Block harvestblock = level.getBlockState(pos.below()).getBlock();
+                    Block harvestblock = level.getBlockState(harvestBlockPos).getBlock();
+                    if (harvestblock == ModBlocks.FAKE_BEDROCK.get()) harvestblock = Blocks.BEDROCK;
 
                     level.playSound((Player)null, pos, SoundEvents.PISTON_EXTEND, SoundSource.BLOCKS, 0.5F, level.random.nextFloat() * 0.15F + 0.F);
                     level.setBlock(pos, state.cycle(POWERED), 2);
 
                     if (isValidBlock(harvestblock)) {
                         level.playSound((Player)null, pos, SoundEvents.STONE_BREAK, SoundSource.BLOCKS, 0.5F, level.random.nextFloat() * 0.15F + 0.F);
-                        ItemEntity item = new ItemEntity(level, (double)pos.getX() + 0.5D, (double)pos.getY() + 1.5D, (double)pos.getZ() + 0.5D, new ItemStack(harvestblock, 1));
+                        ItemEntity item = new ItemEntity(level, (double)dropPos.getX() + 0.5F, (double)dropPos.getY(), (double)dropPos.getZ() + 0.5F, new ItemStack(harvestblock, 1));
                         level.addFreshEntity(item);
-                        level.destroyBlock(pos.below(), false);
+                        level.destroyBlock(harvestBlockPos, false);
                         level.addDestroyBlockEffect(pos, harvestblock.defaultBlockState());
 
                     } else {
@@ -114,24 +119,13 @@ public class BlockBedrockBreaker extends DirectionalBlock {
     }
 
 
-    private static BlockPos getHarvestBlockPos(BlockStateProperties facing) {
-        if (facing)
-    }
-
-
     private static boolean isValidBlock(Block block) {
-        if (Config.HARVEST_ONLY_BEDROCK.get() && block.equals(Blocks.BEDROCK)) {
-            return true;
-
-        } else {
-            if (block.equals(Blocks.COMMAND_BLOCK) || block.equals(Blocks.CHAIN_COMMAND_BLOCK) || block.equals(Blocks.REPEATING_COMMAND_BLOCK) || block.equals(Blocks.STRUCTURE_BLOCK) ||
-                    block.equals(Blocks.STRUCTURE_VOID) || block.equals(Blocks.BARRIER) || block instanceof AirBlock || block instanceof LiquidBlock) {
-                return false;
-
-            } else {
-                return true;
-            }
+        if (Config.HARVEST_ONLY_BEDROCK.get()) {
+            return (block == Blocks.BEDROCK || block == ModBlocks.FAKE_BEDROCK.get());
         }
+
+        return !(block == Blocks.COMMAND_BLOCK || block == Blocks.CHAIN_COMMAND_BLOCK || block == Blocks.REPEATING_COMMAND_BLOCK || block == Blocks.STRUCTURE_BLOCK ||
+                block == Blocks.STRUCTURE_VOID || block == Blocks.BARRIER);
     }
 
 }

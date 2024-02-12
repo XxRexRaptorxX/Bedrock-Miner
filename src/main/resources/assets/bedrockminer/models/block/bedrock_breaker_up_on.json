@@ -6,10 +6,10 @@
         "particle": "bedrockminer:block/bedrock_breaker_side",
         "side": "bedrockminer:block/bedrock_breaker_side",
         "top": "bedrockminer:block/bedrock_breaker_face",
-        "bottom": "bedrockminer:block/bedrock_breaker_face",
+        "bottom": "bedrockminer:block/bedrock_breaker_top",
         "detail": "bedrockminer:block/bedrock_breaker_on"
     },
-    "elements": [    
+    "elements": [
         {
             "__comment": "Box",
             "from": [ 0, 0, 0 ],
@@ -25,20 +25,20 @@
         },
         {
             "__comment": "Plane1",
-            "from": [ 8, -16, 0 ],
-            "to": [ 8.001, 0, 16 ],
+            "from": [ 8, 16, 0 ],
+            "to": [ 8.001, 32, 16 ],
             "faces": {
-                "west": { "uv": [ 0, 0, 16, 16 ], "texture": "#detail" },
-                "east": { "uv": [ 0, 0, 16, 16 ], "texture": "#detail" }
+                "west": { "uv": [ 0, 0, 16, 16 ], "texture": "#detail", "rotation": 180 },
+                "east": { "uv": [ 0, 0, 16, 16 ], "texture": "#detail", "rotation": 180 }
             }
         },
         {
             "__comment": "Plane2",
-            "from": [ 0, -16, 8 ],
-            "to": [ 16, 0, 8.001 ],
+            "from": [ 0, 16, 8 ],
+            "to": [ 16, 32, 8.001 ],
             "faces": {
-                "north": { "uv": [ 0, 0, 16, 16 ], "texture": "#detail" },
-                "south": { "uv": [ 0, 0, 16, 16 ], "texture": "#detail" }
+                "north": { "uv": [ 0, 0, 16, 16 ], "texture": "#detail", "rotation": 180 },
+                "south": { "uv": [ 0, 0, 16, 16 ], "texture": "#detail", "rotation": 180 }
             }
         }
     ],
