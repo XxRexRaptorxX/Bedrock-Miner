@@ -5,7 +5,7 @@
     "textures": {
         "particle": "bedrockminer:block/bedrock_breaker_side",
         "side": "bedrockminer:block/bedrock_breaker_side",
-        "top": "bedrockminer:block/bedrock_breaker_top",
+        "top": "bedrockminer:block/bedrock_breaker_face",
         "bottom": "bedrockminer:block/bedrock_breaker_face",
         "detail": "bedrockminer:block/bedrock_breaker_on"
     },
