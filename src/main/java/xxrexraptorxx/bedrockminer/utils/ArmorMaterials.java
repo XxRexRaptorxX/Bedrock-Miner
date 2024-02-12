@@ -22,7 +22,7 @@ public enum ArmorMaterials implements ArmorMaterial {
         p_266650_.put(ArmorItem.Type.LEGGINGS, 6);
         p_266650_.put(ArmorItem.Type.CHESTPLATE, 8);
         p_266650_.put(ArmorItem.Type.HELMET, 3);
-    }), 18, SoundEvents.ARMOR_EQUIP_GENERIC, 0.8F, 3, () -> {
+    }), 18, SoundEvents.ARMOR_EQUIP_GENERIC, 0.8F, 0.5F, () -> {
         return Ingredient.of(ModItems.BEDROCK_CHUNK.get());
     });
 
@@ -44,7 +44,7 @@ public enum ArmorMaterials implements ArmorMaterial {
     });
 
     ArmorMaterials(String nameIn, int durabilityMultiplierIn, EnumMap<ArmorItem.Type, Integer> protectionFunctionForTypeIn, int enchantabilityIn,
-                   SoundEvent soundIn, float toughnessIn, int knockbackResistanceIn, Supplier<Ingredient> repairMatIn) {
+                   SoundEvent soundIn, float toughnessIn, float knockbackResistanceIn, Supplier<Ingredient> repairMatIn) {
         name = nameIn;
         durabilityMultiplier = durabilityMultiplierIn;
         protectionFunctionForType = protectionFunctionForTypeIn;
