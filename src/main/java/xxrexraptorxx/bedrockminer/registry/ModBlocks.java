@@ -1,5 +1,8 @@
 package xxrexraptorxx.bedrockminer.registry;
 
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.tags.BlockTags;
+import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
@@ -20,6 +23,8 @@ public class ModBlocks {
         BLOCKS.register(FMLJavaModLoadingContext.get().getModEventBus());
         ITEMS.register(FMLJavaModLoadingContext.get().getModEventBus());
     }
+
+    public static final TagKey<Block> NEEDS_BEDROCK_TOOL = BlockTags.create(new ResourceLocation(References.MODID, "needs_bedrock_tool"));
 
 
     //public static final RegistryObject<BlockBedrockInfusedStone> BEDROCK_INFUSED_STONE = BLOCKS.register("bedrock_infused_stone", BlockBedrockInfusedStone::new);
