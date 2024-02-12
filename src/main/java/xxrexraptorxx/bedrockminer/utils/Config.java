@@ -17,7 +17,6 @@ public class Config {
 
     public static ForgeConfigSpec.BooleanValue UPDATE_CHECKER;
     public static ForgeConfigSpec.BooleanValue PATREON_REWARDS;
-    public static ForgeConfigSpec.BooleanValue LOOT_GENERATION;
 
     public static ForgeConfigSpec.IntValue TOOL_DURABILITY;
     public static ForgeConfigSpec.DoubleValue TOOL_EFFICIENCY;
@@ -60,7 +59,6 @@ public class Config {
 
         builder.comment("General").push(CATEGORY_GENERAL);
         PATREON_REWARDS = builder.comment("Enables ingame rewards on first spawn for Patreons").define("patreon_rewards", true);
-        LOOT_GENERATION = builder.comment("Activate the dungeon loot generation of the mod").define("loot_generation", true);
         builder.pop();
 
         builder.comment("Items").push(CATEGORY_ITEMS);

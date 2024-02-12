@@ -23,7 +23,9 @@ public class BlockTagGen extends BlockTagsProvider {
         tag(BlockTags.MINEABLE_WITH_PICKAXE)
                 .add(   //ModBlocks.BEDROCK_INFUSED_STONE.get(),
                         ModBlocks.BEDROCK_INFUSED_OBSIDIAN.get(),
-                        ModBlocks.BEDROCK_BREAKER.get()
+                        ModBlocks.BEDROCK_BREAKER.get(),
+                        ModBlocks.FAKE_BEDROCK.get(),
+                        Blocks.BEDROCK
                         );
 
 
@@ -33,14 +35,9 @@ public class BlockTagGen extends BlockTagsProvider {
                 );
 
 
-        tag(BlockTags.NEEDS_IRON_TOOL)
+        tag(BlockTags.NEEDS_STONE_TOOL)
                 .add(  ModBlocks.BEDROCK_BREAKER.get()
                 );
 
-
-        tag(ModBlocks.NEEDS_BEDROCK_TOOL)
-                .add(  Blocks.BEDROCK,
-                       Blocks.END_PORTAL_FRAME
-                );
     }
 }

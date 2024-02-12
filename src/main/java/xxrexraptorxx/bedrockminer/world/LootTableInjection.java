@@ -61,18 +61,16 @@ public class LootTableInjection {
 
     @SubscribeEvent
     public static void onChestLootLoad(@NotNull LootTableLoadEvent event) {
-        if (Config.LOOT_GENERATION.get()) {
-            String prefix = "minecraft:chests/";
-            String name = event.getName().toString();
-            if (name.startsWith(prefix)) {
-                String file = name.substring(name.indexOf(prefix) + prefix.length());
-                if (INJECTION_TABLES.containsKey(file)) {
-                    try {
-                        ((LootTableAccessor) event.getTable()).getPools().add(getInjectPool(file));
-                        injected++;
-                    } catch (NullPointerException e) {
-                        BedrockMiner.LOGGER.error("Loottable {} is broken by some other mod. Cannot add " + References.NAME + " loot to it. " + name);
-                    }
+        String prefix = "minecraft:chests/";
+        String name = event.getName().toString();
+        if (name.startsWith(prefix)) {
+            String file = name.substring(name.indexOf(prefix) + prefix.length());
+            if (INJECTION_TABLES.containsKey(file)) {
+                try {
+                    ((LootTableAccessor) event.getTable()).getPools().add(getInjectPool(file));
+                    injected++;
+                } catch (NullPointerException e) {
+                    BedrockMiner.LOGGER.error("Loottable {} is broken by some other mod. Cannot add " + References.NAME + " loot to it. " + name);
                 }
             }
         }
