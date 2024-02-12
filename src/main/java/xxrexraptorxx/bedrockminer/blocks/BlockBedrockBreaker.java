@@ -2,6 +2,7 @@ package xxrexraptorxx.bedrockminer.blocks;
 
 import net.minecraft.ChatFormatting;
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvents;
@@ -19,16 +20,16 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.block.state.properties.BooleanProperty;
+import net.minecraft.world.level.block.state.properties.Property;
 import net.minecraft.world.level.material.MapColor;
 import xxrexraptorxx.bedrockminer.utils.Config;
 
 import javax.annotation.Nullable;
 import java.util.List;
 
-public class BlockBedrockBreaker extends Block {
+public class BlockBedrockBreaker extends DirectionalBlock {
 
     public static final BooleanProperty POWERED = BlockStateProperties.POWERED;
-
 
     public BlockBedrockBreaker() {
         super(Properties.of()
@@ -36,7 +37,7 @@ public class BlockBedrockBreaker extends Block {
                 .sound(SoundType.STONE)
                 .mapColor(MapColor.COLOR_GRAY)
         );
-        this.registerDefaultState(this.defaultBlockState().setValue(POWERED, Boolean.valueOf(false)));
+        this.registerDefaultState((BlockState)((BlockState)((BlockState)this.stateDefinition.any()).setValue(FACING, Direction.DOWN)).setValue(POWERED, false));
     }
 
 
@@ -48,14 +49,27 @@ public class BlockBedrockBreaker extends Block {
 
     @Override
     protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> pBuilder) {
-        pBuilder.add(POWERED);
+        pBuilder.add(new Property[]{FACING, POWERED});
+    }
+
+
+    @Override
+    public BlockState rotate(BlockState pState, Rotation pRot) {
+        return (BlockState)pState.setValue(FACING, pRot.rotate((Direction)pState.getValue(FACING)));
+    }
+
+
+    @Override
+    public BlockState mirror(BlockState pState, Mirror pMirror) {
+        return pState.rotate(pMirror.getRotation((Direction)pState.getValue(FACING)));
     }
 
 
     @Nullable
     @Override
-    public BlockState getStateForPlacement(BlockPlaceContext pContext) {
-        return this.defaultBlockState().setValue(POWERED, Boolean.valueOf(pContext.getLevel().hasNeighborSignal(pContext.getClickedPos())));
+    public BlockState getStateForPlacement(BlockPlaceContext context) {
+        return this.defaultBlockState().setValue(POWERED, Boolean.valueOf(context.getLevel().hasNeighborSignal(context.getClickedPos())))
+                .setValue(FACING, context.getNearestLookingVerticalDirection().getOpposite().getOpposite());
     }
 
 
@@ -97,6 +111,11 @@ public class BlockBedrockBreaker extends Block {
             }
 
         }
+    }
+
+
+    private static BlockPos getHarvestBlockPos(BlockStateProperties facing) {
+        if (facing)
     }
 
 
