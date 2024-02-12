@@ -9,7 +9,6 @@ import net.minecraft.world.level.material.MapColor;
 import net.minecraft.world.level.material.PushReaction;
 
 public class BlockFakeBedrock extends Block {
-
     public BlockFakeBedrock() {
         super(Properties.of()
                 .strength(150.0F, 3600000.0F)
@@ -21,12 +20,9 @@ public class BlockFakeBedrock extends Block {
         );
     }
 
-
     @Override
     public MutableComponent getName() {
         return Blocks.BEDROCK.getName();
     }
-
-
 
 }
