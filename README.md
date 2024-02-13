@@ -8,6 +8,8 @@
 
 ## 📖 Description
 
+Adds tools to harvest bedrock and craft things like blocks, items and armor out of it!
+
 ### How to start:
 
 Find bedrock chunks in stronghold, bastions and end city chests (very rare) and craft bedrock blocks. Now you can make the pickaxe & bedrock breaker to mine the real bedrock and have acccess to get all other items and block of the mod!
@@ -18,7 +20,9 @@ Find bedrock chunks in stronghold, bastions and end city chests (very rare) and 
 
 - new tools and armor! (with the highest durability and the lowest enchantability) [configurable]
 - new blocks
-- new machine (harvests bedrock and all other blocks, and operator blocks (commandblock,...) when you activates it in the config
+- new machine (harvests bedrock and all other blocks, when you activates it in the config
+- [Epic Fight](https://www.curseforge.com/minecraft/mc-mods/epic-fight-mod) support
+- update checker
 - config file
 - update checker
 
