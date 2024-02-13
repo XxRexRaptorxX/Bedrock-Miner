@@ -9,6 +9,7 @@ import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 import xxrexraptorxx.bedrockminer.blocks.BlockBedrockBreaker;
 import xxrexraptorxx.bedrockminer.blocks.BlockBedrockInfusedObsidian;
+import xxrexraptorxx.bedrockminer.blocks.BlockFakeBedrock;
 import xxrexraptorxx.bedrockminer.utils.CreativeTab;
 
 public class ModBlocks {
@@ -30,5 +31,8 @@ public class ModBlocks {
 
     public static final RegistryObject<BlockBedrockBreaker> BEDROCK_BREAKER = BLOCKS.register("bedrock_breaker", BlockBedrockBreaker::new);
     public static final RegistryObject<Item> BEDROCK_BREAKER_BLOCKITEM = ITEMS.register("bedrock_breaker", () -> new BlockItem(BEDROCK_BREAKER.get(), new Item.Properties().tab(CreativeTab.MOD_TAB)));
+
+    public static final RegistryObject<BlockFakeBedrock> FAKE_BEDROCK = BLOCKS.register("fake_bedrock", BlockFakeBedrock::new);
+    public static final RegistryObject<Item> FAKE_BEDROCK_BLOCKITEM = ITEMS.register("fake_bedrock", () -> new BlockItem(FAKE_BEDROCK.get(), new Item.Properties()));
 
 }

@@ -15,7 +15,7 @@ import java.util.function.Supplier;
 
 public enum ArmorMaterials implements ArmorMaterial {
 
-    BEDROCK(References.MODID + ":bedrock", 50, new int[] {2, 6, 8, 3}, 18, SoundEvents.ARMOR_EQUIP_GENERIC, 3, ()-> { return Ingredient.of(ModItems.BEDROCK_CHUNK.get());});
+    BEDROCK(References.MODID + ":bedrock", 50, new int[] {2, 6, 8, 3}, 18, SoundEvents.ARMOR_EQUIP_GENERIC, 0.8F, 0.5F, ()-> { return Ingredient.of(ModItems.BEDROCK_CHUNK.get());});
 
     private static final int[] MAX_DAMAGE_ARRAY = new int[]{13, 15, 16, 11};
     private final String name;
@@ -24,15 +24,17 @@ public enum ArmorMaterials implements ArmorMaterial {
     private final int enchantability;
     private final SoundEvent soundEvent;
     private final float toughness;
+    private final float knockbackResistance;
     private final Lazy<Ingredient> repairMaterial;
 
-    private ArmorMaterials(String nameIn, int maxDamageIn, int[] drAmtArray, int enchantabilityIn, SoundEvent soundIn, float toughnessIn, Supplier<Ingredient> repairMatIn) {
+    private ArmorMaterials(String nameIn, int maxDamageIn, int[] drAmtArray, int enchantabilityIn, SoundEvent soundIn, float toughnessIn, float knockbackResistanceIn, Supplier<Ingredient> repairMatIn) {
         name = nameIn;
         maxDamageFactor = maxDamageIn;
         damageReductionAmountArray = drAmtArray;
         enchantability = enchantabilityIn;
         soundEvent = soundIn;
         toughness = toughnessIn;
+        knockbackResistance = knockbackResistanceIn;
         repairMaterial = Lazy.of(repairMatIn);
     }
 
@@ -74,6 +76,6 @@ public enum ArmorMaterials implements ArmorMaterial {
 
     @Override
     public float getKnockbackResistance() {
-        return 0;
+        return this.knockbackResistance;
     }
 }

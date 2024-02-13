@@ -149,11 +149,6 @@ dependencies {
     // at runtime, use the full JEI
     runtimeOnly fg.deobf("mezz.jei:jei-${mc_version}-common:${jei_version}")
     runtimeOnly fg.deobf("mezz.jei:jei-${mc_version}-forge:${jei_version}")
-
-    //compileOnly fg.deobf("vazkii.patchouli:Patchouli:${mc_version}-${patchouli_version}:api")
-    //runtimeOnly fg.deobf("vazkii.patchouli:Patchouli:${mc_version}-${patchouli_version}")
-
-    //runtimeOnly fg.deobf("curse.maven:shutup_experimental_settings-407174:${ses_version}")
 }
 
 // Example for how to get properties into the manifest for reading at runtime.
@@ -162,7 +157,7 @@ jar {
         attributes([
                 "Specification-Title"     : "${mod_id}",
                 "Specification-Vendor"    : "XxRexRaptorxX",
-                "Specification-Version"   : "1", // We are version 1 of ourselves
+                "Specification-Version"   : project.version,
                 "Implementation-Title"    : project.name,
                 "Implementation-Version"  : project.jar.archiveVersion,
                 "Implementation-Vendor"   : "XxRexRaptorxX",
@@ -188,4 +183,8 @@ publishing {
             url "file://${project.projectDir}/mcmodsrepo"
         }
     }
+}
+
+//Dummy task to fix post sync error caused by NeoGradle
+tasks.register("idePostSync") {
 }

@@ -1,7 +1,8 @@
 {
-  "replace": false,
   "values": [
     "bedrockminer:bedrock_infused_obsidian",
-    "bedrockminer:bedrock_breaker"
+    "bedrockminer:bedrock_breaker",
+    "bedrockminer:fake_bedrock",
+    "minecraft:bedrock"
   ]
 }

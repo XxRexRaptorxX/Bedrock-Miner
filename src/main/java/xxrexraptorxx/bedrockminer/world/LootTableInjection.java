@@ -105,4 +105,4 @@ public class LootTableInjection {
 }
 
 //                              TEST command
-//      /setblock ~ ~ ~ minecraft:chest{LootTable:"minecraft:chests/stronghold_library"}
+//      /setblock ~ ~ ~ minecraft:chest{LootTable:"minecraft:chests/end_city_treasure"}

@@ -4,12 +4,13 @@
     "itemGroup.bedrockminer_tab": "Bedrock Miner",
 
     "message.bedrockminer.bedrock_breaker.desc": "A besoin de redstone pour fonctionner",
-    "message.bedrockminer.bedrock_chunk_jei_desc": "Peut être trouver rarement dans les coffres des forts, des bastions et des cités de l'End.",
+    "message.bedrockminer.bedrock_chunk_jei_desc": "Can rarely be found in stronghold, bastion and end city chests or from Wandering Traders.",
 
     "block.bedrockminer.bedrock_infused_obsidian": "Obsidienne infusée de Bedrock",
     "block.bedrockminer.bedrock_infused_stone": "Pierre infusée de Bedrock",
     "block.bedrockminer.bedrock_breaker": "Foreuse de Bedrock",
     "block.bedrockminer.bedrock_breaker_on": "Foreuse de Bedrock",
+    "block.bedrockminer.fake_bedrock": "Bedrock",
 
     "item.bedrockminer.bedrock_chunk": "Morceau de Bedrock",
     "item.bedrockminer.bedrock_sword": "Epée en Bedrock",

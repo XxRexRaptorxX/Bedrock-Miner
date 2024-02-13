@@ -3,11 +3,11 @@
     "render_type": "cutout_mipped",
     "parent": "block/block",
     "textures": {
-        "particle": "bedrockminer:blocks/bedrock_breaker_side",
-        "side": "bedrockminer:blocks/bedrock_breaker_side",
-        "top": "bedrockminer:blocks/bedrock_breaker_top",
-        "bottom": "bedrockminer:blocks/bedrock_breaker_bottom",
-        "detail": "bedrockminer:blocks/bedrock_breaker_on"
+        "particle": "bedrockminer:block/bedrock_breaker_side",
+        "side": "bedrockminer:block/bedrock_breaker_side",
+        "top": "bedrockminer:block/bedrock_breaker_top",
+        "bottom": "bedrockminer:block/bedrock_breaker_face",
+        "detail": "bedrockminer:block/bedrock_breaker_on"
     },
     "elements": [    
         {

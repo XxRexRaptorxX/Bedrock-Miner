@@ -5,7 +5,7 @@ issueTrackerURL="https://www.curseforge.com/minecraft/mc-mods/bedrock-miner/issu
 
 [[mods]]
 modId="bedrockminer"
-version="2.0.0-pre6"
+version="2.2.1"
 displayName="Bedrock Miner"
 updateJSONURL="https://raw.githubusercontent.com/XxRexRaptorxX/Update-Checker/main/BedrockMiner.json"
 displayURL="https://www.curseforge.com/minecraft/mc-mods/bedrock-miner"
@@ -13,9 +13,7 @@ itemIcon="minecraft:bedrock"
 logoFile="logo.png"
 #credits=""
 authors="XxRexRaptorxX (RexRaptor)"
-description='''
-This small mod adds a new stable tool set to the game, the pickaxe and the breaker machine allows you to mine bedrock. With this new resource can you craft a few new items and blocks :D
-'''
+description='''Adds tools to harvest bedrock and craft things like blocks, items and armor out of it!'''
 
 [[dependencies.bedrockminer]]
     modId="forge"
@@ -27,6 +25,6 @@ This small mod adds a new stable tool set to the game, the pickaxe and the break
 [[dependencies.bedrockminer]]
     modId="minecraft"
     mandatory=true
-    versionRange="[1.19,1.20)"
+    versionRange="[1.19,1.19.3)"
     ordering="NONE"
     side="BOTH"
