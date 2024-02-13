@@ -1,15 +1,15 @@
 {
     "variants": {
-        "powered=false,facing=down": {
+        "powered=false,vertical_direction=down": {
             "model": "bedrockminer:block/bedrock_breaker"
         },
-        "powered=true,facing=down": {
+        "powered=true,vertical_direction=down": {
             "model": "bedrockminer:block/bedrock_breaker_on"
         },
-        "powered=false,facing=up": {
+        "powered=false,vertical_direction=up": {
             "model": "bedrockminer:block/bedrock_breaker_up"
         },
-        "powered=true,facing=up": {
+        "powered=true,vertical_direction=up": {
             "model": "bedrockminer:block/bedrock_breaker_up_on"
         }
     }

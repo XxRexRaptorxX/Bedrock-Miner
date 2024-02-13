@@ -7,6 +7,7 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
+import net.minecraft.tags.ItemTags;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.entity.player.Player;
@@ -20,8 +21,10 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.block.state.properties.BooleanProperty;
+import net.minecraft.world.level.block.state.properties.DirectionProperty;
 import net.minecraft.world.level.block.state.properties.Property;
 import net.minecraft.world.level.material.MapColor;
+import net.minecraftforge.common.Tags;
 import xxrexraptorxx.bedrockminer.registry.ModBlocks;
 import xxrexraptorxx.bedrockminer.utils.Config;
 
@@ -30,6 +33,7 @@ import java.util.List;
 
 public class BlockBedrockBreaker extends DirectionalBlock {
 
+    public static final DirectionProperty DIRECTION = BlockStateProperties.VERTICAL_DIRECTION;
     public static final BooleanProperty POWERED = BlockStateProperties.POWERED;
 
     public BlockBedrockBreaker() {
@@ -38,7 +42,7 @@ public class BlockBedrockBreaker extends DirectionalBlock {
                 .sound(SoundType.STONE)
                 .mapColor(MapColor.COLOR_GRAY)
         );
-        this.registerDefaultState((BlockState)((BlockState)((BlockState)this.stateDefinition.any()).setValue(FACING, Direction.DOWN)).setValue(POWERED, false));
+        this.registerDefaultState((BlockState)((BlockState)((BlockState)this.stateDefinition.any()).setValue(DIRECTION, Direction.DOWN)).setValue(POWERED, false));
     }
 
 
@@ -50,27 +54,27 @@ public class BlockBedrockBreaker extends DirectionalBlock {
 
     @Override
     protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> pBuilder) {
-        pBuilder.add(new Property[]{FACING, POWERED});
+        pBuilder.add(new Property[]{DIRECTION, POWERED});
     }
 
 
     @Override
     public BlockState rotate(BlockState pState, Rotation pRot) {
-        return (BlockState)pState.setValue(FACING, pRot.rotate((Direction)pState.getValue(FACING)));
+        return (BlockState)pState.setValue(DIRECTION, pRot.rotate((Direction)pState.getValue(DIRECTION)));
     }
 
 
     @Override
     public BlockState mirror(BlockState pState, Mirror pMirror) {
-        return pState.rotate(pMirror.getRotation((Direction)pState.getValue(FACING)));
+        return pState.rotate(pMirror.getRotation((Direction)pState.getValue(DIRECTION)));
     }
 
 
     @Nullable
     @Override
     public BlockState getStateForPlacement(BlockPlaceContext context) {
-        return this.defaultBlockState().setValue(POWERED, Boolean.valueOf(context.getLevel().hasNeighborSignal(context.getClickedPos())))
-                .setValue(FACING, context.getNearestLookingVerticalDirection().getOpposite().getOpposite());
+        return this.defaultBlockState().setValue(DIRECTION, context.getNearestLookingVerticalDirection().getOpposite().getOpposite())
+                .setValue(POWERED, Boolean.valueOf(context.getLevel().hasNeighborSignal(context.getClickedPos())));
     }
 
 
@@ -86,8 +90,8 @@ public class BlockBedrockBreaker extends DirectionalBlock {
     public void neighborChanged(BlockState state, Level level, BlockPos pos, Block block, BlockPos fromPos, boolean isMoving) {
         if (!level.isClientSide) {
 
-            BlockPos harvestBlockPos = state.getValue(BlockStateProperties.FACING).equals(Direction.DOWN) ? pos.below() : pos.above();
-            BlockPos dropPos = state.getValue(BlockStateProperties.FACING).equals(Direction.DOWN) ? pos.above() : pos.below();
+            BlockPos harvestBlockPos = state.getValue(BlockStateProperties.VERTICAL_DIRECTION).equals(Direction.DOWN) ? pos.below() : pos.above();
+            BlockPos dropPos = state.getValue(BlockStateProperties.VERTICAL_DIRECTION).equals(Direction.DOWN) ? pos.above() : pos.below();
             boolean flag = state.getValue(POWERED);
 
             if (flag != level.hasNeighborSignal(pos)) {
@@ -125,7 +129,7 @@ public class BlockBedrockBreaker extends DirectionalBlock {
         }
 
         return !(block == Blocks.COMMAND_BLOCK || block == Blocks.CHAIN_COMMAND_BLOCK || block == Blocks.REPEATING_COMMAND_BLOCK || block == Blocks.STRUCTURE_BLOCK ||
-                block == Blocks.STRUCTURE_VOID || block == Blocks.BARRIER);
+                block == Blocks.STRUCTURE_VOID || block == Blocks.BARRIER || new ItemStack(block).is(ItemTags.LEAVES) || new ItemStack(block).is(ItemTags.FLOWERS)  || new ItemStack(block).is(Tags.Items.CROPS));
     }
 
 }
