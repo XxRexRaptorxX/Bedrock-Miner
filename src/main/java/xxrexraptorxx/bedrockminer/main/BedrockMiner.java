@@ -1,17 +1,15 @@
 package xxrexraptorxx.bedrockminer.main;
 
 import net.neoforged.bus.api.IEventBus;
+import net.neoforged.fml.ModContainer;
 import net.neoforged.fml.common.Mod;
-import net.neoforged.fml.event.lifecycle.FMLCommonSetupEvent;
-import net.neoforged.neoforge.common.NeoForge;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.jetbrains.annotations.NotNull;
 import xxrexraptorxx.bedrockminer.registry.CreativeModeTabs;
+import xxrexraptorxx.bedrockminer.registry.ModArmorMaterials;
 import xxrexraptorxx.bedrockminer.registry.ModBlocks;
 import xxrexraptorxx.bedrockminer.registry.ModItems;
 import xxrexraptorxx.bedrockminer.utils.Config;
-import xxrexraptorxx.bedrockminer.world.LootTableInjection;
 
 /**
  * @author XxRexRaptorxX (RexRaptor)
@@ -23,18 +21,13 @@ public class BedrockMiner {
     public static final Logger LOGGER = LogManager.getLogger();
 
 
-    public BedrockMiner(IEventBus bus) {
-         bus.addListener(this::setup);
+    public BedrockMiner(IEventBus bus, ModContainer container) {
 
-        Config.init();
+        Config.init(container);
         ModBlocks.init(bus);
         ModItems.init(bus);
+        ModArmorMaterials.init(bus);
         CreativeModeTabs.init(bus);
-    }
-
-
-    private void setup (final @NotNull FMLCommonSetupEvent event) {
-        NeoForge.EVENT_BUS.addListener(LootTableInjection::onChestLootLoad);
     }
 
 }

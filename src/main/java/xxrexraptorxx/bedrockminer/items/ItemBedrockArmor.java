@@ -1,5 +1,6 @@
 package xxrexraptorxx.bedrockminer.items;
 
+import net.minecraft.core.Holder;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.Entity;
@@ -15,7 +16,7 @@ import xxrexraptorxx.bedrockminer.utils.Config;
 
 public class ItemBedrockArmor extends ArmorItem {
 
-    public ItemBedrockArmor(ArmorMaterial material, Type type, Properties properties) {
+    public ItemBedrockArmor(Holder<ArmorMaterial> material, Type type, Properties properties) {
         super(material, type, properties);
     }
 

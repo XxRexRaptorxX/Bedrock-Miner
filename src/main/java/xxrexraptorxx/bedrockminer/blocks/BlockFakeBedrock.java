@@ -18,6 +18,7 @@ public class BlockFakeBedrock extends Block {
                 .instrument(NoteBlockInstrument.BASEDRUM)
                 .pushReaction(PushReaction.BLOCK)
                 .isValidSpawn((state, level, pos, value) -> false)
+                .requiresCorrectToolForDrops()
         );
     }
 
@@ -25,5 +26,6 @@ public class BlockFakeBedrock extends Block {
     public MutableComponent getName() {
         return Blocks.BEDROCK.getName();
     }
+
 
 }

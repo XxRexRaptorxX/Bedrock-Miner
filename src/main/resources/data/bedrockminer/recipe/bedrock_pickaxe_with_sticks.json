@@ -1,0 +1,33 @@
+{
+  "conditions": [
+    {
+      "value": {
+        "type": "forge:tag_empty",
+        "tag": "forge:sticks/diamond"
+      },
+      "type": "forge:not"
+    }
+  ],
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "pattern": [
+  
+    "XXX",
+    " # ",
+    " # "
+    
+  ],
+  "key": {
+    "#": {
+      "tag": "forge:sticks/diamond"
+    },
+    "X": {
+      "item": "minecraft:bedrock"
+    }
+  },
+  
+  
+  "result": {
+    "id": "bedrockminer:bedrock_pickaxe"
+  }
+}

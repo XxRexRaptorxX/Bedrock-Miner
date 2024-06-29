@@ -1,0 +1,30 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "redstone",
+  "pattern": [
+  
+    "XOX",
+    "X#X",
+    "XIX"
+    
+  ],
+  "key": {
+    "#": {
+      "item": "minecraft:piston"
+    },
+      "I": {
+      "item": "minecraft:dispenser"
+    },
+      "O": {
+      "item": "bedrockminer:bedrock_pickaxe"
+    },
+    "X": {
+      "tag": "forge:ingots/iron"
+    }
+  },
+  
+  
+  "result": {
+    "id": "bedrockminer:bedrock_breaker"
+  }
+}

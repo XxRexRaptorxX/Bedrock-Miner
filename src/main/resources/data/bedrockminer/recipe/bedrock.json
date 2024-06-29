@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "pattern": [
+  
+    "###",
+    "###",
+    "###"
+    
+  ],
+  "key": {
+    "#": {
+      "item": "bedrockminer:bedrock_chunk"
+    }
+  },
+  
+  
+  "result": {
+    "id": "minecraft:bedrock"
+  }
+}

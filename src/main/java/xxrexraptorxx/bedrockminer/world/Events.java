@@ -1,9 +1,12 @@
 package xxrexraptorxx.bedrockminer.world;
 
+import com.mojang.authlib.GameProfile;
 import net.minecraft.ChatFormatting;
 import net.minecraft.client.Minecraft;
 import net.minecraft.core.BlockPos;
-import net.minecraft.nbt.CompoundTag;
+import net.minecraft.core.Registry;
+import net.minecraft.core.component.DataComponents;
+import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.ClickEvent;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.MutableComponent;
@@ -16,7 +19,11 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
+import net.minecraft.world.item.component.ResolvableProfile;
+import net.minecraft.world.item.enchantment.Enchantment;
 import net.minecraft.world.item.enchantment.Enchantments;
+import net.minecraft.world.item.enchantment.ItemEnchantments;
+import net.minecraft.world.item.trading.ItemCost;
 import net.minecraft.world.item.trading.MerchantOffer;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
@@ -24,8 +31,8 @@ import net.minecraft.world.level.block.Blocks;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.ModList;
 import net.neoforged.fml.VersionChecker;
-import net.neoforged.fml.common.Mod;
-import net.neoforged.neoforge.event.TickEvent;
+import net.neoforged.fml.common.EventBusSubscriber;
+import net.neoforged.neoforge.client.event.ClientTickEvent;
 import net.neoforged.neoforge.event.entity.player.PlayerEvent;
 import net.neoforged.neoforge.event.entity.player.PlayerInteractEvent;
 import net.neoforged.neoforge.event.village.WandererTradesEvent;
@@ -40,14 +47,14 @@ import java.net.URL;
 import java.util.List;
 import java.util.Scanner;
 
-@Mod.EventBusSubscriber(modid = References.MODID, bus = Mod.EventBusSubscriber.Bus.FORGE)
+@EventBusSubscriber(modid = References.MODID, bus = EventBusSubscriber.Bus.GAME)
 public class Events {
 
     /** Update-Checker **/
     private static boolean hasShownUp = false;
 
     @SubscribeEvent
-    public static void onClientTick(TickEvent.ClientTickEvent event) {
+    public static void onClientTick(ClientTickEvent.Pre event) {
         if (Config.UPDATE_CHECKER.get()) {
             if (!hasShownUp && Minecraft.getInstance().screen == null) {
                 if (VersionChecker.getResult(ModList.get().getModContainerById(References.MODID).get().getModInfo()).status() == VersionChecker.Status.OUTDATED ||
@@ -96,12 +103,12 @@ public class Events {
                         //test if player is supporter
                         if (SupporterCheck(SUPPORTER_URL, player)) {
 
-                            ItemStack certificate = new ItemStack(Items.PAPER).setHoverName((Component.literal("Thank you for supporting me in my work!").withStyle(ChatFormatting.GOLD).append(Component.literal(" - XxRexRaptorxX").withStyle(ChatFormatting.ITALIC).withStyle(ChatFormatting.GREEN))));
+                            ItemStack certificate = new ItemStack(Items.PAPER);
+                            certificate.set(DataComponents.CUSTOM_NAME, Component.literal("Thank you for supporting me in my work!").withStyle(ChatFormatting.GOLD).append(Component.literal(" - XxRexRaptorxX").withStyle(ChatFormatting.ITALIC).withStyle(ChatFormatting.GREEN)));
 
-                            CompoundTag ownerNBT = new CompoundTag();
                             ItemStack reward = new ItemStack(Items.PLAYER_HEAD);
-                            ownerNBT.putString("SkullOwner", player.getName().getString());
-                            reward.setTag(ownerNBT);
+                            var profile = new GameProfile(player.getUUID(), player.getName().getString());
+                            reward.set(DataComponents.PROFILE, new ResolvableProfile(profile));
 
                             level.playSound((Player) null, player.blockPosition(), SoundEvents.PLAYER_LEVELUP, SoundSource.PLAYERS, 0.5F, level.random.nextFloat() * 0.15F + 0.8F);
                             player.addItem(reward);
@@ -110,15 +117,24 @@ public class Events {
 
                         //test if player is premium supporter
                         if (SupporterCheck(PREMIUM_SUPPORTER_URL, player)) {
-                            ItemStack reward = new ItemStack(Items.DIAMOND_SWORD, 1).setHoverName(Component.literal("Rex's Night Sword").withStyle(ChatFormatting.DARK_GRAY));
-                            reward.enchant(Enchantments.MENDING, 1);
-                            reward.enchant(Enchantments.SHARPNESS, 3);
+                            ItemStack reward = new ItemStack(Items.DIAMOND_SWORD, 1);
+                            Registry<Enchantment> enchantmentsRegistry = level.registryAccess().registryOrThrow(Registries.ENCHANTMENT);
+
+                            reward.enchant(enchantmentsRegistry.getHolderOrThrow(Enchantments.MENDING), 1);
+                            reward.enchant(enchantmentsRegistry.getHolderOrThrow(Enchantments.SHARPNESS), 3);
+                            reward.set(DataComponents.ENCHANTMENTS, reward.getOrDefault(DataComponents.ENCHANTMENTS, ItemEnchantments.EMPTY));
+
+                            reward.set(DataComponents.CUSTOM_NAME, Component.literal("Rex's Night Sword").withStyle(ChatFormatting.DARK_GRAY));
+
                             player.addItem(reward);
                         }
 
                         //test if player is elite
                         if (SupporterCheck(ELITE_URL, player)) {
-                            player.addItem(new ItemStack(Items.NETHER_STAR).setHoverName(Component.literal("Elite Star")));
+                            ItemStack star = new ItemStack(Items.NETHER_STAR);
+                            star.set(DataComponents.CUSTOM_NAME, Component.literal("Elite Star"));
+
+                            player.addItem(star);
                         }
                     }
                 }
@@ -161,14 +177,13 @@ public class Events {
     }
 
 
+
     @SubscribeEvent
     public static void addCustomWanderingTrades(WandererTradesEvent event) {
-        if (Config.WANDERING_TRADES.get()) {
-            List<VillagerTrades.ItemListing> trades = event.getRareTrades();
-            ItemStack cost = new ItemStack(Items.EMERALD, 6);
+        List<VillagerTrades.ItemListing> trades = event.getRareTrades();
+        ItemCost cost = new ItemCost(Items.EMERALD, 6);
 
-            trades.add(((trader, random) -> new MerchantOffer(cost, new ItemStack(ModItems.BEDROCK_CHUNK.get()), 3, 1, 0.05F)));
-        }
+        trades.add(((trader, random) -> new MerchantOffer(cost, new ItemStack(ModItems.BEDROCK_CHUNK.get()), 3, 1, 0.05F)));
     }
 
 

@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "pattern": [
+  
+    "X#X",
+    "#X#",
+    "X#X"
+    
+  ],
+  "key": {
+    "#": {
+      "item": "bedrockminer:bedrock_chunk"
+    },
+    "X": {
+      "item": "minecraft:obsidian"
+    }
+  },
+  
+  
+  "result": {
+    "id": "bedrockminer:bedrock_infused_obsidian",
+    "count": 4
+  }
+}
