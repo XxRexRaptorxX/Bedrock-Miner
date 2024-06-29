@@ -5,10 +5,7 @@ import net.neoforged.fml.ModContainer;
 import net.neoforged.fml.common.Mod;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import xxrexraptorxx.bedrockminer.registry.CreativeModeTabs;
-import xxrexraptorxx.bedrockminer.registry.ModArmorMaterials;
-import xxrexraptorxx.bedrockminer.registry.ModBlocks;
-import xxrexraptorxx.bedrockminer.registry.ModItems;
+import xxrexraptorxx.bedrockminer.registry.*;
 import xxrexraptorxx.bedrockminer.utils.Config;
 
 /**
@@ -27,6 +24,7 @@ public class BedrockMiner {
         ModBlocks.init(bus);
         ModItems.init(bus);
         ModArmorMaterials.init(bus);
+        ModLootModifiers.init(bus);
         CreativeModeTabs.init(bus);
     }
 

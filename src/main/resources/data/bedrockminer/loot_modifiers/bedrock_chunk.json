@@ -1,0 +1,16 @@
+{
+  "type": "bedrockminer:add_item",
+  "conditions": [
+    {
+      "condition": "neoforge:loot_table_id",
+      "loot_table_id": "minecraft:chests/stronghold_crossing"
+    },
+    {
+      "condition": "minecraft:random_chance",
+      "chance": 0.1
+    }
+  ],
+  "item": "bedrockminer:bedrock_chunk",
+  "min_count": 1,
+  "max_count": 5
+}

@@ -1,6 +1,5 @@
 {
   "values": [ ],
-
   "remove": [
     "#c:needs_bedrock_tool"
   ]
