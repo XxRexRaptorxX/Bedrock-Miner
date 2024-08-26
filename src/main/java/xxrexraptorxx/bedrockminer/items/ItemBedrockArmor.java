@@ -23,7 +23,18 @@ public class ItemBedrockArmor extends ArmorItem {
     @Override
     public boolean isRepairable(ItemStack stack) {
         return stack.getItem() == Blocks.BEDROCK.asItem();
+    }
 
+
+    @Override
+    public boolean isBookEnchantable(ItemStack stack, ItemStack book) {
+        return true;
+    }
+
+
+    @Override
+    public boolean isEnchantable(ItemStack stack) {
+        return true;
     }
 
 
