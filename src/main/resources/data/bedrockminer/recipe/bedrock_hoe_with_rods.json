@@ -1,11 +1,11 @@
 {
-  "conditions": [
+  "neoforge:conditions": [
     {
       "value": {
-        "type": "forge:tag_empty",
-        "tag": "forge:rods/diamond"
+        "type": "neoforge:tag_empty",
+        "tag": "c:rods/diamond"
       },
-      "type": "forge:not"
+      "type": "neoforge:not"
     }
   ],
   "type": "minecraft:crafting_shaped",
@@ -19,7 +19,7 @@
   ],
   "key": {
     "#": {
-      "tag": "forge:rods/diamond"
+      "tag": "c:rods/diamond"
     },
     "X": {
       "item": "minecraft:bedrock"

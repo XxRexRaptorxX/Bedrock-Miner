@@ -1,11 +1,11 @@
 {
-  "conditions": [
+  "neoforge:conditions": [
     {
       "value": {
-        "type": "forge:tag_empty",
-        "tag": "forge:sticks/diamond"
+        "type": "neoforge:tag_empty",
+        "tag": "c:sticks/diamond"
       },
-      "type": "forge:not"
+      "type": "neoforge:not"
     }
   ],
   "type": "minecraft:crafting_shaped",
@@ -19,7 +19,7 @@
   ],
   "key": {
     "#": {
-      "tag": "forge:sticks/diamond"
+      "tag": "c:sticks/diamond"
     },
     "X": {
       "item": "minecraft:bedrock"
