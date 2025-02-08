@@ -35,8 +35,8 @@ import java.util.List;
 
 public class BlockBedrockBreaker extends DirectionalBlock {
 
-    public static final EnumProperty<Direction> FACING = DirectionalBlock.FACING;
-    public static final BooleanProperty POWERED = BlockStateProperties.POWERED;
+    public static final EnumProperty<Direction> FACING;
+    public static final BooleanProperty POWERED;
     public static final MapCodec<BlockBedrockBreaker> CODEC = simpleCodec(BlockBedrockBreaker::new);
 
     public BlockBedrockBreaker(Properties properties) {
@@ -45,6 +45,7 @@ public class BlockBedrockBreaker extends DirectionalBlock {
 
     public BlockBedrockBreaker() {
         super(Properties.of()
+                .setId(ModBlocks.blockId("bedrock_breaker"))
                 .strength(5, 10)
                 .sound(SoundType.STONE)
                 .mapColor(MapColor.COLOR_GRAY)
@@ -142,5 +143,11 @@ public class BlockBedrockBreaker extends DirectionalBlock {
     @Override
     protected MapCodec<? extends DirectionalBlock> codec() {
         return CODEC;
+    }
+
+
+    static {
+        FACING = BlockStateProperties.FACING;
+        POWERED = BlockStateProperties.POWERED;
     }
 }

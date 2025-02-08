@@ -7,11 +7,13 @@ import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.state.properties.NoteBlockInstrument;
 import net.minecraft.world.level.material.MapColor;
 import net.minecraft.world.level.material.PushReaction;
+import xxrexraptorxx.bedrockminer.registry.ModBlocks;
 
 public class BlockFakeBedrock extends Block {
 
     public BlockFakeBedrock() {
         super(Properties.of()
+                .setId(ModBlocks.blockId("fake_bedrock"))
                 .strength(150.0F, 3600000.0F)
                 .sound(SoundType.STONE)
                 .mapColor(MapColor.STONE)

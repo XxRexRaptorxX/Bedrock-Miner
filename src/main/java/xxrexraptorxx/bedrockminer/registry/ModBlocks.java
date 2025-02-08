@@ -1,7 +1,11 @@
 package xxrexraptorxx.bedrockminer.registry;
 
+import net.minecraft.core.registries.Registries;
+import net.minecraft.resources.ResourceKey;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.level.block.Block;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.registries.DeferredBlock;
 import net.neoforged.neoforge.registries.DeferredItem;
@@ -21,16 +25,17 @@ public class ModBlocks {
         ITEMS.register(bus);
     }
 
-    //public static final RegistryObject<BlockBedrockInfusedStone> BEDROCK_INFUSED_STONE = BLOCKS.register("bedrock_infused_stone", BlockBedrockInfusedStone::new);
-    //public static final RegistryObject<Item> BEDROCK_INFUSED_STONE_BLOCKITEM = ITEMS.register("bedrock_infused_stone", () -> new BlockItem(BEDROCK_INFUSED_STONE.get(), new Item.Properties().tab(CreativeTab.MOD_TAB)));
-
     public static final DeferredBlock<BlockBedrockInfusedObsidian> BEDROCK_INFUSED_OBSIDIAN = BLOCKS.register("bedrock_infused_obsidian", BlockBedrockInfusedObsidian::new);
-    public static final DeferredItem<Item> BEDROCK_INFUSED_OBSIDIAN_BLOCKITEM = ITEMS.register("bedrock_infused_obsidian", () -> new BlockItem(BEDROCK_INFUSED_OBSIDIAN.get(), new Item.Properties()));
+    public static final DeferredItem<Item> BEDROCK_INFUSED_OBSIDIAN_BLOCKITEM = ITEMS.register("bedrock_infused_obsidian", () -> new BlockItem(BEDROCK_INFUSED_OBSIDIAN.get(), new Item.Properties().setId(ModItems.itemId("bedrock_infused_obsidian"))));
 
     public static final DeferredBlock<BlockBedrockBreaker> BEDROCK_BREAKER = BLOCKS.registerBlock("bedrock_breaker", BlockBedrockBreaker::new);
-    public static final DeferredItem<Item> BEDROCK_BREAKER_BLOCKITEM = ITEMS.register("bedrock_breaker", () -> new BlockItem(BEDROCK_BREAKER.get(), new Item.Properties()));
+    public static final DeferredItem<Item> BEDROCK_BREAKER_BLOCKITEM = ITEMS.register("bedrock_breaker", () -> new BlockItem(BEDROCK_BREAKER.get(), new Item.Properties().setId(ModItems.itemId("bedrock_breaker"))));
 
     public static final DeferredBlock<BlockFakeBedrock> FAKE_BEDROCK = BLOCKS.register("fake_bedrock", BlockFakeBedrock::new);
-    public static final DeferredItem<Item> FAKE_BEDROCK_BLOCKITEM = ITEMS.register("fake_bedrock", () -> new BlockItem(FAKE_BEDROCK.get(), new Item.Properties()));
+    public static final DeferredItem<Item> FAKE_BEDROCK_BLOCKITEM = ITEMS.register("fake_bedrock", () -> new BlockItem(FAKE_BEDROCK.get(), new Item.Properties().setId(ModItems.itemId("fake_bedrock"))));
 
+
+    public static ResourceKey<Block> blockId(String name) {
+        return ResourceKey.create(Registries.BLOCK, ResourceLocation.fromNamespaceAndPath(References.MODID, name));
+    }
 }
