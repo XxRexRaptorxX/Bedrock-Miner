@@ -1,15 +1,15 @@
 {
-  "conditions": [
+  "neoforge:conditions": [
     {
-      "type": "forge:or",
+      "type": "neoforge:or",
       "values": [
         {
-          "type": "forge:tag_empty",
-          "tag": "forge:sticks/diamond"
+          "type": "neoforge:tag_empty",
+          "tag": "c:sticks/diamond"
         },
         {
-          "type": "forge:tag_empty",
-          "tag": "forge:rods/diamond"
+          "type": "neoforge:tag_empty",
+          "tag": "c:rods/diamond"
         }
       ]
     }
@@ -18,17 +18,14 @@
   "type": "minecraft:crafting_shaped",
   "category": "equipment",
   "pattern": [
-  
     "XX",
     "X#",
     " #"
-    
   ],
   "key": {
-    "#": "forge:gems/diamond",
+    "#": "#c:gems/diamond",
     "X": "minecraft:bedrock"
   },
-  
   
   "result": {
     "id": "bedrockminer:bedrock_axe"

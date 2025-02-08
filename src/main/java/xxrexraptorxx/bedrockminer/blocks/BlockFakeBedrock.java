@@ -27,5 +27,4 @@ public class BlockFakeBedrock extends Block {
         return Blocks.BEDROCK.getName();
     }
 
-
 }

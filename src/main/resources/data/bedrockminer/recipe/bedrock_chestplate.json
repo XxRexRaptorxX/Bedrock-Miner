@@ -6,11 +6,11 @@
     "XXX",
     "XXX"
   ],
+
   "key": {
-    "X": {
-      "item": "minecraft:bedrock"
-    }
+    "X": "minecraft:bedrock"
   },
+
   "result": {
     "id": "bedrockminer:bedrock_chestplate"
   }

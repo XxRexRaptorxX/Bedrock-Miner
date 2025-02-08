@@ -10,7 +10,7 @@ import xxrexraptorxx.bedrockminer.utils.Config;
 
 /**
  * @author XxRexRaptorxX (RexRaptor)
- * @projectPage https://www.curseforge.com/minecraft/mc-mods/bedrock-miner
+ * @projectPage <a href="https://www.curseforge.com/minecraft/mc-mods/bedrock-miner">...</a>
  **/
 @Mod(References.MODID)
 public class BedrockMiner {

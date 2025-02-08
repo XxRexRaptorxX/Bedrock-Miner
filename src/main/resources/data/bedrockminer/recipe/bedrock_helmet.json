@@ -5,11 +5,11 @@
     "XXX",
     "X X"
   ],
+
   "key": {
-    "X": {
-      "item": "minecraft:bedrock"
-    }
+    "X": "minecraft:bedrock"
   },
+
   "result": {
     "id": "bedrockminer:bedrock_helmet"
   }
