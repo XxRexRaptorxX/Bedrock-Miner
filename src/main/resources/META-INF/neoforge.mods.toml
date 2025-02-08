@@ -13,22 +13,22 @@ itemIcon="minecraft:bedrock"
 logoFile="logo.png"
 #credits=""
 authors="${mod_authors}"
-description='''This small mod adds a new stable tool set to the game, the pickaxe and the breaker machine allows you to mine bedrock. With this new resource can you craft a few new items and blocks :D'''
+description='''This small mod adds a new stable tool set to the game, the pickaxe and the breaker machine allows you to mine bedrock. With this new resource can you craft a few new items and blocks!'''
 
 
 [[dependencies.${mod_id}]]
-modId="neoforge"
-type="required"
-mandatory=true
-versionRange="${forge_version_range}"
-ordering="NONE"
-side="BOTH"
+    modId="neoforge"
+    type="required"
+    mandatory=true
+    versionRange="${forge_version_range}"
+    ordering="NONE"
+    side="BOTH"
 
 [[dependencies.${mod_id}]]
-modId="minecraft"
-type="required"
-mandatory=true
-versionRange="${mc_version_range}"
-ordering="NONE"
-side="BOTH"
+    modId="minecraft"
+    type="required"
+    mandatory=true
+    versionRange="${mc_version_range}"
+    ordering="NONE"
+    side="BOTH"
 
