@@ -27,7 +27,7 @@ public class ModBlocks {
     public static final DeferredBlock<BlockBedrockInfusedObsidian> BEDROCK_INFUSED_OBSIDIAN = BLOCKS.register("bedrock_infused_obsidian", BlockBedrockInfusedObsidian::new);
     public static final DeferredItem<Item> BEDROCK_INFUSED_OBSIDIAN_BLOCKITEM = ITEMS.register("bedrock_infused_obsidian", () -> new BlockItem(BEDROCK_INFUSED_OBSIDIAN.get(), new Item.Properties()));
 
-    public static final DeferredBlock<BlockBedrockBreaker> BEDROCK_BREAKER = BLOCKS.register("bedrock_breaker", BlockBedrockBreaker::new);
+    public static final DeferredBlock<BlockBedrockBreaker> BEDROCK_BREAKER = BLOCKS.registerBlock("bedrock_breaker", BlockBedrockBreaker::new);
     public static final DeferredItem<Item> BEDROCK_BREAKER_BLOCKITEM = ITEMS.register("bedrock_breaker", () -> new BlockItem(BEDROCK_BREAKER.get(), new Item.Properties()));
 
     public static final DeferredBlock<BlockFakeBedrock> FAKE_BEDROCK = BLOCKS.register("fake_bedrock", BlockFakeBedrock::new);

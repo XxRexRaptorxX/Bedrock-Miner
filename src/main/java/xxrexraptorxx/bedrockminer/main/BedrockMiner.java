@@ -23,7 +23,6 @@ public class BedrockMiner {
         Config.init(container);
         ModBlocks.init(bus);
         ModItems.init(bus);
-        ModArmorMaterials.init(bus);
         ModLootModifiers.init(bus);
         CreativeModeTabs.init(bus);
     }
