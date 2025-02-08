@@ -8,13 +8,11 @@
     "###"
     
   ],
+
   "key": {
-    "#": {
-      "item": "bedrockminer:bedrock_chunk"
-    }
+    "#": "bedrockminer:bedrock_chunk"
   },
-  
-  
+
   "result": {
     "id": "minecraft:bedrock"
   }
