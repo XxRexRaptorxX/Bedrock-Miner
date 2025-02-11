@@ -2,19 +2,13 @@
   "layers": {
     "humanoid": [
       {
-        "texture": "examplemod:bedrock/outer"
-      },
-      {
-        "texture": "examplemod:bedrock/outer_overlay"
+        "texture": "bedrockminer:bedrock"
       }
     ],
 
     "humanoid_leggings": [
       {
-        "texture": "examplemod:bedrock/inner"
-      },
-      {
-        "texture": "examplemod:bedrock/inner_overlay"
+        "texture": "bedrockminer:bedrock"
       }
     ]
   }

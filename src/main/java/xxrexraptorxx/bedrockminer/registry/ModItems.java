@@ -10,6 +10,7 @@ import net.neoforged.neoforge.registries.DeferredItem;
 import net.neoforged.neoforge.registries.DeferredRegister;
 import xxrexraptorxx.bedrockminer.items.ItemBedrockArmor;
 import xxrexraptorxx.bedrockminer.main.References;
+import xxrexraptorxx.bedrockminer.utils.ModArmorMaterials;
 
 public class ModItems {
 

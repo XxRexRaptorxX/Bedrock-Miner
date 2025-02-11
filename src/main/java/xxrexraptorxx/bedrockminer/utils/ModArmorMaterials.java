@@ -1,4 +1,4 @@
-package xxrexraptorxx.bedrockminer.registry;
+package xxrexraptorxx.bedrockminer.utils;
 
 import net.minecraft.Util;
 import net.minecraft.resources.ResourceKey;
@@ -8,6 +8,7 @@ import net.minecraft.world.item.equipment.ArmorMaterial;
 import net.minecraft.world.item.equipment.ArmorType;
 import net.minecraft.world.item.equipment.EquipmentAssets;
 import xxrexraptorxx.bedrockminer.main.References;
+import xxrexraptorxx.bedrockminer.registry.ModTags;
 
 import java.util.EnumMap;
 
@@ -22,7 +23,7 @@ public class ModArmorMaterials {
             // - LEGGINGS: 15
             // - BOOTS: 13
             // - BODY: 16
-            15,
+            50,
             Util.make(new EnumMap<>(ArmorType.class), map -> {
                 map.put(ArmorType.BOOTS, 2);
                 map.put(ArmorType.LEGGINGS, 6);

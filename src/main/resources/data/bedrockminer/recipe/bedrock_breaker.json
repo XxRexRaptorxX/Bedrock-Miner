@@ -11,7 +11,7 @@
     "#": "minecraft:piston",
     "I": "minecraft:dispenser",
     "O": "bedrockminer:bedrock_pickaxe",
-    "X":"c:ingots/iron"
+    "X": "#c:ingots/iron"
   },
   
   "result": {
