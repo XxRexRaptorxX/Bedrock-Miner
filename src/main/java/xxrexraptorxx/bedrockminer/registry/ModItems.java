@@ -13,7 +13,7 @@ import xxrexraptorxx.bedrockminer.main.References;
 
 public class ModItems {
 
-    private static final DeferredRegister.Items ITEMS = DeferredRegister.createItems(References.MODID);
+    public static final DeferredRegister.Items ITEMS = DeferredRegister.createItems(References.MODID);
 
     public static void init(IEventBus bus) {
         ITEMS.register(bus);

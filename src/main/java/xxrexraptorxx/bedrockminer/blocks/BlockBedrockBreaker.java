@@ -24,7 +24,6 @@ import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.block.state.properties.BooleanProperty;
 import net.minecraft.world.level.block.state.properties.EnumProperty;
 import net.minecraft.world.level.block.state.properties.Property;
-import net.minecraft.world.level.material.MapColor;
 import net.minecraft.world.level.redstone.Orientation;
 import net.neoforged.neoforge.common.Tags;
 import xxrexraptorxx.bedrockminer.registry.ModBlocks;
@@ -41,15 +40,7 @@ public class BlockBedrockBreaker extends DirectionalBlock {
 
     public BlockBedrockBreaker(Properties properties) {
         super(properties);
-    }
 
-    public BlockBedrockBreaker() {
-        super(Properties.of()
-                .setId(ModBlocks.blockId("bedrock_breaker"))
-                .strength(5, 10)
-                .sound(SoundType.STONE)
-                .mapColor(MapColor.COLOR_GRAY)
-        );
         this.registerDefaultState((BlockState)((BlockState)((BlockState)this.stateDefinition.any()).setValue(FACING, Direction.DOWN)).setValue(POWERED, false));
     }
 

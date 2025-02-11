@@ -11,17 +11,8 @@ import xxrexraptorxx.bedrockminer.registry.ModBlocks;
 
 public class BlockFakeBedrock extends Block {
 
-    public BlockFakeBedrock() {
-        super(Properties.of()
-                .setId(ModBlocks.blockId("fake_bedrock"))
-                .strength(150.0F, 3600000.0F)
-                .sound(SoundType.STONE)
-                .mapColor(MapColor.STONE)
-                .instrument(NoteBlockInstrument.BASEDRUM)
-                .pushReaction(PushReaction.BLOCK)
-                .isValidSpawn((state, level, pos, value) -> false)
-                .requiresCorrectToolForDrops()
-        );
+    public BlockFakeBedrock(Properties properties) {
+        super(properties);
     }
 
     @Override

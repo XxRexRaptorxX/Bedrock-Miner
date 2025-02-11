@@ -6,36 +6,65 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.SoundType;
+import net.minecraft.world.level.block.state.BlockBehaviour;
+import net.minecraft.world.level.block.state.properties.NoteBlockInstrument;
+import net.minecraft.world.level.material.MapColor;
+import net.minecraft.world.level.material.PushReaction;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.registries.DeferredBlock;
-import net.neoforged.neoforge.registries.DeferredItem;
 import net.neoforged.neoforge.registries.DeferredRegister;
 import xxrexraptorxx.bedrockminer.blocks.BlockBedrockBreaker;
-import xxrexraptorxx.bedrockminer.blocks.BlockBedrockInfusedObsidian;
 import xxrexraptorxx.bedrockminer.blocks.BlockFakeBedrock;
 import xxrexraptorxx.bedrockminer.main.References;
 
+import java.util.function.Function;
+
 public class ModBlocks {
 
-    private static final DeferredRegister.Blocks BLOCKS = DeferredRegister.createBlocks(References.MODID);
-    private static final DeferredRegister.Items ITEMS = DeferredRegister.createItems(References.MODID);
+    public static final DeferredRegister.Blocks BLOCKS = DeferredRegister.createBlocks(References.MODID);
 
     public static void init(IEventBus bus) {
         BLOCKS.register(bus);
-        ITEMS.register(bus);
     }
 
-    public static final DeferredBlock<BlockBedrockInfusedObsidian> BEDROCK_INFUSED_OBSIDIAN = BLOCKS.register("bedrock_infused_obsidian", BlockBedrockInfusedObsidian::new);
-    public static final DeferredItem<Item> BEDROCK_INFUSED_OBSIDIAN_BLOCKITEM = ITEMS.register("bedrock_infused_obsidian", () -> new BlockItem(BEDROCK_INFUSED_OBSIDIAN.get(), new Item.Properties().setId(ModItems.itemId("bedrock_infused_obsidian"))));
 
-    public static final DeferredBlock<BlockBedrockBreaker> BEDROCK_BREAKER = BLOCKS.registerBlock("bedrock_breaker", BlockBedrockBreaker::new);
-    public static final DeferredItem<Item> BEDROCK_BREAKER_BLOCKITEM = ITEMS.register("bedrock_breaker", () -> new BlockItem(BEDROCK_BREAKER.get(), new Item.Properties().setId(ModItems.itemId("bedrock_breaker"))));
+    public static final DeferredBlock<Block> BEDROCK_INFUSED_OBSIDIAN = registerBlock("bedrock_infused_obsidian", properties -> new Block(properties
+            .strength(100, 4000)
+            .sound(SoundType.STONE)
+            .mapColor(MapColor.COLOR_BLACK)
+            .pushReaction(PushReaction.BLOCK)
+    ));
 
-    public static final DeferredBlock<BlockFakeBedrock> FAKE_BEDROCK = BLOCKS.register("fake_bedrock", BlockFakeBedrock::new);
-    public static final DeferredItem<Item> FAKE_BEDROCK_BLOCKITEM = ITEMS.register("fake_bedrock", () -> new BlockItem(FAKE_BEDROCK.get(), new Item.Properties().setId(ModItems.itemId("fake_bedrock"))));
+    public static final DeferredBlock<BlockBedrockBreaker> BEDROCK_BREAKER = registerBlock("bedrock_breaker", properties -> new BlockBedrockBreaker(properties
+            .strength(5, 10)
+            .sound(SoundType.STONE)
+            .mapColor(MapColor.COLOR_GRAY)
+    ));
 
+    public static final DeferredBlock<BlockFakeBedrock> FAKE_BEDROCK = registerBlock("fake_bedrock", properties -> new BlockFakeBedrock(properties
+            .strength(150.0F, 3600000.0F)
+            .sound(SoundType.STONE)
+            .mapColor(MapColor.STONE)
+            .instrument(NoteBlockInstrument.BASEDRUM)
+            .pushReaction(PushReaction.BLOCK)
+            .isValidSpawn((state, level, pos, value) -> false)
+            .requiresCorrectToolForDrops()
+    ));
+
+
+    public static <T extends Block> DeferredBlock<T> registerBlock(String name, Function<BlockBehaviour.Properties, T> blockCreator) {
+        DeferredBlock<T> toReturn = BLOCKS.register(name, () -> blockCreator.apply(BlockBehaviour.Properties.of().setId(blockId(name))));
+        registerBlockItems(name, toReturn);
+        return toReturn;
+    }
+
+    public static <T extends Block> void registerBlockItems(String name, DeferredBlock<T> block) {
+        ModItems.ITEMS.register(name, () -> new BlockItem(block.get(), new Item.Properties().setId(ModItems.itemId(name)).useBlockDescriptionPrefix()));
+    }
 
     public static ResourceKey<Block> blockId(String name) {
         return ResourceKey.create(Registries.BLOCK, ResourceLocation.fromNamespaceAndPath(References.MODID, name));
     }
+
 }
