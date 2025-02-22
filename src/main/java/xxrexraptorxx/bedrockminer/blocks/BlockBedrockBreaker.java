@@ -129,8 +129,9 @@ public class BlockBedrockBreaker extends DirectionalBlock {
             return (block == Blocks.BEDROCK || block == ModBlocks.FAKE_BEDROCK.get());
         }
 
-        return !(block == Blocks.COMMAND_BLOCK || block == Blocks.CHAIN_COMMAND_BLOCK || block == Blocks.REPEATING_COMMAND_BLOCK || block == Blocks.STRUCTURE_BLOCK ||
-                block == Blocks.STRUCTURE_VOID || block == Blocks.BARRIER || new ItemStack(block).is(ItemTags.LEAVES) || new ItemStack(block).is(ItemTags.FLOWERS)  || new ItemStack(block).is(Tags.Items.CROPS));
+        return !(block == Blocks.AIR || block == Blocks.COMMAND_BLOCK || block == Blocks.CHAIN_COMMAND_BLOCK || block == Blocks.REPEATING_COMMAND_BLOCK ||
+                block == Blocks.STRUCTURE_BLOCK || block == Blocks.STRUCTURE_VOID || block == Blocks.BARRIER || new ItemStack(block).is(ItemTags.LEAVES) ||
+                new ItemStack(block).is(ItemTags.FLOWERS)  || new ItemStack(block).is(Tags.Items.CROPS));
     }
 
 
