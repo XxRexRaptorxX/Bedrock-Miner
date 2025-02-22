@@ -67,4 +67,16 @@ public class ItemBedrockArmor extends ArmorItem {
         if (player.getEffect(effect) == null || player.getEffect(effect).getDuration() <= 70)
             player.addEffect(new MobEffectInstance(effect, 70, amplifier, true, true));
     }
+
+
+    @Override
+    public boolean isBookEnchantable(ItemStack stack, ItemStack book) {
+        return true;
+    }
+
+
+    @Override
+    public boolean isEnchantable(ItemStack stack) {
+        return true;
+    }
 }
