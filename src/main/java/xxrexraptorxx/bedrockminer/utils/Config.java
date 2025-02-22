@@ -24,6 +24,7 @@ public class Config {
     //public static ModConfigSpec.DoubleValue TOOL_ATTACK_SPEED_MODIFIER;
     //public static ModConfigSpec.IntValue TOOL_ENCHANTABILITY;
     public static ModConfigSpec.BooleanValue HARVEST_ONLY_BEDROCK;
+    public static ModConfigSpec.IntValue MOB_DAMAGE;
 
     //public static ModConfigSpec.IntValue ARMOR_DURABILITY;
     //public static ModConfigSpec.IntValue ARMOR_ENCHANTABILITY;
@@ -61,12 +62,13 @@ public class Config {
         builder.pop();
 
         builder.comment("Items").push(CATEGORY_ITEMS);
-        ARMOR_EFFECTS = builder.comment("Activate special effects if you wear Bedrock Armor (Slowness + Resistance)").define("armor_effects", false);
+        ARMOR_EFFECTS = builder.comment("Activate special effects if you wear bedrock armor (Slowness + Resistance)").define("armor_effects", false);
         //WANDERING_TRADES = builder.comment("Enable trades of bedrock chunks from Wandering Traders").define("wandering_trades", true);
         builder.pop();
 
         builder.comment("Blocks").push(CATEGORY_BLOCKS);
-        HARVEST_ONLY_BEDROCK = builder.comment("This makes that the Bedrock Breaker harvests only Bedrock or any block").define("harvest_only_bedrock", false);
+        HARVEST_ONLY_BEDROCK = builder.comment("This makes that the bedrock breaker harvests only bedrock or any block").define("harvest_only_bedrock", false);
+        MOB_DAMAGE = builder.comment("How much damage should the bedrock breaker do to creatures").defineInRange("mob_damage", 4, 0, 1000);
         builder.pop();
 
         SERVER_CONFIG = builder.build();

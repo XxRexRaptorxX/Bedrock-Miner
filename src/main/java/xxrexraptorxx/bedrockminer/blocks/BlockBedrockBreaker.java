@@ -10,6 +10,10 @@ import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.util.RandomSource;
+import net.minecraft.world.damagesource.DamageSource;
+import net.minecraft.world.damagesource.DamageSources;
+import net.minecraft.world.damagesource.DamageTypes;
+import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
@@ -26,6 +30,7 @@ import net.minecraft.world.level.block.state.properties.EnumProperty;
 import net.minecraft.world.level.block.state.properties.Property;
 import net.minecraft.world.level.gameevent.GameEvent;
 import net.minecraft.world.level.redstone.Orientation;
+import net.minecraft.world.phys.AABB;
 import xxrexraptorxx.bedrockminer.registry.ModBlocks;
 import xxrexraptorxx.bedrockminer.registry.ModItems;
 import xxrexraptorxx.bedrockminer.registry.ModTags;
@@ -106,10 +111,17 @@ public class BlockBedrockBreaker extends DirectionalBlock {
                     BlockPos harvestBlockPos = state.getValue(DirectionalBlock.FACING).equals(Direction.DOWN) ? pos.below() : pos.above();
                     BlockPos dropPos = state.getValue(DirectionalBlock.FACING).equals(Direction.DOWN) ? pos.above() : pos.below();
                     Block harvestblock = level.getBlockState(harvestBlockPos).getBlock();
+                    AABB damageArea = new AABB(harvestBlockPos);
 
                     level.playSound((Player)null, pos, SoundEvents.PISTON_EXTEND, SoundSource.BLOCKS, 0.5F, level.random.nextFloat() * 0.15F + 0.F);
                     level.setBlock(pos, state.cycle(POWERED), 2);
                     level.gameEvent(GameEvent.BLOCK_ACTIVATE, pos, GameEvent.Context.of(state));
+
+                    List<LivingEntity> entities = level.getEntitiesOfClass(LivingEntity.class, damageArea);
+                    //hurt entities infront of the block
+                    for (LivingEntity entity : entities) {
+                        entity.hurt(level.damageSources().generic(), Config.MOB_DAMAGE.get());
+                    }
 
                     //test is block is valid
                     if (isValidBlock(harvestblock)) {
