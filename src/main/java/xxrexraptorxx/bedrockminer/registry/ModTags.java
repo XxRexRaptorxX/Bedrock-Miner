@@ -15,6 +15,7 @@ public class ModTags {
 
     public static final TagKey<Block> NEEDS_BEDROCK_TOOL = BlockTags.create(ResourceLocation.fromNamespaceAndPath("c", "needs_bedrock_tool"));
     public static final TagKey<Block> INCORRECT_FOR_BEDROCK_TOOL = BlockTags.create(ResourceLocation.fromNamespaceAndPath("c", "incorrect_for_bedrock_tool"));
+    public static final TagKey<Block> BEDROCK_BREAKER_IMMUNE = BlockTags.create(ResourceLocation.fromNamespaceAndPath(References.MODID, "bedrock_breaker_immune"));
 
     public static final TagKey<Item> REPAIR_MATERIALS_BEDROCK = ItemTags.create(ResourceLocation.fromNamespaceAndPath(References.MODID, "repair_materials_bedrock"));
 
