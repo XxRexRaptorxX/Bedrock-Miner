@@ -2,6 +2,7 @@
   "replace": false,
   "values": [
     "minecraft:bedrock",
-    "bedrockminer:fake_bedrock"
+    "bedrockminer:fake_bedrock",
+    "bedrockminer:bedrock_bricks"
   ]
 }
