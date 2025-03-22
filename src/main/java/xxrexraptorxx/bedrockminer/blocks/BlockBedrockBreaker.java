@@ -31,6 +31,7 @@ import net.minecraft.world.level.block.state.properties.Property;
 import net.minecraft.world.level.gameevent.GameEvent;
 import net.minecraft.world.level.redstone.Orientation;
 import net.minecraft.world.phys.AABB;
+import xxrexraptorxx.bedrockminer.main.References;
 import xxrexraptorxx.bedrockminer.registry.ModBlocks;
 import xxrexraptorxx.bedrockminer.registry.ModItems;
 import xxrexraptorxx.bedrockminer.registry.ModTags;
@@ -54,7 +55,7 @@ public class BlockBedrockBreaker extends DirectionalBlock {
 
     @Override
     public void appendHoverText(ItemStack stack, Item.TooltipContext context, List<Component> list, TooltipFlag flag) {
-        list.add(Component.translatable("message.bedrockminer.bedrock_breaker.desc").withStyle(ChatFormatting.GRAY));
+        list.add(Component.translatable("message." + References.MODID + ".bedrock_breaker.desc").withStyle(ChatFormatting.GRAY));
     }
 
 
