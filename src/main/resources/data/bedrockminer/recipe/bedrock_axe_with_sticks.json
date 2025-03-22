@@ -17,7 +17,7 @@
   ],
   "key": {
     "#": "#c:sticks/diamond",
-    "X": "minecraft:bedrock"
+    "X": "#bedrockminer:bedrock_tool_materials"
   },
 
   "result": {

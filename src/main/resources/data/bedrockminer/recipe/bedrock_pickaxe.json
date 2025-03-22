@@ -24,7 +24,7 @@
 
   "key": {
     "#": "#c:gems/diamond",
-    "X": "minecraft:bedrock"
+    "X": "#bedrockminer:bedrock_tool_materials"
   },
 
   "result": {

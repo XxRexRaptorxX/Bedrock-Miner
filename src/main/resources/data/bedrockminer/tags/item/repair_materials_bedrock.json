@@ -1,6 +1,6 @@
 {
   "values": [
-    "bedrockminer:bedrock_chunk",
-    "minecraft:bedrock"
+    "#bedrockminer:repair_materials_bedrock",
+    "bedrockminer:bedrock_chunk"
   ]
 }
