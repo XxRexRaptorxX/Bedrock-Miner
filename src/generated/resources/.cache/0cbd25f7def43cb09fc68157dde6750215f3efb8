@@ -1,4 +1,4 @@
-// 1.21.4	2025-02-08T22:50:43.9377416	Tags for minecraft:block mod id bedrockminer
-ffa03f37fd20d1b32802f7abc5f172bce092652a data/minecraft/tags/block/mineable/pickaxe.json
+// 1.21.4	2025-03-22T20:48:47.8587837	Tags for minecraft:block mod id bedrockminer
+d7b3c157baabe4a3c8d7088e8b3ec3e0a44caefe data/minecraft/tags/block/mineable/pickaxe.json
 ac1ab3d284ba3d1709668236c9b5ef497ef77158 data/minecraft/tags/block/needs_diamond_tool.json
 3162154d10bf985513737ceb2d8a941e8b2de39c data/minecraft/tags/block/needs_stone_tool.json

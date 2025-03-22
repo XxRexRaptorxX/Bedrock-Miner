@@ -23,9 +23,10 @@ public class BlockTagGen extends BlockTagsProvider {
                 .add(   //ModBlocks.BEDROCK_INFUSED_STONE.get(),
                         ModBlocks.BEDROCK_INFUSED_OBSIDIAN.get(),
                         ModBlocks.BEDROCK_BREAKER.get(),
+                        ModBlocks.BEDROCK_BRICKS.get(),
                         ModBlocks.FAKE_BEDROCK.get(),
                         Blocks.BEDROCK
-                        );
+                );
 
 
         tag(BlockTags.NEEDS_DIAMOND_TOOL)

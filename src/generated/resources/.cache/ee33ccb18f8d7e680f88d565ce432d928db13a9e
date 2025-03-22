@@ -1,9 +1,10 @@
-// 1.21.4	2025-02-08T22:50:43.938739	Model Definitions - bedrockminer
+// 1.21.4	2025-03-22T20:48:47.8597818	Model Definitions - bedrockminer
+867fcce13e976a53cb1667e5e989edeb23da7148 assets/bedrockminer/blockstates/bedrock_bricks.json
 aaefa804568b8d8eca34b205e53b6aa3fc52efe3 assets/bedrockminer/blockstates/bedrock_infused_obsidian.json
-5798ff7ae5b3773c89c5e81b97a6801909a22ad0 assets/bedrockminer/blockstates/fake_bedrock.json
 8fbb074809fe69ce4fabe3686928a71e18251376 assets/bedrockminer/items/bedrock_axe.json
 4ce2450ccf1d3acf5af072f5f267d412a168fe3d assets/bedrockminer/items/bedrock_boots.json
 d9513d2776ac749ba071b0c53fa159e8194b6911 assets/bedrockminer/items/bedrock_breaker.json
+4597d4f9b4a2c96eb76b5d3a4cd3c084417ba87b assets/bedrockminer/items/bedrock_bricks.json
 4504929d837f28b1e5b7a62b049f825c2a0a575c assets/bedrockminer/items/bedrock_chestplate.json
 c0cd0dce691fc0f9e59be1c21cc386b0fa2f1984 assets/bedrockminer/items/bedrock_chunk.json
 cbeb8a6be05604f5a9d463c56abcba46723fc24c assets/bedrockminer/items/bedrock_helmet.json
@@ -14,8 +15,8 @@ c8eedd529f834bc41a5d8f7be77fd3768cae00ff assets/bedrockminer/items/bedrock_picka
 01e6ebbd0d7e17dc071484cf56a4af6d949f43f0 assets/bedrockminer/items/bedrock_shovel.json
 c502fc9ec057777f8432bc3f65b4e535736cd1ed assets/bedrockminer/items/bedrock_sword.json
 324df70e02e4a048d835ea0d41dc62e0be6b41dc assets/bedrockminer/items/fake_bedrock.json
+0c6c052a456c50be552d7e327eb58de44da479a7 assets/bedrockminer/models/block/bedrock_bricks.json
 7931a1177dd5e7bf45a61465075e3f4700de7d42 assets/bedrockminer/models/block/bedrock_infused_obsidian.json
-7012f222a8742daf3022024c5983e3733af7dc44 assets/bedrockminer/models/block/fake_bedrock.json
 7b1f2d60af06daf4355af04fae8692e458fb0ded assets/bedrockminer/models/item/bedrock_axe.json
 de86ab8cd5d212e0f5396894b35823655caea657 assets/bedrockminer/models/item/bedrock_boots.json
 53ba6959d15921ee6514cbf4eebebf11b5448032 assets/bedrockminer/models/item/bedrock_chestplate.json

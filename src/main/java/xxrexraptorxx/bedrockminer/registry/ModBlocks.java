@@ -53,6 +53,17 @@ public class ModBlocks {
     ));
 
 
+    public static final DeferredBlock<Block> BEDROCK_BRICKS = registerBlock("bedrock_bricks", properties -> new Block(properties
+            .strength(150.0F, 3600000.0F)
+            .sound(SoundType.STONE)
+            .mapColor(MapColor.STONE)
+            .instrument(NoteBlockInstrument.BASEDRUM)
+            .pushReaction(PushReaction.BLOCK)
+            .isValidSpawn((state, level, pos, value) -> false)
+            .requiresCorrectToolForDrops()
+    ));
+
+
     public static <T extends Block> DeferredBlock<T> registerBlock(String name, Function<BlockBehaviour.Properties, T> blockCreator) {
         DeferredBlock<T> toReturn = BLOCKS.register(name, () -> blockCreator.apply(BlockBehaviour.Properties.of().setId(blockId(name))));
         registerBlockItems(name, toReturn);

@@ -1,0 +1,6 @@
+{
+  "model": {
+    "type": "minecraft:model",
+    "model": "bedrockminer:block/fake_bedrock"
+  }
+}
