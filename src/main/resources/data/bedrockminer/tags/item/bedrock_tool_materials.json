@@ -1,6 +1,5 @@
 {
   "values": [
-    "bedrockminer:bedrock_chunk",
     "minecraft:bedrock",
     {
       "id": "#c:ingots/bedrock",
