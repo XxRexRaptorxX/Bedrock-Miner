@@ -3,6 +3,7 @@ package xxrexraptorxx.bedrockminer.registry;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.CreativeModeTab;
+import net.minecraft.world.level.block.Blocks;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.registries.DeferredHolder;
 import net.neoforged.neoforge.registries.DeferredRegister;
@@ -19,7 +20,10 @@ public class CreativeModeTabs {
             .title(Component.translatable("itemGroup." + References.MODID + "_tab"))
             .icon(() -> ModItems.BEDROCK_PICKAXE.get().getDefaultInstance())
             .displayItems((params, output) -> {
+
                 output.accept(ModBlocks.BEDROCK_BREAKER.get());
+                output.accept(Blocks.BEDROCK);
+                output.accept(ModBlocks.BEDROCK_BRICKS.get());
                 output.accept(ModBlocks.BEDROCK_INFUSED_OBSIDIAN.get());
                 output.accept(ModItems.BEDROCK_CHUNK.get());
                 output.accept(ModItems.BEDROCK_SWORD.get());
@@ -31,5 +35,6 @@ public class CreativeModeTabs {
                 output.accept(ModItems.BEDROCK_CHESTPLATE.get());
                 output.accept(ModItems.BEDROCK_LEGGINGS.get());
                 output.accept(ModItems.BEDROCK_BOOTS.get());
-            }).build());
+            }).build()
+    );
 }
