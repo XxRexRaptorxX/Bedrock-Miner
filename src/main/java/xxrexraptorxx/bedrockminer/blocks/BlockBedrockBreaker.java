@@ -10,9 +10,6 @@ import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.util.RandomSource;
-import net.minecraft.world.damagesource.DamageSource;
-import net.minecraft.world.damagesource.DamageSources;
-import net.minecraft.world.damagesource.DamageTypes;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.entity.player.Player;
@@ -54,13 +51,7 @@ public class BlockBedrockBreaker extends DirectionalBlock {
 
 
     @Override
-    public void appendHoverText(ItemStack stack, Item.TooltipContext context, List<Component> list, TooltipFlag flag) {
-        list.add(Component.translatable("message." + References.MODID + ".bedrock_breaker.desc").withStyle(ChatFormatting.GRAY));
-    }
-
-
-    @Override
-    protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> pBuilder) {
+    public void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> pBuilder) {
         pBuilder.add(new Property[]{FACING, POWERED});
     }
 
@@ -148,7 +139,7 @@ public class BlockBedrockBreaker extends DirectionalBlock {
                         level.addDestroyBlockEffect(pos, harvestblock.defaultBlockState());
 
                     } else {
-                        level.playSound((Player)null, pos, SoundEvents.ITEM_BREAK, SoundSource.BLOCKS, 0.5F, level.random.nextFloat() * 0.15F + 0.F);
+                        level.playSound((Player)null, pos, SoundEvents.ITEM_BREAK.value(), SoundSource.BLOCKS, 0.5F, level.random.nextFloat() * 0.15F + 0.F);
                     }
                 }
             }

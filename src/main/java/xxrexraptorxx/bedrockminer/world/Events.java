@@ -6,6 +6,7 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Registry;
 import net.minecraft.core.component.DataComponents;
+import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.ClickEvent;
 import net.minecraft.network.chat.Component;
@@ -33,6 +34,7 @@ import net.neoforged.fml.ModList;
 import net.neoforged.fml.VersionChecker;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.client.event.ClientTickEvent;
+import net.neoforged.neoforge.event.entity.player.ItemTooltipEvent;
 import net.neoforged.neoforge.event.entity.player.PlayerEvent;
 import net.neoforged.neoforge.event.entity.player.PlayerInteractEvent;
 import net.neoforged.neoforge.event.village.WandererTradesEvent;
@@ -73,7 +75,7 @@ public class Events {
 
                     if (versionCheckResult.status() == VersionChecker.Status.OUTDATED || versionCheckResult.status() == VersionChecker.Status.BETA_OUTDATED) {
                         MutableComponent url = Component.literal(ChatFormatting.GREEN + "Click here to update!")
-                                .withStyle(style -> style.withClickEvent(new ClickEvent(ClickEvent.Action.OPEN_URL, References.URL)));
+                                .withStyle(style -> style.withClickEvent(new ClickEvent.OpenUrl(URI.create(References.URL))));
 
                         player.displayClientMessage(Component.literal(ChatFormatting.BLUE + "A newer version of " + ChatFormatting.YELLOW + References.NAME + ChatFormatting.BLUE + " is available!"), false);
                         player.displayClientMessage(url, false);
@@ -237,6 +239,18 @@ public class Events {
             if (block == ModBlocks.FAKE_BEDROCK.get() && item != ModItems.BEDROCK_PICKAXE.get()) {
                 level.setBlock(pos, Blocks.BEDROCK.defaultBlockState(), 2);
             }
+        }
+    }
+
+
+    @SubscribeEvent
+    public static void addingToolTips(ItemTooltipEvent event) {
+        ItemStack stack = event.getItemStack();
+        Item item = stack.getItem();
+        List<Component> list = event.getToolTip();
+
+        if (BuiltInRegistries.BLOCK.getKey(ModBlocks.BEDROCK_BREAKER.get()).getPath().equals(BuiltInRegistries.ITEM.getKey(item).getPath())) {
+            list.add(Component.translatable("message." + References.MODID + ".bedrock_breaker.desc").withStyle(ChatFormatting.GRAY));
         }
     }
 }
