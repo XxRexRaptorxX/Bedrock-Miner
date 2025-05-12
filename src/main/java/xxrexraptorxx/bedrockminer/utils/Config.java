@@ -95,7 +95,7 @@ public class Config {
         builder.comment("Items").push(CATEGORY_ITEMS);
         ARMOR_DURABILITY_MULTIPLIER = builder.comment("Set the durability for bedrock armor").defineInRange("armor_durability_multiplier", 50, 1, 1000);
         ARMOR_ENCHANTABILITY = builder.comment("Set the enchantability for bedrock armor").defineInRange("armor_enchantability", 18, 0, 30);
-        ARMOR_KNOCKBACK_RESISTANCE = builder.comment("Set the knockback resistance for bedrock armor").defineInRange("armor_knockback_resistance", 0.5f, 0, 10);
+        ARMOR_KNOCKBACK_RESISTANCE = builder.comment("Set the knockback resistance for bedrock armor").defineInRange("armor_knockback_resistance", 0.5f, 0, 1);
         ARMOR_TOUGHNESS = builder.comment("Set the toughness for bedrock armor").defineInRange("armor_toughness", 0.8F, 0, 10);
         ARMOR_EFFECTS = builder.comment("Activate special effects if you wear bedrock armor (Slowness + Resistance)").define("armor_effects", false);
 
