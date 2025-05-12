@@ -15,6 +15,8 @@ logoFile="logo.png"
 authors="${mod_authors}"
 description='''This small mod adds a new stable tool set to the game, the pickaxe and the breaker machine allows you to mine bedrock. With this new resource can you craft a few new items and blocks :D'''
 
+[modproperties.${your_mod_id}]
+configuredBackground="minecraft:textures/block/bedrock.png"
 
 [[dependencies.${mod_id}]]
 modId="neoforge"
