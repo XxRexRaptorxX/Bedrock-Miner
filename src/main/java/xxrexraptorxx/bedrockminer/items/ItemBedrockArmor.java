@@ -26,8 +26,8 @@ public class ItemBedrockArmor extends Item {
 
 
     @Override
-    public void inventoryTick(ItemStack stack, ServerLevel level, Entity entity, @Nullable EquipmentSlot sl) {
-        if (!level.isClientSide() && Config.ARMOR_EFFECTS.get() && entity instanceof Player player) {
+    public void inventoryTick(ItemStack stack, ServerLevel level, Entity entity, @Nullable EquipmentSlot slot) {
+        if (!level.isClientSide() && Config.getArmorEffets() && entity instanceof Player player) {
 
             int armorCounter = 0;
             Item helmet = player.getItemBySlot(EquipmentSlot.HEAD).getItem();

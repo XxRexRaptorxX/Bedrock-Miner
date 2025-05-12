@@ -1,10 +1,8 @@
 package xxrexraptorxx.bedrockminer.blocks;
 
 import com.mojang.serialization.MapCodec;
-import net.minecraft.ChatFormatting;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
-import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
@@ -13,9 +11,7 @@ import net.minecraft.util.RandomSource;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.*;
@@ -28,7 +24,6 @@ import net.minecraft.world.level.block.state.properties.Property;
 import net.minecraft.world.level.gameevent.GameEvent;
 import net.minecraft.world.level.redstone.Orientation;
 import net.minecraft.world.phys.AABB;
-import xxrexraptorxx.bedrockminer.main.References;
 import xxrexraptorxx.bedrockminer.registry.ModBlocks;
 import xxrexraptorxx.bedrockminer.registry.ModItems;
 import xxrexraptorxx.bedrockminer.registry.ModTags;
@@ -112,7 +107,7 @@ public class BlockBedrockBreaker extends DirectionalBlock {
                     List<LivingEntity> entities = level.getEntitiesOfClass(LivingEntity.class, damageArea);
                     //hurt entities infront of the block
                     for (LivingEntity entity : entities) {
-                        entity.hurt(level.damageSources().generic(), Config.MOB_DAMAGE.get());
+                        entity.hurt(level.damageSources().generic(), Config.getMobDamage());
                     }
 
                     //test is block is valid
@@ -148,7 +143,7 @@ public class BlockBedrockBreaker extends DirectionalBlock {
 
 
     private static boolean isValidBlock(Block block) {
-        if (Config.HARVEST_ONLY_BEDROCK.get()) {
+        if (Config.getHarvestOnlyBedrock()) {
             return (block == Blocks.BEDROCK || block == ModBlocks.FAKE_BEDROCK.get());
         }
 

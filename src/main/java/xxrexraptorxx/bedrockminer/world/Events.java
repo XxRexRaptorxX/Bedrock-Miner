@@ -44,14 +44,11 @@ import xxrexraptorxx.bedrockminer.registry.ModBlocks;
 import xxrexraptorxx.bedrockminer.registry.ModItems;
 import xxrexraptorxx.bedrockminer.utils.Config;
 
-import java.net.MalformedURLException;
 import java.net.URI;
-import java.net.URL;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 import java.util.List;
-import java.util.Scanner;
 import java.util.concurrent.CompletableFuture;
 
 @EventBusSubscriber(modid = References.MODID, bus = EventBusSubscriber.Bus.GAME)
@@ -62,7 +59,7 @@ public class Events {
 
     @SubscribeEvent
     public static void onClientTick(ClientTickEvent.Pre event) {
-        if (Config.UPDATE_CHECKER != null && Config.UPDATE_CHECKER.get()) {
+        if (Config.getUpdateChecker()) {
 
             if (!hasShownUp && Minecraft.getInstance().screen == null) {
                 var player = Minecraft.getInstance().player;
@@ -102,7 +99,7 @@ public class Events {
         Player player = event.getEntity();
         Level level = player.level();
 
-        if (Config.PATREON_REWARDS.get()) {
+        if (Config.getPatreonRewards()) {
             // Check if the player already has rewards
             if (!player.getInventory().contains(new ItemStack(Items.PAPER))) {
                 if (player instanceof ServerPlayer serverPlayer) { // Ensure the player is a ServerPlayer
@@ -165,6 +162,7 @@ public class Events {
         player.getInventory().add(certificate);
     }
 
+
     private static void givePremiumSupporterReward(Player player, Level level) {
         ItemStack reward = new ItemStack(Items.DIAMOND_SWORD, 1);
         Registry<Enchantment> enchantmentsRegistry = level.registryAccess().lookupOrThrow(Registries.ENCHANTMENT);
@@ -175,6 +173,7 @@ public class Events {
         player.getInventory().add(reward);
     }
 
+
     private static void giveEliteReward(Player player) {
         ItemStack star = new ItemStack(Items.NETHER_STAR);
 
@@ -183,45 +182,14 @@ public class Events {
     }
 
 
-    /**
-     * Tests if a player is a supporter
-     *
-     * @param url url to a file that contains the supporter names
-     * @param player ingame player
-     * @return true/false
-     */
-    private static boolean SupporterCheck(URL url, Player player) {
-        try {
-            Scanner scanner = new Scanner(url.openStream());
-            List<String> supporterList = scanner.tokens().toList();
-
-            for (String name: supporterList) {
-                //test if player is in supporter list
-                if (player.getName().getString().equals(name)) {
-                    return true;
-                }
-            }
-
-            scanner.close();
-
-        } catch (MalformedURLException e) {
-            BedrockMiner.LOGGER.error("Supporter list URL not found! >>{}", url);
-
-        } catch (Exception e) {
-            BedrockMiner.LOGGER.error("An unexpected error occurred while checking supporter list", e);
-        }
-
-        return false;
-    }
-
-
-
     @SubscribeEvent
     public static void addCustomWanderingTrades(WandererTradesEvent event) {
-        List<VillagerTrades.ItemListing> trades = event.getRareTrades();
-        ItemCost cost = new ItemCost(Items.EMERALD, 6);
+        if (Config.getWanderingTrades()) {
+            List<VillagerTrades.ItemListing> trades = event.getRareTrades();
+            ItemCost cost = new ItemCost(Items.EMERALD, 6);
 
-        trades.add(((trader, random) -> new MerchantOffer(cost, new ItemStack(ModItems.BEDROCK_CHUNK.get()), 3, 1, 0.05F)));
+            trades.add(((trader, random) -> new MerchantOffer(cost, new ItemStack(ModItems.BEDROCK_CHUNK.get()), 3, 1, 0.05F)));
+        }
     }
 
 

@@ -10,6 +10,7 @@ import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.level.block.Block;
 import net.neoforged.neoforge.common.SimpleTier;
 import xxrexraptorxx.bedrockminer.main.References;
+import xxrexraptorxx.bedrockminer.utils.Config;
 
 public class ModTags {
 
@@ -20,5 +21,5 @@ public class ModTags {
     public static final TagKey<Item> REPAIR_MATERIALS_BEDROCK = ItemTags.create(ResourceLocation.fromNamespaceAndPath(References.MODID, "repair_materials_bedrock"));
 
 
-    public static final ToolMaterial BEDROCK_TIER = new ToolMaterial(INCORRECT_FOR_BEDROCK_TOOL, 2500, 6.0f, 3.5f, 3, REPAIR_MATERIALS_BEDROCK);
+    public static final ToolMaterial BEDROCK_TIER = new ToolMaterial(INCORRECT_FOR_BEDROCK_TOOL, Config.getToolDurability(), Config.getToolEfficiency(), Config.getToolDamage(), Config.getToolEnchantability(), REPAIR_MATERIALS_BEDROCK);
 }
