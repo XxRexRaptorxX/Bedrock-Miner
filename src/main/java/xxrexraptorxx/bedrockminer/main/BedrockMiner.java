@@ -26,9 +26,9 @@ public class BedrockMiner {
 
 
     public BedrockMiner(IEventBus bus, ModContainer container) {
-        container.registerConfig(ModConfig.Type.SERVER, Config.SERVER_CONFIG);
-        container.registerConfig(ModConfig.Type.STARTUP, Config.STARTUP_CONFIG);
-        container.registerConfig(ModConfig.Type.CLIENT, Config.CLIENT_CONFIG);
+        container.registerConfig(ModConfig.Type.SERVER, Config.SERVER_CONFIG, References.MODID + "/" + References.MODID + "-server.toml");
+        container.registerConfig(ModConfig.Type.STARTUP, Config.STARTUP_CONFIG, References.MODID + "/" + References.MODID + "-startup.toml");
+        container.registerConfig(ModConfig.Type.CLIENT, Config.CLIENT_CONFIG, References.MODID + "/" + References.MODID + "-client.toml");
 
         ModBlocks.init(bus);
         ModItems.init(bus);
