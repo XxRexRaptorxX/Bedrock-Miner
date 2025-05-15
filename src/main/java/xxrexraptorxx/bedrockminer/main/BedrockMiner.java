@@ -1,11 +1,18 @@
 package xxrexraptorxx.bedrockminer.main;
 
+import net.neoforged.api.distmarker.Dist;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.fml.ModContainer;
 import net.neoforged.fml.common.Mod;
+import net.neoforged.fml.config.ModConfig;
+import net.neoforged.neoforge.client.gui.ConfigurationScreen;
+import net.neoforged.neoforge.client.gui.IConfigScreenFactory;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import xxrexraptorxx.bedrockminer.registry.*;
+import xxrexraptorxx.bedrockminer.registry.CreativeModeTabs;
+import xxrexraptorxx.bedrockminer.registry.ModBlocks;
+import xxrexraptorxx.bedrockminer.registry.ModItems;
+import xxrexraptorxx.bedrockminer.registry.ModLootModifiers;
 import xxrexraptorxx.bedrockminer.utils.Config;
 
 /**
@@ -19,12 +26,25 @@ public class BedrockMiner {
 
 
     public BedrockMiner(IEventBus bus, ModContainer container) {
+        container.registerConfig(ModConfig.Type.SERVER, Config.SERVER_CONFIG);
+        container.registerConfig(ModConfig.Type.STARTUP, Config.STARTUP_CONFIG);
+        container.registerConfig(ModConfig.Type.CLIENT, Config.CLIENT_CONFIG);
 
-        Config.init(container);
         ModBlocks.init(bus);
         ModItems.init(bus);
         ModLootModifiers.init(bus);
         CreativeModeTabs.init(bus);
     }
 
+
+    @Mod(value = References.MODID, dist = Dist.CLIENT)
+    public static class BedrockMinerClient {
+
+        public BedrockMinerClient(IEventBus bus, ModContainer container) {
+            container.registerExtensionPoint(IConfigScreenFactory.class, ConfigurationScreen::new);
+        }
+    }
+
 }
+
+
