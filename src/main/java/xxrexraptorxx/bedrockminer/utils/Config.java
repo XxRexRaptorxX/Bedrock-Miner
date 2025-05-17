@@ -32,7 +32,7 @@ public class Config {
     //CLIENT
     static {
         setCategory(CLIENT_BUILDER, "general");
-        UPDATE_CHECKER =        CLIENT_BUILDER.comment("Activate the Update-Checker").define("update-checker", true);
+        UPDATE_CHECKER =        CLIENT_BUILDER.comment("Activate whether the game should check at every world start whether your mod matches the latest version").define("update-checker", true);
         CLIENT_BUILDER.pop();
 
         CLIENT_CONFIG = CLIENT_BUILDER.build();
@@ -72,7 +72,7 @@ public class Config {
         STARTUP_BUILDER.pop();
 
         setCategory(STARTUP_BUILDER, "tools");
-        TOOL_DURABILITY_MULTIPLIER =       STARTUP_BUILDER.comment("Set the durability for bedrock tools").defineInRange("tool_durability", 50, 10, 10000);
+        TOOL_DURABILITY_MULTIPLIER =       STARTUP_BUILDER.comment("Set the durability for bedrock tools").defineInRange("tool_durability_multiplier", 50, 10, 10000);
         TOOL_EFFICIENCY =       STARTUP_BUILDER.comment("Set the efficiency for bedrock tools").defineInRange("tool_efficiency", 6.0F, 1.0F, 20.0F);
         TOOL_DAMAGE =           STARTUP_BUILDER.comment("Set the damage for bedrock tools").defineInRange("tool_damage", 3.5F, 1.0F, 20.0F);
         TOOL_ENCHANTABILITY =   STARTUP_BUILDER.comment("Set the enchantability for bedrock tools").defineInRange("tool_enchantability", 3, 1, 20);
