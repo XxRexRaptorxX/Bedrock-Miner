@@ -1,6 +1,26 @@
 {
     "itemGroup.bedrockminer_tab": "Bedrock Miner",
 
+    "bedrockminer.configuration.general": "General",
+    "bedrockminer.configuration.blocks": "Bedrock Breaker",
+    "bedrockminer.configuration.armor": "Armor",
+    "bedrockminer.configuration.tools": "Tools",
+
+    "bedrockminer.configuration.update-checker": "Update-Checker",
+    "bedrockminer.configuration.patreon_rewards": "Patreon Rewards",
+    "bedrockminer.configuration.harvest_only_bedrock": "Harvest only bedrock",
+    "bedrockminer.configuration.mob_damage": "Mob damage",
+    "bedrockminer.configuration.armor_effects": "Armor effects",
+    "bedrockminer.configuration.wandering_trades": "Wandering Trader trades",
+    "bedrockminer.configuration.armor_durability_multiplier": "Armor durability multiplier",
+    "bedrockminer.configuration.armor_enchantability": "Armor enchantability",
+    "bedrockminer.configuration.armor_knockback_resistance": "Armor knockback resistance",
+    "bedrockminer.configuration.armor_toughness": "Armor toughness",
+    "bedrockminer.configuration.tool_durability_multiplier": "Tool durability multiplier",
+    "bedrockminer.configuration.tool_efficiency": "Tool efficiency",
+    "bedrockminer.configuration.tool_damage": "Tool damage",
+    "bedrockminer.configuration.tool_enchantability": "Tool enchantability",
+
     "message.bedrockminer.bedrock_breaker.desc": "Needs redstone power",
     "message.bedrockminer.bedrock_chunk_jei_desc": "Can rarely be found in stronghold, bastion and end city chests or from Wandering Traders.",
 

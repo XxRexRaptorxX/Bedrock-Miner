@@ -1,8 +1,28 @@
 {
     "itemGroup.bedrockminer_tab": "Bedrock Miner",
 
+    "bedrockminer.configuration.general": "Allgemein",
+    "bedrockminer.configuration.blocks": "Grundstein Brecher",
+    "bedrockminer.configuration.armor": "Rüstung",
+    "bedrockminer.configuration.tools": "Werkzeug",
+
+    "bedrockminer.configuration.update-checker": "Update-Checker",
+    "bedrockminer.configuration.patreon_rewards": "Patreon Rewards",
+    "bedrockminer.configuration.harvest_only_bedrock": "Ernte nur Grundstein",
+    "bedrockminer.configuration.mob_damage": "Schaden",
+    "bedrockminer.configuration.armor_effects": "Rüstungseffekte",
+    "bedrockminer.configuration.wandering_trades": "Wandernder Händler Angebote",
+    "bedrockminer.configuration.armor_durability_multiplier": "Rüstungshaltbarkeits-Multiplikator",
+    "bedrockminer.configuration.armor_enchantability": "Rüstungsverzauberbarkeit",
+    "bedrockminer.configuration.armor_knockback_resistance": "Rüstungsrückstoßresistenz",
+    "bedrockminer.configuration.armor_toughness": "Rüstungshärte",
+    "bedrockminer.configuration.tool_durability_multiplier": "Werkzeughaltbarkeits-Multiplikator",
+    "bedrockminer.configuration.tool_efficiency": "Werkzeugeffizienz",
+    "bedrockminer.configuration.tool_damage": "Werkzeugsschaden",
+    "bedrockminer.configuration.tool_enchantability": "Werkzeugsverzauberbarkeit",
+
     "message.bedrockminer.bedrock_breaker.desc": "Braucht Redstone Signal",
-    "message.bedrockminer.bedrock_chunk_jei_desc": "Kann selten in Festungs, Bastions, End Stadt Kisten gefunden oder von Wandernden Händlern erhalten werden.",
+    "message.bedrockminer.bedrock_chunk_jei_desc": "Kann selten in Festungs-, Bastions- & End Stadt- Kisten gefunden oder von Wandernden Händlern erhalten werden.",
 
     "block.bedrockminer.bedrock_infused_obsidian": "Grundstein durchzogenes Obsidian",
     "block.bedrockminer.bedrock_infused_stone": "Grundstein durchzogener Stein",

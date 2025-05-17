@@ -15,7 +15,7 @@ public class Config {
     private static final ModConfigSpec.BooleanValue UPDATE_CHECKER;
     private static final ModConfigSpec.BooleanValue PATREON_REWARDS;
 
-    private static final ModConfigSpec.IntValue TOOL_DURABILITY;
+    private static final ModConfigSpec.IntValue TOOL_DURABILITY_MULTIPLIER;
     private static final ModConfigSpec.DoubleValue TOOL_EFFICIENCY;
     private static final ModConfigSpec.DoubleValue TOOL_DAMAGE;
     private static final ModConfigSpec.IntValue TOOL_ENCHANTABILITY;
@@ -72,7 +72,7 @@ public class Config {
         STARTUP_BUILDER.pop();
 
         setCategory(STARTUP_BUILDER, "tools");
-        TOOL_DURABILITY =       STARTUP_BUILDER.comment("Set the durability for bedrock tools").defineInRange("tool_durability", 50, 10, 10000);
+        TOOL_DURABILITY_MULTIPLIER =       STARTUP_BUILDER.comment("Set the durability for bedrock tools").defineInRange("tool_durability", 50, 10, 10000);
         TOOL_EFFICIENCY =       STARTUP_BUILDER.comment("Set the efficiency for bedrock tools").defineInRange("tool_efficiency", 6.0F, 1.0F, 20.0F);
         TOOL_DAMAGE =           STARTUP_BUILDER.comment("Set the damage for bedrock tools").defineInRange("tool_damage", 3.5F, 1.0F, 20.0F);
         TOOL_ENCHANTABILITY =   STARTUP_BUILDER.comment("Set the enchantability for bedrock tools").defineInRange("tool_enchantability", 3, 1, 20);
@@ -84,7 +84,7 @@ public class Config {
 
     public static boolean getUpdateChecker()            { return UPDATE_CHECKER.get();                          }
     public static boolean getPatreonRewards()           { return PATREON_REWARDS.get();                         }
-    public static int getToolDurability()               { return TOOL_DURABILITY.get();                         }
+    public static int getToolDurabilityMultiplier()     { return TOOL_DURABILITY_MULTIPLIER.get();              }
     public static float getToolEfficiency()             { return TOOL_EFFICIENCY.get().floatValue();            }
     public static float getToolDamage()                 { return TOOL_DAMAGE.get().floatValue();                }
     public static int getToolEnchantability()           { return TOOL_ENCHANTABILITY.get();                     }

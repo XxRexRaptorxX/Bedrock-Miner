@@ -40,7 +40,7 @@ public class BedrockMiner {
     @Mod(value = References.MODID, dist = Dist.CLIENT)
     public static class BedrockMinerClient {
 
-        public BedrockMinerClient(IEventBus bus, ModContainer container) {
+        public BedrockMinerClient(ModContainer container) {
             container.registerExtensionPoint(IConfigScreenFactory.class, ConfigurationScreen::new);
         }
     }
