@@ -6,6 +6,13 @@
 
 ![Logo](https://i.imgur.com/05QnUzP.png)
 
+## 🗃️ Dependencies
+
+- **Magma Core**
+    - [CurseForge][cf_magmacore] | [Modrinth][mr_magmacore]
+
+-----
+
 ## 📖 Description
 
 Adds tools to harvest bedrock and craft things like blocks, items and armor out of it!
@@ -14,7 +21,7 @@ Adds tools to harvest bedrock and craft things like blocks, items and armor out 
 
 Find bedrock chunks in stronghold, bastions and end city chests (very rare) and craft bedrock blocks. Now you can make the pickaxe & bedrock breaker to mine the real bedrock and have acccess to get all other items and block of the mod!
 
- -----
+-----
 
 ### Features:
 
@@ -34,3 +41,6 @@ All rights reserved.
 
 [cf_mod]: https://www.curseforge.com/minecraft/mc-mods/bedrock-miner
 [mr_mod]: https://modrinth.com/mod/bedrock-miner
+
+[cf_magmacore]: https://www.curseforge.com/minecraft/mc-mods/magma-core
+[mr_magmacore]: https://modrinth.com/mod/magma-core
