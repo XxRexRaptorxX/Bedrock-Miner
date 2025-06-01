@@ -14,6 +14,8 @@ import xxrexraptorxx.bedrockminer.registry.ModBlocks;
 import xxrexraptorxx.bedrockminer.registry.ModItems;
 import xxrexraptorxx.bedrockminer.registry.ModLootModifiers;
 import xxrexraptorxx.bedrockminer.utils.Config;
+import xxrexraptorxx.magmacore.config.ConfigHelper;
+import xxrexraptorxx.magmacore.main.ModRegistry;
 
 /**
  * @author XxRexRaptorxX (RexRaptor)
@@ -26,14 +28,13 @@ public class BedrockMiner {
 
 
     public BedrockMiner(IEventBus bus, ModContainer container) {
-        container.registerConfig(ModConfig.Type.SERVER, Config.SERVER_CONFIG, References.MODID + "/" + References.MODID + "-server.toml");
-        container.registerConfig(ModConfig.Type.STARTUP, Config.STARTUP_CONFIG, References.MODID + "/" + References.MODID + "-startup.toml");
-        container.registerConfig(ModConfig.Type.CLIENT, Config.CLIENT_CONFIG, References.MODID + "/" + References.MODID + "-client.toml");
-
         ModBlocks.init(bus);
         ModItems.init(bus);
         ModLootModifiers.init(bus);
         CreativeModeTabs.init(bus);
+
+        ConfigHelper.registerConfigs(container, References.MODID, true, Config.SERVER_CONFIG, null, null, Config.STARTUP_CONFIG);
+        ModRegistry.register(References.MODID, References.NAME, References.URL);
     }
 
 
@@ -41,7 +42,7 @@ public class BedrockMiner {
     public static class BedrockMinerClient {
 
         public BedrockMinerClient(ModContainer container) {
-            container.registerExtensionPoint(IConfigScreenFactory.class, ConfigurationScreen::new);
+            ConfigHelper.registerIngameConfig(container);
         }
     }
 

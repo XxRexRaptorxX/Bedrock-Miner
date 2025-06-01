@@ -9,6 +9,7 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.ItemStack;
 import xxrexraptorxx.bedrockminer.main.References;
 import xxrexraptorxx.bedrockminer.registry.ModItems;
+import xxrexraptorxx.magmacore.utils.FormattingHelper;
 
 @JeiPlugin
 public class JEIIntegration implements IModPlugin {
@@ -22,6 +23,6 @@ public class JEIIntegration implements IModPlugin {
 
     @Override
     public void registerRecipes(IRecipeRegistration registry) {
-        registry.addIngredientInfo(new ItemStack(ModItems.BEDROCK_CHUNK.get()), VanillaTypes.ITEM_STACK, Component.translatable("message." + References.MODID + ".bedrock_chunk_jei_desc"));
+        registry.addIngredientInfo(new ItemStack(ModItems.BEDROCK_CHUNK.get()), VanillaTypes.ITEM_STACK, FormattingHelper.setModLangComponent("message", References.MODID, "bedrock_chunk_jei_desc"));
     }
 }

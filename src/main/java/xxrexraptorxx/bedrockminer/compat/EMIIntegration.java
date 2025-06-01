@@ -9,6 +9,7 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import xxrexraptorxx.bedrockminer.main.References;
 import xxrexraptorxx.bedrockminer.registry.ModItems;
+import xxrexraptorxx.magmacore.utils.FormattingHelper;
 
 import java.util.List;
 
@@ -18,7 +19,7 @@ public class EMIIntegration implements EmiPlugin {
     @Override
     public void register(EmiRegistry registry) {
         ResourceLocation recipeId = ResourceLocation.fromNamespaceAndPath(References.MODID, "info/bedrock_chunk" );
-        registry.addRecipe(new EmiInfoRecipe(List.of(EmiStack.of(ModItems.BEDROCK_CHUNK)), List.of(Component.translatable("message." + References.MODID + ".bedrock_chunk_jei_desc")), recipeId));
+        registry.addRecipe(new EmiInfoRecipe(List.of(EmiStack.of(ModItems.BEDROCK_CHUNK)), List.of(FormattingHelper.setModLangComponent("message", References.MODID, "bedrock_chunk_jei_desc")), recipeId));
    }
 
 }

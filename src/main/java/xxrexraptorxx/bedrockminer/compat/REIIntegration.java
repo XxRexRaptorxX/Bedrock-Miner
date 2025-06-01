@@ -8,6 +8,7 @@ import me.shedaniel.rei.plugin.client.BuiltinClientPlugin;
 import net.minecraft.network.chat.Component;
 import xxrexraptorxx.bedrockminer.main.References;
 import xxrexraptorxx.bedrockminer.registry.ModItems;
+import xxrexraptorxx.magmacore.utils.FormattingHelper;
 
 @REIPluginClient
 public class REIIntegration implements REIClientPlugin {
@@ -17,7 +18,7 @@ public class REIIntegration implements REIClientPlugin {
         BuiltinClientPlugin instance = BuiltinClientPlugin.getInstance();
 
         instance.registerInformation(EntryStacks.of(ModItems.BEDROCK_CHUNK), Component.empty(), list -> {
-            list.add(Component.translatable("message." + References.MODID + ".bedrock_chunk_jei_desc"));
+            list.add(FormattingHelper.setModLangComponent("message", References.MODID, "bedrock_chunk_jei_desc"));
             return list;
         });
     }
