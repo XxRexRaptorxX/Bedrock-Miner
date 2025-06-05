@@ -21,7 +21,7 @@ Find bedrock chunks in stronghold, bastions and end city chests (very rare) and 
 
 ### Features:
 - new tools and armor! (with the highest durability and the lowest enchantability) [configurable]
-- new blocks
+- bedrock bricks & bedrock infused obsidian
 - new machine (harvests bedrock and all other blocks, when you activate it in the config)
 - update checker
 - config file
