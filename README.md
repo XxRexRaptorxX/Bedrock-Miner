@@ -10,7 +10,6 @@
 </p>
 
 
-
 ## 📖 Description
 
 Adds tools to harvest bedrock and craft things like blocks, items and armor out of it!
@@ -41,7 +40,6 @@ Find bedrock chunks in stronghold, bastions and end city chests (very rare) and 
   <img src="https://github.com/XxRexRaptorxX/General/blob/main/page_decorations/line.png?raw=true" alt="line" width="2000"/>
 </p>
 
-
 ## 🗃️ Dependencies
 
 - **Magma Core**
@@ -54,7 +52,6 @@ Find bedrock chunks in stronghold, bastions and end city chests (very rare) and 
 <p align="center">
   <img src="https://github.com/XxRexRaptorxX/General/blob/main/page_decorations/line.png?raw=true" alt="line" width="2000"/>
 </p>
-
 
 # 🎮 My other mods!
 
@@ -80,7 +77,6 @@ Find bedrock chunks in stronghold, bastions and end city chests (very rare) and 
 </p>
 
 <p align="center">
-<br><br>
   <img src="https://github.com/XxRexRaptorxX/General/blob/main/page_decorations/line.png?raw=true" alt="line" width="2000"/>
 </p>
 
