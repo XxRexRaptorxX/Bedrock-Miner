@@ -14,7 +14,6 @@
       ]
     }
   ],
-
   "type": "minecraft:crafting_shaped",
   "category": "equipment",
   "pattern": [
@@ -26,7 +25,6 @@
     "#": "#c:gems/diamond",
     "X": "#bedrockminer:bedrock_tool_materials"
   },
-  
   "result": {
     "id": "bedrockminer:bedrock_axe"
   }

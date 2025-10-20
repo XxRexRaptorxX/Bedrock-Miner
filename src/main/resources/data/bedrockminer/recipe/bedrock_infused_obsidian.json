@@ -6,12 +6,10 @@
     "#X#",
     "X#X"
   ],
-
   "key": {
     "#": "bedrockminer:bedrock_chunk",
     "X": "minecraft:obsidian"
   },
-
   "result": {
     "id": "bedrockminer:bedrock_infused_obsidian",
     "count": 4

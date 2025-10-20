@@ -6,14 +6,12 @@
     "X#X",
     "XIX"
   ],
-
   "key": {
     "#": "minecraft:piston",
     "I": "minecraft:dispenser",
     "O": "bedrockminer:bedrock_pickaxe",
     "X": "#c:ingots/iron"
   },
-  
   "result": {
     "id": "bedrockminer:bedrock_breaker"
   }

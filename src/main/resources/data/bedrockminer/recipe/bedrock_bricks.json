@@ -5,11 +5,9 @@
     "##",
     "##"
   ],
-
   "key": {
     "#": "minecraft:bedrock"
   },
-
   "result": {
     "id": "bedrockminer:bedrock_bricks",
     "count": 4

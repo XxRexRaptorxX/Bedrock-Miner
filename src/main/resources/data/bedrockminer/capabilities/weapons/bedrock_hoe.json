@@ -1,10 +1,8 @@
 {
-	"attributes":
-	{
-		"common":
-		{
-			"impact":0.1
-		}
-	},
-	"type":"epicfight:hoe"
+  "attributes": {
+    "common": {
+      "impact": 0.1
+    }
+  },
+  "type": "epicfight:hoe"
 }

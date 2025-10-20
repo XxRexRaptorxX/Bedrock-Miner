@@ -1,10 +1,8 @@
 {
-	"attributes":
-	{
-		"common":
-		{
-			"impact":2.6
-		}
-	},
-	"type":"epicfight:pickaxe"
+  "attributes": {
+    "common": {
+      "impact": 2.6
+    }
+  },
+  "type": "epicfight:pickaxe"
 }

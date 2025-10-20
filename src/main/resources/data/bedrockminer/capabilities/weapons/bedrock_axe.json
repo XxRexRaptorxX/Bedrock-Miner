@@ -1,10 +1,8 @@
 {
-	"attributes":
-	{
-		"common":
-		{
-			"impact":2.1
-		}
-	},
-	"type":"epicfight:axe"
+  "attributes": {
+    "common": {
+      "impact": 2.1
+    }
+  },
+  "type": "epicfight:axe"
 }

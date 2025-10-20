@@ -6,11 +6,9 @@
     "XXX",
     "XXX"
   ],
-
   "key": {
     "X": "#bedrockminer:bedrock_tool_materials"
   },
-
   "result": {
     "id": "bedrockminer:bedrock_chestplate"
   }

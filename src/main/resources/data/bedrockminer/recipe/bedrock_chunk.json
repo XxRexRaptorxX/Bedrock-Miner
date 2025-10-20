@@ -4,7 +4,6 @@
   "ingredients": [
     "minecraft:bedrock"
   ],
-  
   "result": {
     "id": "bedrockminer:bedrock_chunk",
     "count": 9
