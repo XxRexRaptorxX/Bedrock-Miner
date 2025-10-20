@@ -1,4 +1,8 @@
-# [v.5.1.0 for MC 1.21.10, 1.21.9](https://github.com/XxRexRaptorxX/Bedrock-Miner/compare/v.5.1.0-dev1...v.5.1.0-dev5)
+# [v.5.1.0 for MC 1.21.10, 1.21.9](https://github.com/XxRexRaptorxX/Bedrock-Miner/compare/v.5.1.0-dev1...v.5.1.0-dev6)
+
+## ✨ Features
+
+- mod items now also appear in vanilla creative tabs ([642f024](https://github.com/XxRexRaptorxX/Bedrock-Miner/commit/642f024917629ac0ea9594e6fecf5dce279b61a7))
 
 ## 🔨 Refactoring
 
