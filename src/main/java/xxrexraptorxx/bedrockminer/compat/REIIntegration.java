@@ -18,10 +18,9 @@ public class REIIntegration implements REIClientPlugin {
         BuiltinClientPlugin instance = BuiltinClientPlugin.getInstance();
 
         instance.registerInformation(EntryStacks.of(ModItems.BEDROCK_CHUNK), Component.empty(), list -> {
-            list.add(FormattingHelper.setModLangComponent("message", References.MODID, "bedrock_chunk_jei_desc"));
+            list.add(FormattingHelper.setMessageComponent(References.MODID, "bedrock_chunk_jei_desc"));
             return list;
         });
     }
 
 }
-

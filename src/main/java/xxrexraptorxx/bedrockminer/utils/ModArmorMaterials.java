@@ -23,20 +23,13 @@ public class ModArmorMaterials {
             // - LEGGINGS: 15
             // - BOOTS: 13
             // - BODY: 16
-            Config.getArmorDurability(),
-            Util.make(new EnumMap<>(ArmorType.class), map -> {
+            Config.getArmorDurability(), Util.make(new EnumMap<>(ArmorType.class), map -> {
                 map.put(ArmorType.BOOTS, 2);
                 map.put(ArmorType.LEGGINGS, 6);
                 map.put(ArmorType.CHESTPLATE, 8);
                 map.put(ArmorType.HELMET, 3);
                 map.put(ArmorType.BODY, 8);
-            }),
-            Config.getArmorEnchantability(),
-            SoundEvents.ARMOR_EQUIP_GENERIC,
-            Config.getArmorToughness(),
-            Config.getArmorKnockbackResistance(),
-            ModTags.REPAIR_MATERIALS_BEDROCK,
-            ResourceKey.create(EquipmentAssets.ROOT_ID, ResourceLocation.fromNamespaceAndPath(References.MODID, "bedrock"))
-    );
+            }), Config.getArmorEnchantability(), SoundEvents.ARMOR_EQUIP_GENERIC, Config.getArmorToughness(), Config.getArmorKnockbackResistance(),
+            ModTags.REPAIR_MATERIALS_BEDROCK, ResourceKey.create(EquipmentAssets.ROOT_ID, ResourceLocation.fromNamespaceAndPath(References.MODID, "bedrock")));
 
 }

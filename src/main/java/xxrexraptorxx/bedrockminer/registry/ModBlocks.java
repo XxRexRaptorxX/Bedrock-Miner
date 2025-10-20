@@ -29,39 +29,20 @@ public class ModBlocks {
     }
 
 
-    public static final DeferredBlock<Block> BEDROCK_INFUSED_OBSIDIAN = registerBlock("bedrock_infused_obsidian", properties -> new Block(properties
-            .strength(100, 4000)
-            .sound(SoundType.STONE)
-            .mapColor(MapColor.COLOR_BLACK)
-            .pushReaction(PushReaction.BLOCK)
-    ));
+    public static final DeferredBlock<Block> BEDROCK_INFUSED_OBSIDIAN = registerBlock("bedrock_infused_obsidian",
+            properties -> new Block(properties.strength(100, 4000).sound(SoundType.STONE).mapColor(MapColor.COLOR_BLACK).pushReaction(PushReaction.BLOCK)));
 
-    public static final DeferredBlock<BlockBedrockBreaker> BEDROCK_BREAKER = registerBlock("bedrock_breaker", properties -> new BlockBedrockBreaker(properties
-            .strength(5, 10)
-            .sound(SoundType.STONE)
-            .mapColor(MapColor.COLOR_GRAY)
-    ));
+    public static final DeferredBlock<BlockBedrockBreaker> BEDROCK_BREAKER = registerBlock("bedrock_breaker",
+            properties -> new BlockBedrockBreaker(properties.strength(5, 10).sound(SoundType.STONE).mapColor(MapColor.COLOR_GRAY)));
 
-    public static final DeferredBlock<BlockFakeBedrock> FAKE_BEDROCK = registerBlock("fake_bedrock", properties -> new BlockFakeBedrock(properties
-            .strength(150.0F, 3600000.0F)
-            .sound(SoundType.STONE)
-            .mapColor(MapColor.STONE)
-            .instrument(NoteBlockInstrument.BASEDRUM)
-            .pushReaction(PushReaction.BLOCK)
-            .isValidSpawn((state, level, pos, value) -> false)
-            .requiresCorrectToolForDrops()
-    ));
+    public static final DeferredBlock<BlockFakeBedrock> FAKE_BEDROCK = registerBlock("fake_bedrock",
+            properties -> new BlockFakeBedrock(properties.strength(150.0F, 3600000.0F).sound(SoundType.STONE).mapColor(MapColor.STONE).instrument(NoteBlockInstrument.BASEDRUM)
+                    .pushReaction(PushReaction.BLOCK).isValidSpawn((state, level, pos, value) -> false).requiresCorrectToolForDrops()));
 
 
-    public static final DeferredBlock<Block> BEDROCK_BRICKS = registerBlock("bedrock_bricks", properties -> new Block(properties
-            .strength(150.0F, 3600000.0F)
-            .sound(SoundType.STONE)
-            .mapColor(MapColor.STONE)
-            .instrument(NoteBlockInstrument.BASEDRUM)
-            .pushReaction(PushReaction.BLOCK)
-            .isValidSpawn((state, level, pos, value) -> false)
-            .requiresCorrectToolForDrops()
-    ));
+    public static final DeferredBlock<Block> BEDROCK_BRICKS = registerBlock("bedrock_bricks",
+            properties -> new Block(properties.strength(150.0F, 3600000.0F).sound(SoundType.STONE).mapColor(MapColor.STONE).instrument(NoteBlockInstrument.BASEDRUM)
+                    .pushReaction(PushReaction.BLOCK).isValidSpawn((state, level, pos, value) -> false).requiresCorrectToolForDrops()));
 
 
     public static <T extends Block> DeferredBlock<T> registerBlock(String name, Function<BlockBehaviour.Properties, T> blockCreator) {
@@ -70,9 +51,11 @@ public class ModBlocks {
         return toReturn;
     }
 
+
     public static <T extends Block> void registerBlockItems(String name, DeferredBlock<T> block) {
         ModItems.ITEMS.register(name, () -> new BlockItem(block.get(), new Item.Properties().setId(ModItems.itemId(name)).useBlockDescriptionPrefix()));
     }
+
 
     public static ResourceKey<Block> blockId(String name) {
         return ResourceKey.create(Registries.BLOCK, ResourceLocation.fromNamespaceAndPath(References.MODID, name));

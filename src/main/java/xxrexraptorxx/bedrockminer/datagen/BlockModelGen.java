@@ -16,6 +16,7 @@ public class BlockModelGen extends BlockModelGenerators {
         super(blockstateOutput, itemModelOutput, modelOutput);
     }
 
+
     @Override
     public void run() {
         createTrivialCube(ModBlocks.BEDROCK_INFUSED_OBSIDIAN.get());

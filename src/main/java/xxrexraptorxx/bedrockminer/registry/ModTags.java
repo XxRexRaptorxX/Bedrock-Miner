@@ -17,5 +17,6 @@ public class ModTags {
     public static final TagKey<Item> REPAIR_MATERIALS_BEDROCK = TagHelper.createItemTag(References.MODID, "repair_materials_bedrock");
 
 
-    public static final ToolMaterial BEDROCK_TIER = new ToolMaterial(INCORRECT_FOR_BEDROCK_TOOL, Config.getToolDurabilityMultiplier(), Config.getToolEfficiency(), Config.getToolDamage(), Config.getToolEnchantability(), REPAIR_MATERIALS_BEDROCK);
+    public static final ToolMaterial BEDROCK_TIER = new ToolMaterial(INCORRECT_FOR_BEDROCK_TOOL, Config.getToolDurabilityMultiplier(), Config.getToolEfficiency(),
+            Config.getToolDamage(), Config.getToolEnchantability(), REPAIR_MATERIALS_BEDROCK);
 }

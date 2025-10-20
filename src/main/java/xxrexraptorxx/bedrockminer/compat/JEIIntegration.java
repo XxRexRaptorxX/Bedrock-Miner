@@ -4,7 +4,6 @@ import mezz.jei.api.IModPlugin;
 import mezz.jei.api.JeiPlugin;
 import mezz.jei.api.constants.VanillaTypes;
 import mezz.jei.api.registration.IRecipeRegistration;
-import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.ItemStack;
 import xxrexraptorxx.bedrockminer.main.References;
@@ -21,8 +20,10 @@ public class JEIIntegration implements IModPlugin {
         return ID;
     }
 
+
     @Override
     public void registerRecipes(IRecipeRegistration registry) {
-        registry.addIngredientInfo(new ItemStack(ModItems.BEDROCK_CHUNK.get()), VanillaTypes.ITEM_STACK, FormattingHelper.setModLangComponent("message", References.MODID, "bedrock_chunk_jei_desc"));
+        registry.addIngredientInfo(new ItemStack(ModItems.BEDROCK_CHUNK.get()), VanillaTypes.ITEM_STACK,
+                FormattingHelper.setMessageComponent(References.MODID, "bedrock_chunk_jei_desc"));
     }
 }

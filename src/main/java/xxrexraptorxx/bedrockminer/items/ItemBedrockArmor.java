@@ -41,20 +41,20 @@ public class ItemBedrockArmor extends Item {
             if (boots == ModItems.BEDROCK_BOOTS.get()) armorCounter++;
 
             switch (armorCounter) {
-                case 1:
+                case 1 :
                     break;
-                case 2:
+                case 2 :
                     player.addEffect(new MobEffectInstance(MobEffects.SLOWNESS, 10, 0, false, false, true));
                     break;
-                case 3:
+                case 3 :
                     player.addEffect(new MobEffectInstance(MobEffects.SLOWNESS, 10, 0, false, false, true));
                     player.addEffect(new MobEffectInstance(MobEffects.RESISTANCE, 10, 0, false, false, true));
                     break;
-                case 4:
+                case 4 :
                     player.addEffect(new MobEffectInstance(MobEffects.SLOWNESS, 10, 0, false, false, true));
                     player.addEffect(new MobEffectInstance(MobEffects.RESISTANCE, 10, 1, false, false, true));
                     break;
-                default:
+                default :
                     break;
             }
         }

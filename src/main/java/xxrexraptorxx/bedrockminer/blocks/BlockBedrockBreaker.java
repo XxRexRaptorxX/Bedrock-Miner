@@ -41,7 +41,7 @@ public class BlockBedrockBreaker extends DirectionalBlock {
     public BlockBedrockBreaker(Properties properties) {
         super(properties);
 
-        this.registerDefaultState((BlockState)((BlockState)((BlockState)this.stateDefinition.any()).setValue(FACING, Direction.DOWN)).setValue(POWERED, false));
+        this.registerDefaultState((BlockState) ((BlockState) ((BlockState) this.stateDefinition.any()).setValue(FACING, Direction.DOWN)).setValue(POWERED, false));
     }
 
 
@@ -53,21 +53,21 @@ public class BlockBedrockBreaker extends DirectionalBlock {
 
     @Override
     public BlockState rotate(BlockState pState, Rotation pRot) {
-        return (BlockState)pState.setValue(FACING, pRot.rotate((Direction)pState.getValue(FACING)));
+        return (BlockState) pState.setValue(FACING, pRot.rotate((Direction) pState.getValue(FACING)));
     }
 
 
     @Override
     public BlockState mirror(BlockState pState, Mirror pMirror) {
-        return pState.rotate(pMirror.getRotation((Direction)pState.getValue(FACING)));
+        return pState.rotate(pMirror.getRotation((Direction) pState.getValue(FACING)));
     }
 
 
     @Nullable
     @Override
     public BlockState getStateForPlacement(BlockPlaceContext context) {
-        return this.defaultBlockState().setValue(FACING, context.getNearestLookingVerticalDirection().getOpposite().getOpposite())
-                .setValue(POWERED, Boolean.valueOf(context.getLevel().hasNeighborSignal(context.getClickedPos())));
+        return this.defaultBlockState().setValue(FACING, context.getNearestLookingVerticalDirection().getOpposite().getOpposite()).setValue(POWERED,
+                Boolean.valueOf(context.getLevel().hasNeighborSignal(context.getClickedPos())));
     }
 
 
@@ -85,56 +85,58 @@ public class BlockBedrockBreaker extends DirectionalBlock {
 
             boolean flag = state.getValue(POWERED);
 
-            //test if block is powered
+            // test if block is powered
             if (flag != level.hasNeighborSignal(pos)) {
-                //contract
+                // contract
                 if (flag) {
                     level.scheduleTick(pos, this, 4);
-                    level.playSound((Player)null, pos, SoundEvents.PISTON_CONTRACT, SoundSource.BLOCKS, 0.5F, level.random.nextFloat() * 0.15F + 0.F);
+                    level.playSound((Player) null, pos, SoundEvents.PISTON_CONTRACT, SoundSource.BLOCKS, 0.5F, level.random.nextFloat() * 0.15F + 0.F);
                     level.gameEvent(GameEvent.BLOCK_DEACTIVATE, pos, GameEvent.Context.of(state));
 
                 } else {
-                    //extend
+                    // extend
                     BlockPos harvestBlockPos = state.getValue(DirectionalBlock.FACING).equals(Direction.DOWN) ? pos.below() : pos.above();
                     BlockPos dropPos = state.getValue(DirectionalBlock.FACING).equals(Direction.DOWN) ? pos.above() : pos.below();
                     Block harvestblock = level.getBlockState(harvestBlockPos).getBlock();
                     AABB damageArea = new AABB(harvestBlockPos);
 
-                    level.playSound((Player)null, pos, SoundEvents.PISTON_EXTEND, SoundSource.BLOCKS, 0.5F, level.random.nextFloat() * 0.15F + 0.F);
+                    level.playSound((Player) null, pos, SoundEvents.PISTON_EXTEND, SoundSource.BLOCKS, 0.5F, level.random.nextFloat() * 0.15F + 0.F);
                     level.setBlock(pos, state.cycle(POWERED), 2);
                     level.gameEvent(GameEvent.BLOCK_ACTIVATE, pos, GameEvent.Context.of(state));
 
                     List<LivingEntity> entities = level.getEntitiesOfClass(LivingEntity.class, damageArea);
-                    //hurt entities infront of the block
+                    // hurt entities infront of the block
                     for (LivingEntity entity : entities) {
                         entity.hurt(level.damageSources().generic(), Config.getMobDamage());
                     }
 
-                    //test is block is valid
+                    // test is block is valid
                     if (isValidBlock(harvestblock)) {
                         level.playSound(null, pos, SoundEvents.STONE_BREAK, SoundSource.BLOCKS, 0.5F, level.random.nextFloat() * 0.15F);
 
-                        //test if block is vanilla bedrock [required because bedrock has no drops]
+                        // test if block is vanilla bedrock [required because bedrock has no drops]
                         if (harvestblock == Blocks.BEDROCK) {
-                            //destroy and drop the block [workaround]
-                            ItemEntity item = new ItemEntity(level, (double)dropPos.getX() + 0.5F, (double)dropPos.getY(), (double)dropPos.getZ() + 0.5F, new ItemStack(harvestblock, 1));
+                            // destroy and drop the block [workaround]
+                            ItemEntity item = new ItemEntity(level, (double) dropPos.getX() + 0.5F, (double) dropPos.getY(), (double) dropPos.getZ() + 0.5F,
+                                    new ItemStack(harvestblock, 1));
                             level.addFreshEntity(item);
 
-                        //every other valid block
+                            // every other valid block
                         } else {
-                            //get the block drops
-                            List<ItemStack> drops = Block.getDrops(harvestblock.defaultBlockState(), (ServerLevel) level, harvestBlockPos, null, null, new ItemStack(ModItems.BEDROCK_PICKAXE.get()));
+                            // get the block drops
+                            List<ItemStack> drops = Block.getDrops(harvestblock.defaultBlockState(), (ServerLevel) level, harvestBlockPos, null, null,
+                                    new ItemStack(ModItems.BEDROCK_PICKAXE.get()));
                             for (ItemStack drop : drops) {
-                                //spawn drops
+                                // spawn drops
                                 Block.popResource(level, dropPos, drop);
                             }
                         }
-                        //destroy the harvested block
+                        // destroy the harvested block
                         level.destroyBlock(harvestBlockPos, false);
                         level.addDestroyBlockEffect(pos, harvestblock.defaultBlockState());
 
                     } else {
-                        level.playSound((Player)null, pos, SoundEvents.ITEM_BREAK.value(), SoundSource.BLOCKS, 0.5F, level.random.nextFloat() * 0.15F + 0.F);
+                        level.playSound((Player) null, pos, SoundEvents.ITEM_BREAK.value(), SoundSource.BLOCKS, 0.5F, level.random.nextFloat() * 0.15F + 0.F);
                     }
                 }
             }

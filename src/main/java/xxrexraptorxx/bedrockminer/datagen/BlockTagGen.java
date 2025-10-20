@@ -19,25 +19,16 @@ public class BlockTagGen extends BlockTagsProvider {
 
     @Override
     protected void addTags(HolderLookup.Provider provider) {
-        tag(BlockTags.MINEABLE_WITH_PICKAXE)
-                .add(   //ModBlocks.BEDROCK_INFUSED_STONE.get(),
-                        ModBlocks.BEDROCK_INFUSED_OBSIDIAN.get(),
-                        ModBlocks.BEDROCK_BREAKER.get(),
-                        ModBlocks.BEDROCK_BRICKS.get(),
-                        ModBlocks.FAKE_BEDROCK.get(),
-                        Blocks.BEDROCK
-                );
+        tag(BlockTags.MINEABLE_WITH_PICKAXE).add( // ModBlocks.BEDROCK_INFUSED_STONE.get(),
+                ModBlocks.BEDROCK_INFUSED_OBSIDIAN.get(), ModBlocks.BEDROCK_BREAKER.get(), ModBlocks.BEDROCK_BRICKS.get(), ModBlocks.FAKE_BEDROCK.get(), Blocks.BEDROCK);
 
 
-        tag(BlockTags.NEEDS_DIAMOND_TOOL)
-                .add(   ModBlocks.BEDROCK_INFUSED_OBSIDIAN.get()
-                        //ModBlocks.BEDROCK_INFUSED_STONE.get()
-                );
+        tag(BlockTags.NEEDS_DIAMOND_TOOL).add(ModBlocks.BEDROCK_INFUSED_OBSIDIAN.get()
+        // ModBlocks.BEDROCK_INFUSED_STONE.get()
+        );
 
 
-        tag(BlockTags.NEEDS_STONE_TOOL)
-                .add(  ModBlocks.BEDROCK_BREAKER.get()
-                );
+        tag(BlockTags.NEEDS_STONE_TOOL).add(ModBlocks.BEDROCK_BREAKER.get());
 
     }
 }

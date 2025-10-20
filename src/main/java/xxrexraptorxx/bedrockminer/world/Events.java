@@ -65,7 +65,7 @@ public class Events {
         List<Component> list = event.getToolTip();
 
         if (BlockHelper.isMatching(ModBlocks.BEDROCK_BREAKER.get(), item)) {
-            list.add(FormattingHelper.setModLangComponent("message", References.MODID,"bedrock_breaker.desc", ChatFormatting.GRAY));
+            list.add(FormattingHelper.setModLangComponent("message", References.MODID, "bedrock_breaker.desc", ChatFormatting.GRAY));
         }
     }
 

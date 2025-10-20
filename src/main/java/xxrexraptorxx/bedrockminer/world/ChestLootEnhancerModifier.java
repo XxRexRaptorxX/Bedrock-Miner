@@ -25,12 +25,9 @@ import java.util.function.Supplier;
 public class ChestLootEnhancerModifier extends LootModifier {
 
     public static final Supplier<MapCodec<ChestLootEnhancerModifier>> CODEC = Suppliers.memoize(() -> RecordCodecBuilder.mapCodec(inst -> codecStart(inst)
-            .and(BuiltInRegistries.ITEM.byNameCodec().fieldOf("item").forGetter(m -> m.item))
-            .and(Codec.INT.optionalFieldOf("count", -1).forGetter(m -> m.count))
-            .and(Codec.INT.optionalFieldOf("min_count", -1).forGetter(m -> m.minCount))
-            .and(Codec.INT.optionalFieldOf("max_count", -1).forGetter(m -> m.maxCount))
-            .and(LootItemFunctions.CODEC.listOf().optionalFieldOf("functions", List.of()).forGetter(m -> m.functions))
-            .apply(inst, ChestLootEnhancerModifier::new)));
+            .and(BuiltInRegistries.ITEM.byNameCodec().fieldOf("item").forGetter(m -> m.item)).and(Codec.INT.optionalFieldOf("count", -1).forGetter(m -> m.count))
+            .and(Codec.INT.optionalFieldOf("min_count", -1).forGetter(m -> m.minCount)).and(Codec.INT.optionalFieldOf("max_count", -1).forGetter(m -> m.maxCount))
+            .and(LootItemFunctions.CODEC.listOf().optionalFieldOf("functions", List.of()).forGetter(m -> m.functions)).apply(inst, ChestLootEnhancerModifier::new)));
 
     private final Item item;
     private final int count;
@@ -46,6 +43,7 @@ public class ChestLootEnhancerModifier extends LootModifier {
         this.maxCount = maxCount;
         this.functions = functions;
     }
+
 
     @Override
     protected ObjectArrayList<ItemStack> doApply(ObjectArrayList<ItemStack> generatedLoot, LootContext context) {
@@ -71,6 +69,7 @@ public class ChestLootEnhancerModifier extends LootModifier {
         generatedLoot.add(itemToAdd);
         return generatedLoot;
     }
+
 
     @Override
     public MapCodec<? extends IGlobalLootModifier> codec() {
