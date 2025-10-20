@@ -26,7 +26,7 @@ import xxrexraptorxx.magmacore.utils.FormattingHelper;
 
 import java.util.List;
 
-@EventBusSubscriber(modid = References.MODID, bus = EventBusSubscriber.Bus.GAME)
+@EventBusSubscriber(modid = References.MODID)
 public class Events {
 
     @SubscribeEvent
@@ -47,7 +47,7 @@ public class Events {
         BlockPos pos = event.getPos();
         Block block = level.getBlockState(pos).getBlock();
 
-        if (!level.isClientSide) {
+        if (!level.isClientSide()) {
             if (block == Blocks.BEDROCK && item == ModItems.BEDROCK_PICKAXE.get()) {
                 level.setBlock(pos, ModBlocks.FAKE_BEDROCK.get().defaultBlockState(), 2);
             }
@@ -65,7 +65,7 @@ public class Events {
         List<Component> list = event.getToolTip();
 
         if (BlockHelper.isMatching(ModBlocks.BEDROCK_BREAKER.get(), item)) {
-            list.add(FormattingHelper.setModLangComponent("message", References.MODID, "bedrock_breaker.desc", ChatFormatting.GRAY));
+            list.add(FormattingHelper.setDescComponent(References.MODID, "bedrock_breaker", ChatFormatting.GRAY));
         }
     }
 

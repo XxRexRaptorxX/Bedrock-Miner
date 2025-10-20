@@ -20,12 +20,6 @@ public class ItemBedrockArmor extends Item {
 
 
     @Override
-    public boolean isBookEnchantable(ItemStack stack, ItemStack book) {
-        return true;
-    }
-
-
-    @Override
     public void inventoryTick(ItemStack stack, ServerLevel level, Entity entity, @Nullable EquipmentSlot slot) {
         if (!level.isClientSide() && Config.getArmorEffects() && entity instanceof Player player) {
 

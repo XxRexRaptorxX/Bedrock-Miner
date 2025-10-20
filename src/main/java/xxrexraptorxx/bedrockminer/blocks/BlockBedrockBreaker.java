@@ -81,7 +81,7 @@ public class BlockBedrockBreaker extends DirectionalBlock {
 
     @Override
     public void neighborChanged(BlockState state, Level level, BlockPos pos, Block neighborBlock, @Nullable Orientation orientation, boolean movedByPiston) {
-        if (!level.isClientSide) {
+        if (!level.isClientSide()) {
 
             boolean flag = state.getValue(POWERED);
 
