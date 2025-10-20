@@ -23,7 +23,6 @@ public class JEIIntegration implements IModPlugin {
 
     @Override
     public void registerRecipes(IRecipeRegistration registry) {
-        registry.addIngredientInfo(new ItemStack(ModItems.BEDROCK_CHUNK.get()), VanillaTypes.ITEM_STACK,
-                FormattingHelper.setMessageComponent(References.MODID, "bedrock_chunk_jei_desc"));
+        registry.addIngredientInfo(new ItemStack(ModItems.BEDROCK_CHUNK.get()), VanillaTypes.ITEM_STACK, FormattingHelper.setDescComponent(References.MODID, "bedrock_chunk_jei"));
     }
 }

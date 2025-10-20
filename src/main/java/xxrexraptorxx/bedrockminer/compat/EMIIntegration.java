@@ -18,8 +18,8 @@ public class EMIIntegration implements EmiPlugin {
     @Override
     public void register(EmiRegistry registry) {
         ResourceLocation recipeId = ResourceLocation.fromNamespaceAndPath(References.MODID, "info/bedrock_chunk");
-        registry.addRecipe(new EmiInfoRecipe(List.of(EmiStack.of(ModItems.BEDROCK_CHUNK)),
-                List.of(FormattingHelper.setMessageComponent(References.MODID, "bedrock_chunk_jei_desc")), recipeId));
+        registry.addRecipe(
+                new EmiInfoRecipe(List.of(EmiStack.of(ModItems.BEDROCK_CHUNK)), List.of(FormattingHelper.setDescComponent(References.MODID, "bedrock_chunk_jei")), recipeId));
     }
 
 }
