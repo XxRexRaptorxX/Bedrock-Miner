@@ -42,4 +42,3 @@ type="required"
 versionRange="${magmacore_version_range}"
 ordering="AFTER"
 side="BOTH"
-
